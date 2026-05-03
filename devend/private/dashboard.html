@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASH.AR| Command Center</title>
+    <link rel="icon" type="image/png" href="/images/arlogo.png">
+
+    <!-- Portal Engine v2.0 -->
+    <script src="/devend/logic/dev_core.js"></script>
+
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+    <link rel="stylesheet" href="/devend/style/dev_theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent-cyan: #22d3ee;
+            --accent-purple: #818cf8;
+            --card-bg: rgba(15, 17, 26, 0.7);
+            --sidebar-width: 280px;
+        }
+
+        body {
+            background: #020205;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Premium Sidebar */
+        .dash-sidebar {
+            width: var(--sidebar-width);
+            background: rgba(8, 8, 12, 0.95);
+            backdrop-filter: blur(30px);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem 1.5rem;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .side-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #ffffff !important;  /* AR = always white */
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 4rem;
+            padding: 0 1rem;
+            line-height: 1;
+        }
+
+        .side-brand img { width: 32px; height: 32px; }
+        .side-brand span { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; }
+        .side-brand .dot { color: #6366f1 !important; }  /* . = always purple */
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .nav-item { margin-bottom: 0.5rem; }
+
+        .nav-btn {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 14px 18px;
+            border-radius: 14px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.03);
+            color: #fff;
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), transparent);
+            color: var(--primary);
+            border-left: 3px solid var(--primary);
+        }
+
+        .nav-btn i { font-size: 1.1rem; width: 24px; }
+
+        /* Main Workspace */
+        .dash-main {
+            flex-grow: 1;
+            padding: 3rem 4rem;
+            overflow-y: auto;
+            position: relative;
+            background: 
+                radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(34, 211, 238, 0.03) 0%, transparent 40%);
+        }
+
+        /* Top Header */
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .status-pill {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.7rem;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse {
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse-op 2s infinite;
+        }
+
+        @keyframes pulse-op { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+
+        /* Grid System */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: border 0.3s;
+        }
+
+        .glass-card:hover { border-color: rgba(99, 102, 241, 0.2); }
+
+        .metric-title {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .metric-unit { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+
+        /* Activity Logs */
+        .terminal-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            .dash-sidebar { width: 80px; padding: 2rem 0; align-items: center; }
+            .side-brand span, .nav-btn span { display: none; }
+            .side-brand { margin-bottom: 3rem; padding: 0; }
+            .nav-btn { justify-content: center; padding: 18px; border: none !important; }
+            .dash-main { padding: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .dash-sidebar {
+                width: 100%; height: auto;
+                position: fixed; bottom: 0; left: 0;
+                flex-direction: row; justify-content: space-around;
+                border-right: none; border-top: 1px solid rgba(255, 255, 255, 0.05);
+                padding: 10px 0;
+            }
+            .nav-menu { display: flex; width: 100%; justify-content: space-around; }
+            .dash-main { margin-bottom: 80px; padding: 1.5rem; }
+            .work-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .grid-container { display: flex; flex-direction: column; }
+        }
+    </style>
+</head>
+
+<body class="dashboard-layout">
+    <aside class="dash-sidebar">
+        <a href="/index.html" class="side-brand">
+            AR<span class="dot">.</span>
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <button class="nav-btn active" data-target="vitals">
+                    <i class="fas fa-microchip"></i> <span>System Vitals</span>
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-btn" data-target="registry">
+                    <i class="fas fa-layer-group"></i> <span>Nodes Registry</span>
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-btn" data-target="parameters">
+                    <i class="fas fa-cog"></i> <span>Core Config</span>
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-btn" data-target="deployment">
+                    <i class="fas fa-terminal"></i> <span>Deployment</span>
+                </button>
+            </li>
+        </ul>
+        <div style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05);">
+            <button class="nav-btn" id="logoutBtn" style="color: #f87171;">
+                <i class="fas fa-power-off"></i> <span>Disconnect</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="dash-main">
+        <header class="work-header fade-in">
+            <div>
+                <h1 style="font-size: 2.5rem; font-weight: 800; margin: 0;">Command Center</h1>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Node Alpha Status: <span style="color: #fff;">Authorized</span></p>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <div class="status-pill"><div class="pulse"></div> SYNC_LIVE</div>
+                <div id="sessionTimer" class="glass-card" style="padding: 10px 20px; font-family: 'Fira Code', monospace; font-size: 0.8rem; border-radius: 50px;">00:00:00</div>
+            </div>
+        </header>
+
+        <!-- View: System Vitals -->
+        <div id="vitals" class="editor-container active">
+            <div class="grid-container">
+                <div class="glass-card" style="grid-column: span 4;">
+                    <span class="metric-title">Project Nodes</span>
+                    <p class="metric-value" id="count-projects">00 <span class="metric-unit">Active</span></p>
+                </div>
+                <div class="glass-card" style="grid-column: span 4;">
+                    <span class="metric-title">Frameworks</span>
+                    <p class="metric-value" id="count-tags">00 <span class="metric-unit">Verified</span></p>
+                </div>
+                <div class="glass-card" style="grid-column: span 4;">
+                    <span class="metric-title">Security State</span>
+                    <p class="metric-value" style="color: #10b981;">100 <span class="metric-unit">% Stable</span></p>
+                </div>
+
+                <div class="glass-card" style="grid-column: span 8;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3 class="mono">NODE_ENVIRONMENT</h3>
+                        <p id="liveClock" class="mono" style="color: var(--primary);">00:00:00</p>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <p class="metric-label">Access Origin</p>
+                            <p class="mono" id="node-origin" style="color: var(--accent-cyan);">DETECTING...</p>
+                        </div>
+                        <div>
+                            <p class="metric-label">Hydration Mode</p>
+                            <p class="mono" style="color: var(--accent-purple);">PWA_ACTIVE</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; height: 120px; background: rgba(0,0,0,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 80%; height: 2px; background: rgba(255,255,255,0.05); position: relative;">
+                            <div style="position: absolute; left: 0; top: 0; height: 100%; width: 60%; background: var(--primary); box-shadow: 0 0 15px var(--primary);"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="grid-column: span 4;">
+                    <h3 class="mono" style="margin-bottom: 1.5rem;">AUDIT_TRAIL</h3>
+                    <div class="terminal-box" id="terminalLogs">
+                        [SYS] KERNEL_INIT...<br>
+                        [AUTH] HANDSHAKE_SUCCESS
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registry View (Logic Hydrated) -->
+        <div id="registry" class="editor-container">
+            <div class="glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h2>Achievement Registry</h2>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="dev-btn btn-secondary" onclick="addNewProject()">+ NODE</button>
+                        <button class="dev-btn btn-primary" onclick="saveActiveData('projects')">STAGE</button>
+                    </div>
+                </div>
+                <div id="projectsList" class="project-grid"></div>
+            </div>
+        </div>
+
+        <!-- Config View -->
+        <div id="parameters" class="editor-container">
+            <div class="glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h2>Core Parameters</h2>
+                    <button class="dev-btn btn-primary" onclick="saveActiveData('config')">STAGE_CONFIG</button>
+                </div>
+                <div id="configForm" class="form-grid"></div>
+            </div>
+        </div>
+
+        <!-- Deployment -->
+        <div id="deployment" class="editor-container">
+            <div class="grid-container">
+                <div class="glass-card" style="grid-column: span 6; text-align: center; padding: 4rem;">
+                    <i class="fas fa-file-export" style="font-size: 3rem; color: var(--primary); margin-bottom: 2rem;"></i>
+                    <h3>config.json</h3>
+                    <button class="dev-btn btn-primary" style="margin-top: 2rem;" onclick="downloadJSON('config')">EXPORT_JSON</button>
+                </div>
+                <div class="glass-card" style="grid-column: span 6; text-align: center; padding: 4rem;">
+                    <i class="fas fa-database" style="font-size: 3rem; color: #10b981; margin-bottom: 2rem;"></i>
+                    <h3>achievements.json</h3>
+                    <button class="dev-btn btn-primary" style="margin-top: 2rem; background: #10b981;" onclick="downloadJSON('projects')">EXPORT_JSON</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/devend/logic/dash_logic.js" defer></script>
+</body>
+
+</html>

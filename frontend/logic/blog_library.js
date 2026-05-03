@@ -23,8 +23,9 @@
             }
         } catch (error) {
             console.error('🔴 Blog Engine Error:', error);
-            const grid = document.getElementById('blogGrid');
-            if (grid) grid.innerHTML = '<p class="error">Unable to load blogs. Please try again later.</p>';
+            if (document.getElementById('blogGrid')) {
+                document.getElementById('blogGrid').innerHTML = '<p class="error">Unable to load blogs. Please try again later.</p>';
+            }
         }
     }
 
@@ -40,7 +41,7 @@
         }
 
         grid.innerHTML = posts.map(post => `
-            <a href="post?id=${post.id}" class="blog-card fade-in-up">
+            <a href="/frontend/blogs/post.html?id=${post.id}" class="blog-card fade-in-up">
                 <div class="blog-card-img">
                     <img src="${post.image}" alt="${post.title}" loading="lazy">
                     <span class="blog-category">${post.category}</span>
@@ -91,7 +92,8 @@
         const post = ALL_POSTS.find(p => p.id === postId);
 
         if (!post) {
-            window.location.href = 'blog-index.html';
+            console.warn('⚠️ Blog post not found for ID:', postId, 'Available posts:', ALL_POSTS.length);
+            window.location.href = 'index.html';
             return;
         }
 
@@ -106,7 +108,8 @@
 
         // 3. Fetch and Inject Content
         try {
-            const contentResp = await fetch(`/${post.content_path}`);
+            const contentFileName = post.content_path.split('/').pop();
+            const contentResp = await fetch(`/frontend/blogs/content/${contentFileName}`);
             if (!contentResp.ok) throw new Error('Content file not found');
             const html = await contentResp.text();
             document.getElementById('postBody').innerHTML = html;

@@ -1,10 +1,19 @@
 [
     {
+        "id": "hivenova",
+        "title": "Excellence in Coding HIVENOVA",
+        "description": "Recognized for outstanding performance and Excellence in Coding at HIVENOVA on April 6th, 2026.",
+        "date": "2026",
+        "image": "/images/hivenova2026.png",
+        "icon": "fas fa-code",
+        "url": "#"
+    },
+    {
         "id": "guinness",
         "title": "Guinness World Records Recognition",
         "description": "Recognized for outstanding contributions to cybersecurity education and technology awareness at a young age. Noted internationally for work in ethical hacking education and digital security awareness.",
         "date": "2026",
-        "image": "#",
+        "image": "/images/guinness.png",
         "icon": "fas fa-trophy",
         "url": "#"
     },
@@ -12,7 +21,7 @@
         "id": "golden-book",
         "title": "Golden Book of World Records",
         "description": "Honored by the Golden Book of World Records for achievements in cybersecurity education and for being recognized as one of the youngest ethical hacking educators promoting responsible digital security practices.",
-        "date": "2026",
+        "date": "2025",
         "image": "#",
         "icon": "fas fa-award",
         "url": "#"
@@ -36,12 +45,12 @@
         "url": "#"
     },
     {
-        "id": "cyber-award",
-        "title": "Excellence in Cybersecurity Awareness",
-        "description": "Recognized for promoting cybersecurity awareness, ethical hacking education, and safe digital practices among students and young technology learners.",
-        "date": "2025",
-        "image": "#",
-        "icon": "fas fa-shield-halved",
+        "id": "sof-awards",
+        "title": "SOF Awards 2025-26 Session",
+        "description": "Recognized for outstanding academic performance and logical reasoning in the Science Olympiad Foundation (SOF) during the 2025-2026 session.",
+        "date": "2025-2026",
+        "image": "/images/sof2025-2026.jpeg",
+        "icon": "fas fa-medal",
         "url": "#"
     }
 ]

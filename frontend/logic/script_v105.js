@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('script.js v1.1.0 loaded');
 
+    // Global Image Protection - Prevent Right Click
+    document.addEventListener('contextmenu', (e) => {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+
     const dataDir = '/frontend/data/';
     const rawPage = window.location.pathname.split('/').pop() || 'index.html';
     const currentPage = rawPage.includes('.') ? rawPage : rawPage + '.html';
@@ -166,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 winningsGrid.innerHTML = '';
                 data.winnings.forEach((win, i) => {
                     const gradients = ['linear-gradient(135deg,#ff9a9e,#fad0c4)','linear-gradient(120deg,#a1c4fd,#c2e9fb)','linear-gradient(135deg,#667eea,#764ba2)'];
-                    const img = (win.image==='#'||!win.image) ? `<div class="placeholder-img" style="background:${gradients[i%3]}"></div>` : `<img src="${win.image}" alt="${win.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">`;
+                    const img = (win.image==='#'||!win.image) ? `<div class="placeholder-img" style="background:${gradients[i%3]}"></div>` : `<img src="${win.image}" alt="${win.title}" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:rgba(0,0,0,0.2);">`;
                     const card = document.createElement('div');
                     card.className = `card winning-card fade-in-up delay-${200+i*100}`;
                     card.style.cursor = 'pointer';
@@ -234,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (socialsGrid && data.socials) {
                 socialsGrid.innerHTML = '';
                 data.socials.forEach((social, i) => {
-                    const card = document.createElement('a'); card.href = social.url; card.target = '_blank'; card.rel = 'noopener noreferrer'; card.className = `card social-card fade-in-up delay-${200+i*100}`;
+                    const card = document.createElement('a'); card.href = social.url; card.target = '_blank'; card.rel = 'noopener noreferrer me'; card.className = `card social-card fade-in-up delay-${200+i*100}`;
                     card.innerHTML = `<div class="card-icon ${social.colorClass||social.platform.toLowerCase()}"><i class="${social.icon}"></i></div><div class="card-content"><h3>${social.platform}</h3><p>${social.handle}</p></div><div class="card-arrow"><i class="fas fa-arrow-right"></i></div>`;
                     socialsGrid.appendChild(card);
                 });

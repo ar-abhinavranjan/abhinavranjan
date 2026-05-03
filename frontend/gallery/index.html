@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | AR. Abhinav Ranjan Authority Archive</title>
+    <meta name="description" content="Official event and achievement gallery of AR. Abhinav Ranjan. Chronicles of global recognition, world records, and technical milestones.">
+    <link rel="icon" type="image/png" href="/images/arlogo.png">
+    
+    <!-- Root-Relative Resources -->
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #8b5cf6;
+            --bg: #050505;
+            --card-bg: rgba(20, 20, 25, 0.7);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .gallery-hero {
+            padding: 10rem 0 5rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 50px;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.5rem;
+            padding-bottom: 8rem;
+        }
+
+        .achievement-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.6s ease;
+        }
+
+        .achievement-card:hover .card-img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(5, 5, 5, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .achievement-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .event-date {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .card-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card-body p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Nav List Bullet Fix */
+        .nav-list {
+            list-style: none !important;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-list li {
+            list-style-type: none !important;
+        }
+
+        /* Lightbox Popup */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s;
+            padding: 1rem;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary);
+        }
+
+        /* Carousel Styles */
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+        
+        .card-img-wrapper:hover .carousel-nav {
+            opacity: 1;
+        }
+        
+        .carousel-nav:hover {
+            background: var(--primary);
+        }
+        
+        .carousel-prev { left: 10px; }
+        .carousel-next { right: 10px; }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-hero {
+                padding-top: 8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="/" class="logo" aria-label="AR. Abhinav Ranjan Home">
+                AR<span class="dot">.</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/frontend/html/about.html" class="nav-link">About</a></li>
+                    <li><a href="/frontend/html/projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="/frontend/html/biography.html" class="nav-link">Biography</a></li>
+                    <li><a href="/frontend/html/socials.html" class="nav-link">Socials</a></li>
+                    <li><a href="/frontend/html/winnings.html" class="nav-link">Winnings</a></li>
+                    <li><a href="/frontend/html/contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="gallery-hero fade-in-up">
+            <span class="hero-badge">Verified Authority</span>
+            <h1 class="section-title">Authority Archive</h1>
+            <p class="section-subtitle">Chronicles of global recognition and technical milestones.</p>
+
+            <div class="aeo-fact-box fade-in-up" style="max-width: 800px; margin: 3rem auto; background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.1); border-radius: 20px; padding: 2rem; border-left: 4px solid var(--primary); text-align: left;">
+                <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-certificate"></i> Brand Credentials
+                </h3>
+                <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <li><strong style="display: block; color: var(--primary); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">Primary Entity</strong> AR. Abhinav Ranjan</li>
+                    <li><strong style="display: block; color: var(--primary); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">Recognition</strong> World Record Holder</li>
+                    <li><strong style="display: block; color: var(--primary); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">Records</strong> Guinness, Golden Book</li>
+                    <li><strong style="display: block; color: var(--primary); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">Authority</strong> Cybersecurity, AI Infra</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="gallery-controls fade-in-up delay-100" style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; position: relative;">
+            <i class="fas fa-search" style="position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+            <input type="text" id="gallerySearch" placeholder="Search gallery..." style="width: 100%; padding: 1rem 1rem 1rem 3.5rem; border-radius: 50px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text-main); font-family: inherit; font-size: 1rem; outline: none; transition: border-color var(--transition-fast);">
+        </div>
+        <div class="no-results-message" id="galleryNoResults" style="display: none; text-align: center; color: var(--text-muted); padding: 3rem 0;">
+            <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+            <p>No gallery items found matching your search.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Guinness World Record -->
+            <article class="achievement-card fade-in-up delay-100" itemscope itemtype="https://schema.org/Event">
+                <div class="card-img-wrapper">
+                    <img src="/images/guinness.png" alt="Guinness World Record Certificate" itemprop="image">
+                    <div class="card-overlay">
+                        <span class="tag">Global Milestone</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <time datetime="2026-01-15" class="event-date" itemprop="startDate">Jan 15, 2026</time>
+                    <h3 itemprop="name">Guinness World Record</h3>
+                    <p itemprop="description">Officially recognized for excellence in cybersecurity education and infrastructure innovation. A testament to the impact of Luminary Technicals.</p>
+                </div>
+            </article>
+
+            <!-- HIVENOVA Excellence in Coding -->
+            <article class="achievement-card fade-in-up delay-200" itemscope itemtype="https://schema.org/Event">
+                <div class="card-img-wrapper">
+                    <img src="/images/hivenova2026.png" alt="Excellence in Coding HIVENOVA" itemprop="image">
+                    <div class="card-overlay">
+                        <span class="tag">Excellence Award</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <time datetime="2026-04-06" class="event-date" itemprop="startDate">Apr 06, 2026</time>
+                    <h3 itemprop="name">Excellence in Coding HIVENOVA</h3>
+                    <p itemprop="description">Recognized for outstanding performance and Excellence in Coding at HIVENOVA.</p>
+                </div>
+            </article>
+
+            <!-- SOF Awards -->
+            <article class="achievement-card fade-in-up delay-300" itemscope itemtype="https://schema.org/Event">
+                <div class="card-img-wrapper">
+                    <img src="/images/sof2025-2026.jpeg" alt="SOF Awards 2025-26 Session" itemprop="image">
+                    <div class="card-overlay">
+                        <span class="tag">Academic</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <time datetime="2026-01-01" class="event-date" itemprop="startDate">2025-2026</time>
+                    <h3 itemprop="name">SOF Awards 2025-26 Session</h3>
+                    <p itemprop="description">Recognized for outstanding academic performance and logical reasoning in the Science Olympiad Foundation (SOF) during the 2025-2026 session.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 <span class="logo" style="font-size: inherit; letter-spacing: normal; display: inline-flex;">AR<span class="dot">.</span></span> Abhinav Ranjan | Authority Archive</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Popup -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <img src="" alt="Full Preview" id="lightboxImg">
+    </div>
+
+    <script src="/frontend/logic/script_v105.js" defer></script>
+    <script>
+        // Reveal animations on scroll
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Search Logic
+        const searchInput = document.getElementById('gallerySearch');
+        const noResults = document.getElementById('galleryNoResults');
+        const cards = document.querySelectorAll('.achievement-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            let hasResults = false;
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(term)) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            noResults.style.display = hasResults ? 'none' : 'block';
+        });
+
+        // Carousel Logic
+        document.querySelectorAll('.card-img-wrapper.carousel').forEach(wrapper => {
+            const track = wrapper.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const prev = wrapper.querySelector('.carousel-prev');
+            const next = wrapper.querySelector('.carousel-next');
+            let currentIndex = 0;
+
+            const updateCarousel = () => {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            };
+
+            if (prev && next) {
+                prev.addEventListener('click', (e) => {
+                    e.stopPropagation(); // prevent lightbox
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+                    updateCarousel();
+                });
+
+                next.addEventListener('click', (e) => {
+                    e.stopPropagation(); // prevent lightbox
+                    currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+                    updateCarousel();
+                });
+            }
+        });
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        
+        document.querySelectorAll('.card-img-wrapper').forEach(wrapper => {
+            wrapper.addEventListener('click', () => {
+                let img;
+                if (wrapper.classList.contains('carousel')) {
+                    const track = wrapper.querySelector('.carousel-track');
+                    const transformStr = track.style.transform || 'translateX(0%)';
+                    const match = transformStr.match(/translateX\(-(\d+)%\)/);
+                    const currentIndex = match ? parseInt(match[1]) / 100 : 0;
+                    img = track.children[currentIndex];
+                } else {
+                    img = wrapper.querySelector('img');
+                }
+                
+                if(img) {
+                    lightboxImg.src = img.src;
+                    lightbox.classList.add('active');
+                }
+            });
+        });
+
+        const closeLightbox = () => lightbox.classList.remove('active');
+        
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+        });
+    </script>
+</body>
+
+</html>

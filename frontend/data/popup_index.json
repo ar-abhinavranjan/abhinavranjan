@@ -3,6 +3,25 @@
     "showDelay": 1500,
     "sections": [
         {
+            "id": "james-web-logical",
+            "active": true,
+            "name": "James Web Logical - Introduction to Hacking Beginners and setup guide",
+            "date": "2026",
+            "paragraph": "A complete beginner's setup guide to hacking and cybersecurity.",
+            "images": [
+                "/images/james-web-logical-cover.png"
+            ],
+            "imageSize": "medium",
+            "autoplay": true,
+            "autoplayInterval": 3000,
+            "buttons": [
+                {
+                    "label": "Read Guide",
+                    "url": "#"
+                }
+            ]
+        },
+        {
             "id": "podcast-iit-m",
             "active": true,
             "name": "🏆 Podcast IIT-M Recording Coming Soon",

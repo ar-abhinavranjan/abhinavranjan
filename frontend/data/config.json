@@ -1,20 +1,21 @@
 {
   "personal": {
-    "name": "Abhinav Ranjan",
-    "aka": "itzmeabhinavranjan",
-    "tagline": "Cybersecurity Enthusiast, Developer & Young Technology Educator",
+    "name": "AR. Abhinav Ranjan",
+    "aka": "ar.abhinavranjan",
+    "tagline": "Cybersecurity Researcher, Infrastructure Architect & Founder of Luminary Technicals",
     "role": "Cybersecurity Researcher & Developer",
     "dob": "02-05-2012",
     "profile_image": "images/profile.png",
     "location": "Muzaffarpur, Bihar, India"
   },
   "meta": {
-    "title": "Abhinav Ranjan | Cybersecurity Educator, Developer & Luminary Technicals Founder",
-    "description": "Official portfolio of Abhinav Ranjan — cybersecurity enthusiast, ethical hacking educator, web developer, and founder of Luminary Technicals from Muzaffarpur, Bihar, India. Recognized by Guinness World Records.",
+    "title": "AR.TECH| Home",
+    "site_name": "AR.TECH",
+    "description": "The official identity portal of AR. Abhinav Ranjan (ar.abhinavranjan) — lead researcher at Luminary Technicals, cybersecurity authority, and Guinness World Record holder. Pioneering the future of digital sovereignty.",
     "theme_color": "#6366f1",
     "site_url": "https://abhinavranjan.qzz.io",
     "og_image": "https://abhinavranjan.qzz.io/images/arlogo.png",
-    "twitter_handle": "@abhinav_vyom"
+    "twitter_handle": "@i_abhinavranjan"
   },
   "seo": {
     "keywords": {
@@ -41,27 +42,47 @@
     "line_url": "#"
   },
   "projects": [
-    { "id": "portfolio" },
-    { "id": "agroscan" },
-    { "id": "luminary" }
+    {
+      "id": "portfolio"
+    },
+    {
+      "id": "agroscan"
+    },
+    {
+      "id": "luminary"
+    }
   ],
   "winnings": [
-    { "id": "guinness" },
-    { "id": "golden-book" },
-    { "id": "vvm" }
+    {
+      "id": "guinness"
+    },
+    {
+      "id": "golden-book"
+    },
+    {
+      "id": "vvm"
+    }
   ],
   "socials": [
-    { "id": "instagram" },
-    { "id": "linkedin" },
-    { "id": "github" },
-    { "id": "twitter" }
+    {
+      "id": "instagram"
+    },
+    {
+      "id": "linkedin"
+    },
+    {
+      "id": "github"
+    },
+    {
+      "id": "twitter"
+    }
   ],
   "schema": {
     "person": {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Abhinav Ranjan",
-      "alternateName": "itzmeabhinavranjan",
+      "name": "AR. Abhinav Ranjan",
+      "alternateName": "ar.abhinavranjan",
       "url": "https://abhinavranjan.netlify.app/",
       "image": "https://abhinavranjan.netlify.app/images/profile.png",
       "jobTitle": "Cybersecurity Educator & Developer",
@@ -84,20 +105,20 @@
       ],
       "award": [
         "Guinness World Records Recognition 2026",
-        "Golden Book of World Records 2026",
+        "Golden Book of World Records 2025",
         "Vidyarthi Vigyan Manthan State Rank 4 2025",
         "National Science Championship All India Rank 7 2026"
       ],
       "sameAs": [
-        "https://twitter.com/abhinav_vyom",
-        "https://linkedin.com/in/itzmeabhinavranjan",
+        "https://twitter.com/i_abhinavranjan",
+        "https://linkedin.com/in/ar-abhinavranjan",
         "https://github.com/ProAbhinavRanjan",
-        "https://instagram.com/itzmeabhinavranjan"
+        "https://instagram.com/ar.abhinavranjan"
       ]
     }
   },
   "footer": {
-    "copyright_name": "Abhinav Ranjan",
+    "copyright_name": "AR. Abhinav Ranjan",
     "year": "2026",
     "links": [
       {

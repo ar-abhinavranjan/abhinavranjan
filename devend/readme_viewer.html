@@ -4,167 +4,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>README | Full Repository Structure</title>
-    <link rel="stylesheet" href="../frontend/css/styles.css">
+    <title>EXPLORE.AR| Archive</title>
+    <link rel="icon" type="image/png" href="/images/arlogo.png">
+    
+    <!-- Core Engine & Theme -->
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+    <link rel="stylesheet" href="/devend/style/dev_theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            background-color: #050505;
-            color: #fff;
-            font-family: 'Outfit', sans-serif;
-            padding: 3rem;
-            line-height: 1.6;
-        }
-
-        .readme-container {
+        .readme-wrapper {
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 4rem auto;
         }
 
         .repo-card {
-            background: rgba(18, 18, 18, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
             padding: 4rem;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-        }
-
-        .repo-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .repo-subtitle {
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
         }
 
         .tree-viz {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: 2rem;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            padding: 2.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
             border-left: 4px solid var(--primary);
             overflow-x: auto;
             color: #10b981;
+            line-height: 1.8;
+            margin: 3rem 0;
         }
 
         .tree-viz b { color: var(--primary); }
         .tree-viz i { color: #8b5cf6; font-style: normal; }
+        .tree-viz .comment { color: var(--text-muted); font-size: 0.8rem; }
 
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 2rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+        .system-section {
+            margin-top: 4rem;
         }
 
-        .back-btn:hover { color: #fff; }
-
-        section {
-            margin-top: 3rem;
-        }
-
-        section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 0.5rem;
+        .system-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.8rem;
         }
 
         .desc-box {
-            padding-left: 1.5rem;
-            border-left: 2px solid rgba(255,255,255,0.05);
-            margin-top: 1rem;
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
 
-        .desc-item {
-            margin-bottom: 1rem;
+        .desc-item strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
-        .desc-item strong { color: var(--accent); }
+        .desc-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
     </style>
 </head>
 
 <body>
-    <div class="readme-container">
-        <a href="guest-zone.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Guest Zone</a>
+    <!-- Navigation -->
+    <nav class="dev-nav">
+        <div class="nav-container">
+            <a href="/devend/guest-zone.html" class="nav-logo">AR<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="/devend/guest-zone.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to Archive</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <div class="repo-card">
-            <h1 class="repo-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                <span><i class="fas fa-book"></i> PROJECT_README.md</span>
-                <a href="https://github.com/ProAbhinavRanjan" target="_blank" class="btn btn-secondary" style="font-size: 0.9rem; padding: 10px 20px;">
-                    <i class="fab fa-github"></i> GITHUB
+    <main class="container readme-wrapper">
+        <div class="glass-card repo-card fade-in">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1.5rem;">
+                <div>
+                    <h1 class="mono" style="color: var(--primary);"><i class="fas fa-sitemap"></i> SYSTEM_MAP.md</h1>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Logical architecture of the AR Tech Digital Ecosystem.</p>
+                </div>
+                <a href="https://github.com/ProAbhinavRanjan" target="_blank" class="dev-btn btn-secondary">
+                    <i class="fab fa-github"></i> REPO SOURCE
                 </a>
-            </h1>
-            <p class="repo-subtitle">High-level architectural overview of the AR. Digital Ecosystem.</p>
+            </div>
 
             <div class="tree-viz">
 <pre>
 <b>Root/</b>
-|-- index.html (Main Entry)
+|-- index.html <span class="comment">(Portal Entry)</span>
 |-- manifest.json
-|-- sw.js (PWA Service Worker)
+|-- sw.js <span class="comment">(PWA Engine)</span>
 |
-+-- <b>DeveloperNotes/</b> (Study Guides)
++-- <b>developernotes/</b> <span class="comment">(Technical Guides)</span>
 |   |-- blogs.md
 |   |-- configuration.md
 |   |-- css.md
-|   |-- logic.md
-|   |-- lts.md
-|   |-- pages.md
-|   |-- seo_rankings.md
-|   |-- <i>webforms.md</i> (GAS Integration)
+|   |-- ...
+|   \-- <i>webforms.md</i>
 |
-+-- <b>devend/</b> (Admin Portal)
++-- <b>devend/</b> <span class="comment">(Command Center)</span>
 |   |-- index.html
 |   |-- login.html
 |   |-- guest-zone.html
-|   \-- <b>private/keys/</b> (Access Control)
+|   |-- <b>private/</b> <span class="comment">(Secure Area)</span>
+|   |   \-- <i>dashboard.html</i>
+|   |-- <b>logic/</b> <span class="comment">(Core Engines)</span>
+|   |-- <b>style/</b> <span class="comment">(Design System)</span>
+|   \-- <b>private/keys/</b> <span class="comment">(Access Control)</span>
 |
-+-- <b>frontend/</b> (App Core)
++-- <b>frontend/</b> <span class="comment">(App Logic)</span>
 |   +-- <b>blogs/</b>
-|   +-- <b>css/</b> (styles.css)
-|   +-- <b>data/</b> (JSON Registry)
-|   +-- <b>html/</b> (Modules)
-|   +-- <b>logic/</b> (JS Handlers)
-|   \-- <b>lts/</b> (Broadcast Hub)
+|   +-- <b>css/</b>
+|   +-- <b>data/</b> <span class="comment">(JSON Registry)</span>
+|   +-- <b>html/</b>
+|   +-- <b>logic/</b>
+|   \-- <b>lts/</b>
 |
-\-- <b>images/</b> (AR Logo, Profile)</pre>
+\-- <b>images/</b> <span class="comment">(Assets Pool)</span></pre>
             </div>
 
-            <section>
-                <h2>System Overview</h2>
+            <section class="system-section">
+                <h2>Module Definitions</h2>
                 <div class="desc-box">
                     <div class="desc-item">
-                        <strong>DeveloperNotes:</strong> Contains standard operating procedures and technical documentation for frontend orchestration.
+                        <strong>Developer Notes</strong>
+                        <p>Standardized operating procedures (SOPs) for ecosystem maintenance and functional orchestration.</p>
                     </div>
                     <div class="desc-item">
-                        <strong>DevEnd Portal:</strong> A restricted management layer for system monitoring, log tracking, and live configuration updates.
+                        <strong>Command Center (DevEnd)</strong>
+                        <p>A restricted management layer for real-time monitoring and dynamic configuration injection.</p>
                     </div>
                     <div class="desc-item">
-                        <strong>Frontend Logic:</strong> Modular JavaScript handlers that sync with Google Apps Script (GAS) for serverless form processing.
+                        <strong>Frontend Logic</strong>
+                        <p>A non-backend architecture utilizing Google Apps Script (GAS) for secure serverless data processing.</p>
                     </div>
                 </div>
             </section>
         </div>
-    </div>
+    </main>
+
+    <footer style="margin-top: 6rem; padding: 4rem 0; text-align: center; color: var(--text-muted); font-size: 0.8rem;">
+        &copy; 2026 AR TECH TECHNICAL ARCHITECTURE • SYSTEM OVERVIEW
+    </footer>
+
+    <!-- Portal Logic -->
+    <script src="/devend/logic/dev_core.js"></script>
 </body>
 
 </html>

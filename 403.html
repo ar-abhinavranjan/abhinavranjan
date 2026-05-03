@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>403 - Forbidden Access — AR.</title>
+  <link rel="icon" type="image/png" href="/images/arlogo.png">
+  <link rel="apple-touch-icon" href="/images/arlogo.png">
+  <meta name="theme-color" content="#6366f1">
+  <link rel="stylesheet" href="/frontend/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #050505;
+      font-family: 'Outfit', sans-serif;
+      color: #fff;
+    }
+
+    .offline-card {
+      background: rgba(20, 20, 30, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3rem 2rem;
+      border-radius: 24px;
+      text-align: center;
+      max-width: 450px;
+      width: 90%;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(99, 102, 241, 0.1);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .offline-icon {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.5));
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      color: #ef4444;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #a1a1aa;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="loader-wrapper">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Verifying Access...</div>
+    </div>
+  </div>
+  <div class="offline-card">
+    <a href="/" class="logo" style="font-size: 2.5rem; margin-bottom: 1rem; text-decoration: none;">AR<span class="dot">.</span></a>
+    <div class="offline-icon"><i class="fas fa-ban"></i></div>
+    <h1>403</h1>
+    <h2>Forbidden Access</h2>
+    <p>You do not have the required permissions to access this directory or file.</p>
+    <a href="/index.html" class="btn btn-primary" style="text-decoration: none;">Return Home</a>
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loader = document.getElementById('loader-wrapper');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => { loader.style.display = 'none'; }, 500);
+        }
+      }, 500);
+    });
+  </script>
+</body>
+</html>

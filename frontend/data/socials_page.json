@@ -10,17 +10,17 @@
     {
         "id": "twitter",
         "platform": "Twitter",
-        "handle": "@abhinav_vyom",
+        "handle": "@i_abhinavranjan",
         "icon": "fab fa-twitter",
-        "url": "https://twitter.com/abhinav_vyom",
+        "url": "https://twitter.com/i_abhinavranjan",
         "colorClass": "twitter"
     },
     {
         "id": "linkedin",
         "platform": "LinkedIn",
-        "handle": "@itzmeabhinavranjan",
+        "handle": "@ar-abhinavranjan",
         "icon": "fab fa-linkedin-in",
-        "url": "https://linkedin.com/in/itzmeabhinavranjan",
+        "url": "https://linkedin.com/in/ar-abhinavranjan",
         "colorClass": "linkedin"
     },
     {
@@ -34,9 +34,9 @@
     {
         "id": "instagram",
         "platform": "Instagram",
-        "handle": "@itzmeabhinavranjan",
+        "handle": "@ar.abhinavranjan",
         "icon": "fab fa-instagram",
-        "url": "https://instagram.com/itzmeabhinavranjan",
+        "url": "https://instagram.com/ar.abhinavranjan",
         "colorClass": "instagram"
     }
 ]

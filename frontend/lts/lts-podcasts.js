@@ -6,7 +6,7 @@
 
 (async function () {
     try {
-        const response = await fetch('../data/lts_podcasts.json');
+        const response = await fetch('/frontend/data/lts_podcasts.json');
         if (!response.ok) throw new Error('Failed to fetch podcast data');
         const data = await response.json();
 
@@ -20,8 +20,19 @@
                                       .replace(/PST/i, 'GMT-0800')
                                       .replace(/UTC/i, 'GMT');
             
-            const eventTimeMs = Date.parse(`${dateStr} ${timeReplaced}`);
-            if (isNaN(eventTimeMs)) return "ended"; // parsing fallback
+            let eventTimeMs = Date.parse(`${dateStr} ${timeReplaced}`);
+            
+            // Fallback for Day Month Year format which might fail in some browsers
+            if (isNaN(eventTimeMs)) {
+                const parts = dateStr.split(' ');
+                if (parts.length === 3) {
+                    // Try Month Day, Year format
+                    const rearranged = `${parts[1]} ${parts[0]}, ${parts[2]}`;
+                    eventTimeMs = Date.parse(`${rearranged} ${timeReplaced}`);
+                }
+            }
+
+            if (isNaN(eventTimeMs)) return "ended"; // final fallback
             
             const durationMs = 3 * 60 * 60 * 1000; // 3 hours window for live
             const currentTimeMs = window.getSyncedDate ? window.getSyncedDate().getTime() : Date.now();

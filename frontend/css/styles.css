@@ -59,6 +59,18 @@ main {
     /* Global offset for fixed header + gap */
 }
 
+/* Image Protection */
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; /* Disable iOS long-press popup */
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 /* Utilities */
 .container {
     max-width: var(--container-width);
@@ -158,15 +170,31 @@ main {
     align-items: center;
 }
 
+/* ================================================
+   UNIVERSAL BRAND LOGO — AR. (white + purple dot)
+   Applied to ALL logo classes site-wide.
+   ================================================ */
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-main);
-    text-decoration: none;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0;
 }
 
-.logo .dot {
-    color: var(--primary);
+.logo,
+.lts-logo,
+.nav-logo {
+    font-weight: 800;
+    color: #ffffff !important;          /* AR = always white */
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo .dot,
+.lts-logo .dot,
+.nav-logo .dot {
+    color: #6366f1 !important;          /* . = always purple */
+    font-weight: 800;
 }
 
 .nav-list {
@@ -1032,7 +1060,7 @@ main {
         text-align: left;
     }
 
-    .about-image-container {
+    .profile-container {
         flex: 1;
         display: flex;
         justify-content: center;
@@ -3117,7 +3145,7 @@ main {
         gap: 1.5rem;
     }
 
-    .about-image-container {
+    .profile-container {
         margin: 0 auto;
     }
 
@@ -3851,7 +3879,7 @@ main {
 }
 
 /* About Page Profile Image */
-.about-image-container {
+.profile-container {
     width: 250px;
     height: 250px;
     flex: 0 0 250px;
@@ -3867,12 +3895,12 @@ main {
     transition: transform var(--transition-medium), box-shadow var(--transition-medium);
 }
 
-.about-image-container:hover {
+.profile-container:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 20px 55px rgba(99, 102, 241, 0.5);
 }
 
-.about-image-container::before {
+.profile-container::before {
     content: '';
     position: absolute;
     inset: -2px;
@@ -3893,7 +3921,7 @@ main {
 }
 
 @media (max-width: 768px) {
-    .about-image-container {
+    .profile-container {
         width: 200px;
         height: 200px;
         flex: 0 0 200px;

@@ -17,8 +17,9 @@ const ASSETS_TO_CACHE = [
     '/frontend/data/popup_index.json',
     '/frontend/data/blogs.json',
     '/frontend/logic/blog_library.js',
-    '/frontend/blogs/blog-index.html',
-    '/frontend/lts/lts-index.html',
+    '/frontend/blogs/index.html',
+    '/frontend/blogs/post.html',
+    '/frontend/lts/index.html',
     '/frontend/lts/lts-join.html',
     '/frontend/lts/lts-room.html'
 ];

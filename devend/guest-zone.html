@@ -4,38 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GUEST ZONE | Project Architecture</title>
-    <link rel="stylesheet" href="../frontend/css/styles.css">
+    <title>GUEST.AR| Zone</title>
+    <link rel="icon" type="image/png" href="/images/arlogo.png">
+    
+    <!-- Core Engine & Theme -->
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+    <link rel="stylesheet" href="/devend/style/dev_theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            background-color: #050505;
-            color: #fff;
-            font-family: 'Outfit', sans-serif;
-            padding: 2rem;
-        }
-
-        .guest-container {
+        .guest-wrapper {
             max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .header-section {
-            text-align: center;
-            margin-bottom: 4rem;
+            margin: 4rem auto;
         }
 
         .tree-container {
-            background: rgba(18, 18, 18, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            margin-top: 3rem;
             padding: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            .guest-wrapper { margin: 2rem auto; }
+            .tree-container { padding: 1.5rem; }
+            .file-list { padding-left: 1rem; }
+            .folder-title { font-size: 1.2rem; }
         }
 
         .folder-title {
@@ -51,17 +46,17 @@
         .file-list {
             list-style: none;
             padding-left: 2rem;
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid var(--border);
         }
 
         .file-item {
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 1rem;
+            padding: 1.2rem;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid transparent;
-            border-radius: 12px;
+            border-radius: 16px;
             margin-bottom: 1rem;
             text-decoration: none;
             color: #fff;
@@ -69,7 +64,7 @@
         }
 
         .file-item:hover {
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(99, 102, 241, 0.08);
             border-color: var(--primary);
             transform: translateX(10px);
         }
@@ -85,7 +80,7 @@
 
         .file-info h3 {
             font-size: 1rem;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         .file-info p {
@@ -93,116 +88,132 @@
             color: var(--text-muted);
         }
 
-        .back-home {
-            margin-bottom: 2rem;
+        .breadcrumb {
+            margin-bottom: 3rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .back-home:hover {
+        .breadcrumb:hover {
             color: #fff;
         }
     </style>
 </head>
 
 <body>
-    <div class="guest-container">
-        <a href="index.html" class="back-home">
-            <i class="fas fa-arrow-left"></i> Developer Portal
-        </a>
+    <!-- Navigation -->
+    <nav class="dev-nav">
+        <div class="nav-container">
+            <a href="/devend/index.html" class="nav-logo">AR<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="/devend/index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Exit Guest Zone</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <div class="header-section">
-            <h1 class="section-title">Project Architecture</h1>
-            <p class="section-subtitle">A guest window into Luminary Technicals' structure and developer documentation.
+    <main class="container guest-wrapper">
+        <div class="fade-in">
+            <h1 class="section-title" style="text-align: center;">Project Architecture</h1>
+            <p class="section-subtitle" style="text-align: center; color: var(--text-muted);">
+                A transparent window into the ecosystem's structural mapping and developer workflows.
             </p>
-            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="readme_viewer.html" class="btn btn-secondary">
-                    <i class="fas fa-sitemap"></i> VIEW README (FOLDER STRUCTURE)
+            
+            <div style="margin-top: 3rem; display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/devend/readme_viewer.html" class="dev-btn btn-primary">
+                    <i class="fas fa-sitemap"></i> EXPLORE REPO TREE
                 </a>
-                <a href="https://github.com/ProAbhinavRanjan/abhinavranjan" target="_blank" class="btn btn-secondary"
-                    style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
-                    <i class="fab fa-github"></i> VIEW GITHUB REPO
+                <a href="https://github.com/ProAbhinavRanjan/abhinavranjan" target="_blank" class="dev-btn btn-secondary">
+                    <i class="fab fa-github"></i> REPOSITORY SOURCE
                 </a>
             </div>
         </div>
 
-        <div class="tree-container">
+        <div class="glass-card tree-container fade-in" style="animation-delay: 0.2s;">
             <div class="folder-title">
                 <i class="fas fa-folder-open"></i>
-                <span>/DeveloperNotes</span>
+                <span class="mono">/developernotes</span>
             </div>
 
             <div class="file-list">
-                <a href="../DeveloperNotes/blogs.md" target="_blank" class="file-item">
+                <!-- Data from actual filesystem -->
+                <a href="/developernotes/blogs.md" target="_blank" class="file-item">
                     <i class="far fa-file-alt file-icon"></i>
                     <div class="file-info">
                         <h3>blogs.md</h3>
-                        <p>Tech blog management and storytelling architecture.</p>
+                        <p>Management logic for technical storytelling and blog modules.</p>
                     </div>
                 </a>
 
-                <a href="../DeveloperNotes/configuration.md" target="_blank" class="file-item">
+                <a href="/developernotes/configuration.md" target="_blank" class="file-item">
                     <i class="far fa-file-alt file-icon"></i>
                     <div class="file-info">
                         <h3>configuration.md</h3>
-                        <p>Global site variables and environment settings.</p>
+                        <p>Global site variables, environment hooks, and registry settings.</p>
                     </div>
                 </a>
 
-                <a href="../DeveloperNotes/css.md" target="_blank" class="file-item">
+                <a href="/developernotes/css.md" target="_blank" class="file-item">
                     <i class="far fa-file-alt file-icon"></i>
                     <div class="file-info">
                         <h3>css.md</h3>
-                        <p>Design system tokens and responsive logic.</p>
+                        <p>Style system, design tokens, and responsive layout architecture.</p>
                     </div>
                 </a>
 
-                <a href="../DeveloperNotes/logic.md" target="_blank" class="file-item">
+                <a href="/developernotes/logic.md" target="_blank" class="file-item">
                     <i class="far fa-file-alt file-icon"></i>
                     <div class="file-info">
                         <h3>logic.md</h3>
-                        <p>Frontend functional orchestration and JS handlers.</p>
+                        <p>Functional orchestration, hydration engine, and component handlers.</p>
                     </div>
                 </a>
 
-                <a href="../DeveloperNotes/lts.md" target="_blank" class="file-item">
+                <a href="/developernotes/lts.md" target="_blank" class="file-item">
                     <i class="far fa-file-alt file-icon"></i>
                     <div class="file-info">
                         <h3>lts.md</h3>
-                        <p>Live Telecast Server (LTS) ecosystem mapping.</p>
+                        <p>Live Telecast Server ecosystem and broadcast endpoint mapping.</p>
                     </div>
                 </a>
 
-                <a href="../DeveloperNotes/pages.md" target="_blank" class="file-item">
+                <a href="/developernotes/pages.md" target="_blank" class="file-item">
                     <i class="far fa-file-alt file-icon"></i>
                     <div class="file-info">
                         <h3>pages.md</h3>
-                        <p>Dynamic routing and page assembly instructions.</p>
+                        <p>Instruction set for dynamic page assembly and module routing.</p>
                     </div>
                 </a>
 
-                <a href="../DeveloperNotes/seo_rankings.md" target="_blank" class="file-item">
+                <a href="/developernotes/seo_rankings.md" target="_blank" class="file-item">
                     <i class="far fa-file-alt file-icon"></i>
                     <div class="file-info">
                         <h3>seo_rankings.md</h3>
-                        <p>SEO score tracking and optimization strategy.</p>
+                        <p>Optimization scores, spider logic, and metadata strategies.</p>
                     </div>
                 </a>
 
-                <a href="../DeveloperNotes/webforms.md" target="_blank" class="file-item">
+                <a href="/developernotes/webforms.md" target="_blank" class="file-item">
                     <i class="far fa-file-alt file-icon"></i>
                     <div class="file-info">
                         <h3>webforms.md</h3>
-                        <p>Google Sheets integration and Webhook routing.</p>
+                        <p>Serverless Google Sheets integration and Webhook architecture.</p>
                     </div>
                 </a>
             </div>
         </div>
-    </div>
+    </main>
+
+    <footer style="margin-top: 6rem; padding: 4rem 0; text-align: center; color: var(--text-muted); font-size: 0.8rem;">
+        &copy; 2026 AR TECH TECHNICAL SYSTEMS • GUEST ACCESS ZONE
+    </footer>
+
+    <!-- Portal Logic -->
+    <script src="/devend/logic/dev_core.js"></script>
 </body>
 
 </html>

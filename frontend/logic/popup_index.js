@@ -35,7 +35,7 @@
 
         const slides = section.images.map((src, i) => `
             <div class="pi-slide${i === 0 ? ' pi-active' : ''}" data-index="${i}" style="display:${i === 0 ? 'block' : 'none'};">
-                <img src="${src}" alt="Slide ${i + 1}" style="width:100%;height:${imgHeight};object-fit:cover;border-radius:10px;display:block;" onerror="this.style.display='none'">
+                <img src="${src}" alt="Slide ${i + 1}" style="width:100%;height:${imgHeight};object-fit:contain;border-radius:10px;display:block;background:rgba(0,0,0,0.3);" onerror="this.style.display='none'">
             </div>
         `).join('');
 

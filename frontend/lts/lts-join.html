@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Podcast — LTS</title>
+    <title>AR.TECH| Join LTS</title>
+    <link rel="icon" type="image/png" href="/images/arlogo.png">
     <meta name="description" content="Register and join exclusive Live Telecast Server (LTS) podcast sessions by Abhinav Ranjan.">
     <meta name="keywords" content="LTS Join, Live Telecast Server, Abhinav Ranjan, podcasts, register">
     <link rel="canonical" href="https://abhinavranjan.netlify.app/frontend/lts/lts-join.html">
@@ -12,10 +13,10 @@
     <meta property="og:title" content="Join Podcast — LTS">
     <meta property="og:description" content="Register and join exclusive Live Telecast Server (LTS) podcast sessions by Abhinav Ranjan.">
     <meta property="og:url" content="https://abhinavranjan.netlify.app/frontend/lts/lts-join.html">
-    <link rel="icon" type="image/png" href="../../images/arlogo.png">
-    <link rel="apple-touch-icon" href="../../images/arlogo.png">
+    <link rel="icon" type="image/png" href="/images/arlogo.png">
+    <link rel="apple-touch-icon" href="/images/arlogo.png">
     <meta name="theme-color" content="#6366f1">
-    <link rel="manifest" href="../../manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -475,10 +476,10 @@
         </div>
     </div>
     <div class="join-wrap">
-        <a href="lts-index" class="back-link"><i class="fas fa-arrow-left"></i> All Podcasts</a>
+        <a href="/frontend/lts/index.html" class="back-link"><i class="fas fa-arrow-left"></i> All Podcasts</a>
 
         <div class="join-card">
-            <div class="lts-badge">LTS</div>
+            <div class="lts-badge" style="background:none; color:inherit; font-size:1.5rem; padding:0;">AR<span class="dot" style="color:#6366f1;">.</span></div>
             <h1 id="joinHeading">Join Podcast</h1>
             <p class="join-subtitle" id="joinSubtitle">Enter the podcast ID or continue with the pre-loaded session.</p>
 
@@ -535,8 +536,8 @@
                 </div>
                 <label class="tc-row" for="tcCheck">
                     <input type="checkbox" id="tcCheck">
-                    <span>I agree to the <a href="../html/moredetails/terms-and-conditions.html" target="_blank">Terms &
-                            Conditions</a> and <a href="../html/moredetails/privacy-policy.html" target="_blank">Privacy
+                    <span>I agree to the <a href="/frontend/html/moredetails/terms-and-conditions.html" target="_blank">Terms &
+                            Conditions</a> and <a href="/frontend/html/moredetails/privacy-policy.html" target="_blank">Privacy
                             Policy</a>.</span>
                 </label>
                 <button class="btn-join" id="btnJoinFinal" onclick="joinNow()">
@@ -561,7 +562,7 @@
                         <li><i class="fas fa-browser"></i> Use a modern browser (Chrome, Edge, Firefox)</li>
                         <li><i class="fas fa-sync"></i> Refresh the page and try again later</li>
                     </ul>
-                    <a href="lts-index.html" class="btn-back-alt">
+                    <a href="index.html" class="btn-back-alt">
                         <i class="fas fa-arrow-left"></i> Back to Podcasts
                     </a>
                 </div>
@@ -573,7 +574,7 @@
                     <div class="ns-icon" style="color:#9ca3af;"><i class="fas fa-clock"></i></div>
                     <h3>Session Ended</h3>
                     <p>This podcast session has already ended. Check back for upcoming sessions.</p>
-                    <a href="lts-index.html" class="btn-back-alt">
+                    <a href="index.html" class="btn-back-alt">
                         <i class="fas fa-arrow-left"></i> Back to Podcasts
                     </a>
                 </div>
@@ -585,7 +586,7 @@
                     <div class="ns-icon" style="color:#10b981;"><i class="fas fa-check-circle"></i></div>
                     <h3>Already Registered</h3>
                     <p id="alreadyRegText">You have already registered for this podcast.</p>
-                    <a href="lts-index.html" class="btn-join" style="text-decoration:none;">
+                    <a href="index.html" class="btn-join" style="text-decoration:none;">
                         <i class="fas fa-arrow-left"></i> Back to Podcasts
                     </a>
                     <button onclick="goTo(3)"
@@ -604,7 +605,7 @@
                     <div id="successPodInfo"
                         style="background:rgba(255,255,255,0.05);border-radius:12px;padding:1rem;margin:1.5rem 0;text-align:left;font-size:.9rem;color:rgba(255,255,255,0.7);">
                     </div>
-                    <a href="lts-index.html" class="btn-join" style="text-decoration:none;">
+                    <a href="index.html" class="btn-join" style="text-decoration:none;">
                         <i class="fas fa-home"></i> Back to Home
                     </a>
                 </div>
@@ -612,8 +613,8 @@
         </div>
     </div>
 
-    <script src="../logic/time_sync.js"></script>
-    <script src="lts-podcasts.js"></script>
+    <script src="/frontend/logic/time_sync.js"></script>
+    <script src="/frontend/lts/lts-podcasts.js"></script>
     <script>
         let currentPodcast = null;
         let currentStep = 1;

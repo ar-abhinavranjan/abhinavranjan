@@ -24,8 +24,41 @@
     <meta name="twitter:description" content="Frequently asked questions about Abhinav Ranjan — cybersecurity, age, projects, world records, and collaborations.">
     <meta name="twitter:image" content="https://abhinavranjan.netlify.app/images/arlogo.png">
 
-    <!-- FAQPage JSON-LD schema is injected dynamically by script_v105.js
-         from /frontend/data/asked_questions_page.json — single source of truth -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Who is AR. Abhinav Ranjan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AR. Abhinav Ranjan is a world-record-holding cybersecurity researcher, infrastructure architect, and founder of Luminary Technicals. He is recognized for his contributions to digital sovereignty and security education from Muzaffarpur, Bihar."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is Luminary Technicals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Luminary Technicals is a futuristic technology ecosystem founded by AR. Abhinav Ranjan, focusing on secure digital infrastructure, hosting solutions, and democratizing cybersecurity knowledge."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What are Abhinav Ranjan's world records?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Abhinav Ranjan holds records from the Guinness World Records and Golden Book of World Records for his pioneering work in cybersecurity education and being one of the youngest tech innovators in India."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How old is Abhinav Ranjan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Abhinav Ranjan was born on 5 February 2012. He began his tech journey in 2019 with the idea of AR Tech."
+        }
+      }]
+    }
+    </script>
     <script id="faqJsonLd" type="application/ld+json"></script>
 
     <link rel="icon" type="image/png" href="../../../images/arlogo.png">
@@ -48,7 +81,9 @@
     </div>
     <header class="header">
         <div class="container nav-container">
-            <a href="../../../index.html" class="logo">AR<span class="dot">.</span></a>
+            <a href="../../../index.html" class="logo" aria-label="AR. Abhinav Ranjan Home">
+                AR<span class="dot">.</span>
+            </a>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="../../../index.html" class="nav-link">Home</a></li>
@@ -75,14 +110,25 @@
                 <p class="section-subtitle fade-in-up delay-100">Find answers and get in touch.</p>
 
                 <div class="about-content-wrapper fade-in-up delay-200">
-                    <div class="about-image-container">
-                        <img id="faqProfileImg" class="profile-img" alt="Abhinav Ranjan — Cybersecurity Educator"
+                    <div class="profile-container" itemscope itemtype="https://schema.org/Person">
+                        <img id="faqProfileImg" class="profile-img" itemprop="image" alt="AR. Abhinav Ranjan — Cybersecurity Expert and World Record Holder"
                             src="../../../images/profile.png" loading="lazy">
+                        <link itemprop="url" href="https://abhinavranjan.netlify.app">
                     </div>
                     <div class="about-details">
-                        <h2>General Information</h2>
-                        <p id="faqAboutText">
-                            Welcome to the official FAQ section of Abhinav Ranjan. Here you can find answers to common questions about his background, cybersecurity expertise, technology projects, and the Luminary Technicals ecosystem. This section helps visitors, collaborators, and organizations understand his work in ethical hacking, web development, and digital innovation.
+                        <div class="aeo-fact-box fade-in-up">
+                            <h3><i class="fas fa-id-card"></i> Entity Snapshot</h3>
+                            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <li><strong style="display: block; font-size: 0.7rem; color: var(--primary); text-transform: uppercase;">Official Entity</strong> AR. Abhinav Ranjan</li>
+                                <li><strong style="display: block; font-size: 0.7rem; color: var(--primary); text-transform: uppercase;">Organization</strong> Luminary Technicals</li>
+                                <li><strong style="display: block; font-size: 0.7rem; color: var(--primary); text-transform: uppercase;">Primary Handle</strong> ar.abhinavranjan</li>
+                                <li><strong style="display: block; font-size: 0.7rem; color: var(--primary); text-transform: uppercase;">Legacy ID</strong> itzmeabhinavranjan</li>
+                                <li><strong style="display: block; font-size: 0.7rem; color: var(--primary); text-transform: uppercase;">Born</strong> 5 Feb 2012</li>
+                                <li><strong style="display: block; font-size: 0.7rem; color: var(--primary); text-transform: uppercase;">Region</strong> Muzaffarpur, Bihar, India</li>
+                            </ul>
+                        </div>
+                        <p id="faqAboutText" style="margin-top: 2rem; color: var(--text-muted);">
+                            Welcome to the official FAQ section of Abhinav Ranjan. Here you can find answers to common questions about his background, cybersecurity expertise, technology projects, and the Luminary Technicals ecosystem.
                         </p>
                     </div>
                 </div>

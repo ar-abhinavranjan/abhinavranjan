@@ -4,229 +4,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SECURE ACCESS | AR. Backend</title>
-    <link rel="stylesheet" href="../frontend/css/styles.css">
+    <title>DEV.LOGIN|</title>
+
+    <!-- Core Engine & Theme -->
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+    <link rel="stylesheet" href="/devend/style/dev_theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #08080a;
+            --surface: rgba(20, 20, 25, 0.7);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
         body {
-            background-color: #050505;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            background: var(--bg);
             margin: 0;
             font-family: 'Outfit', sans-serif;
+            color: #fff;
+            display: flex;
+            align-items: flex-start; /* Changed from center to allow manual padding */
+            justify-content: center;
+            min-height: 100vh;
+            padding: 100px 20px 40px; /* Increased top padding to clear header */
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
+        /* Subtle Background Depth */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, var(--bg) 60%);
+            z-index: -1;
+        }
+
+        /* Minimal Login Card */
         .login-card {
-            background: rgba(18, 18, 18, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 3rem;
             width: 100%;
-            max-width: 450px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+            animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        .security-header {
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .brand-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .lock-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            animation: pulse 2s infinite;
+        .brand-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin: 0;
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
+        .brand-logo span { color: var(--primary); }
 
-            50% {
-                transform: scale(1.1);
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .tracking-info {
+        .brand-tag {
             font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 8px 12px;
-            border-radius: 8px;
-            border-left: 3px solid var(--primary);
-            margin-bottom: 2rem;
-            text-align: center;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
         }
 
+        /* Input Styling */
         .form-group {
             margin-bottom: 1.5rem;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-group input {
+        .input-field {
             width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px 20px;
             color: #fff;
-            font-family: inherit;
-        }
-
-        .form-group input:focus {
+            font-size: 0.95rem;
             outline: none;
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s;
+            box-sizing: border-box;
         }
 
-        .verification-box {
+        .input-field:focus {
+            border-color: var(--primary);
             background: rgba(99, 102, 241, 0.05);
-            border: 1px dashed var(--primary);
-            padding: 1rem;
-            border-radius: 12px;
+        }
+
+        /* Minimalist Captcha */
+        .captcha-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.5rem;
             margin-bottom: 2rem;
             text-align: center;
         }
 
-        .captcha-text {
+        #captchaDisplay {
             font-family: 'Fira Code', monospace;
-            font-size: 1.2rem;
+            font-size: 2.2rem;
             font-weight: 700;
+            letter-spacing: 12px;
+            margin-bottom: 1rem;
             color: var(--primary);
-            letter-spacing: 5px;
             user-select: none;
+            position: relative;
+            display: inline-block;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 5px,
+                rgba(255, 255, 255, 0.05) 5px,
+                rgba(255, 255, 255, 0.05) 10px
+            );
+            padding: 10px 20px;
+            border-radius: 8px;
+            transform: skewX(-5deg);
+            filter: blur(0.4px);
         }
 
-        #loginStatus {
-            text-align: center;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-            font-family: 'Fira Code', monospace;
+        #captchaDisplay::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #fff;
+            transform: rotate(-5deg);
+            opacity: 0.5;
+            box-shadow: 0 0 10px var(--primary);
         }
 
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 2rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
+        #captchaDisplay::before {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--primary);
+            transform: rotate(3deg);
+            opacity: 0.3;
         }
 
-        .back-link:hover {
+        .captcha-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
             color: #fff;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            padding: 8px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .captcha-input:focus { border-bottom-color: var(--primary); }
+
+        /* Login Button */
+        .btn-login {
+            width: 100%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            padding: 18px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-login:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .status-msg {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            min-height: 1.2rem;
+        }
+
+        .footer-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover { color: #fff; }
+
+        /* Mobile Optimization */
+        @media (max-width: 480px) {
+            .login-card { padding: 2.5rem 1.5rem; }
+            .brand-logo { font-size: 1.5rem; }
         }
     </style>
 </head>
 
 <body>
-    <div class="login-card">
-        <div class="security-header">
-            <i class="fas fa-shield-alt lock-icon"></i>
-            <h2>Developer Auth</h2>
+    <!-- Navigation -->
+    <nav class="dev-nav">
+        <div class="nav-container">
+            <a href="/devend/index.html" class="nav-logo">
+                AR<span class="dot">.</span>
+            </a>
+            <a href="/devend/index.html" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i> Exit
+            </a>
         </div>
+    </nav>
 
-        <div class="tracking-info" id="trackingIP">
-            TERMINAL TRACKING: FETCHING ORIGIN...
+    <div class="login-card">
+        <div class="brand-header">
+            <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(99,102,241,0.3));">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <p class="brand-tag">IDENTITY_VERIFICATION</p>
         </div>
 
         <form id="loginForm">
             <div class="form-group">
-                <label>Developer ID</label>
-                <input type="text" id="userId" placeholder="Enter ID" required autocomplete="username">
+                <input type="text" id="userId" class="input-field" placeholder="Identity Tag" required>
             </div>
+
             <div class="form-group">
-                <label>Security Key</label>
-                <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+                <input type="password" id="password" class="input-field" placeholder="Access Key" required>
             </div>
 
-            <div class="verification-box">
-                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">HUMAN VERIFICATION</p>
-                <div class="captcha-text" id="captchaDisplay">0000</div>
-                <input type="text" id="captchaInput" placeholder="Enter Code"
-                    style="width: 100%; margin-top: 1rem; padding: 0.5rem; text-align: center; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 6px;">
+            <div class="captcha-box">
+                <div id="captchaDisplay">0000</div>
+                <input type="text" id="captchaInput" class="captcha-input" placeholder="Confirm Protocol" required>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">
-                GRANT ACCESS
+            <button type="submit" class="btn-login" id="submitBtn">
+                <span>Authorize</span>
+                <i class="fas fa-chevron-right"></i>
             </button>
         </form>
 
-        <div id="loginStatus"></div>
-
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Return to Portal</a>
+        <div id="statusMsg" class="status-msg"></div>
     </div>
 
+    <!-- Logic System -->
+    <script src="/devend/logic/dev_core.js"></script>
+    <script src="/devend/private/keys/login.js"></script>
+
     <script>
-        // Real-time IP Tracking Simulation
-        async function trackIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json');
-                const data = await response.json();
-                document.getElementById('trackingIP').innerText = `TRACKING ORIGIN: ${data.ip}`;
-            } catch (e) {
-                document.getElementById('trackingIP').innerText = `TRACKING ORIGIN: 127.0.0.1 (Local Node)`;
-            }
+        let currentCaptcha = 0;
+
+        function refreshCaptcha() {
+            currentCaptcha = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('captchaDisplay').innerText = currentCaptcha;
+            document.getElementById('captchaInput').value = '';
         }
 
-        // Simple Human Verification
-        let currentCaptcha = Math.floor(1000 + Math.random() * 9000);
-        document.getElementById('captchaDisplay').innerText = currentCaptcha;
-
-        // Form Logic
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const uid = document.getElementById('userId').value;
             const pass = document.getElementById('password').value;
             const captcha = document.getElementById('captchaInput').value;
-            const status = document.getElementById('loginStatus');
+            const status = document.getElementById('statusMsg');
+            const btn = document.getElementById('submitBtn');
 
-            if (captcha != currentCaptcha) {
-                status.innerText = '❌ Verification Failed. Retry Code.';
-                status.style.color = '#f43f5e';
+            if (parseInt(captcha) !== currentCaptcha) {
+                status.style.color = '#f87171';
+                status.innerText = '>> ERROR: PROTOCOL_MISMATCH';
+                refreshCaptcha();
                 return;
             }
 
-            // Externalized check pulling from private/keys/login.js
             if (uid === DEV_CREDENTIALS.uid && pass === DEV_CREDENTIALS.pass) {
-                status.innerText = '✅ Authentication Successful. Handshaking...';
-                status.style.color = '#10b981';
+                status.style.color = '#4ade80';
+                status.innerText = '>> SUCCESS: ACCESS_GRANTED';
+                btn.style.opacity = '0.5';
+                btn.disabled = true;
+
+                sessionStorage.setItem('dev_access_token', btoa(uid + ':' + Date.now()));
+                sessionStorage.setItem('dev_access_time', Date.now().toString());
+
                 setTimeout(() => {
-                    window.location.href = '../frontend/data/config.json';
-                }, 1500);
+                    window.location.href = '/devend/private/dashboard.html';
+                }, 1000);
             } else {
-                status.innerText = '❌ Access Denied. Logs Recorded.';
-                status.style.color = '#f43f5e';
+                status.style.color = '#f87171';
+                status.innerText = '>> FAIL: CREDENTIAL_REJECTED';
+                refreshCaptcha();
             }
         });
 
-        window.onload = trackIP;
+        // Initialize
+        refreshCaptcha();
     </script>
 </body>
 

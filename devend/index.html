@@ -4,18 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevEnd | Developer Portal - Abhinav Ranjan</title>
-    <meta name="description" content="Restricted Developer Entrance for Abhinav Ranjan's digital ecosystem.">
+    <title>DEV.AR| Gateway</title>
+    <link rel="icon" type="image/png" href="/images/arlogo.png">
 
-    <link rel="icon" type="image/png" href="../images/arlogo.png">
-    <link rel="stylesheet" href="../frontend/css/styles.css">
+    <!-- Core Engine & Theme -->
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+    <link rel="stylesheet" href="/devend/style/dev_theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         .dev-badge {
-            background: var(--dev-accent, #f43f5e);
+            background: var(--accent);
             color: white;
             padding: 4px 12px;
             border-radius: 20px;
@@ -29,167 +31,173 @@
 
         .dev-restricted-info {
             background: rgba(244, 63, 94, 0.1);
-            border: 1px solid #f43f5e;
-            padding: 2rem;
-            border-radius: 16px;
+            border: 1px solid var(--accent);
+            padding: 2.5rem;
+            border-radius: 20px;
             text-align: center;
             margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
         }
 
         .dev-restricted-info h2 {
-            color: #f43f5e;
+            color: var(--accent);
             margin-bottom: 0.5rem;
         }
 
         .dev-identity-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 3rem;
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
+            backdrop-filter: blur(15px);
+        }
+
+        .profile-ring {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 30px var(--primary-glow);
+            transition: transform 0.5s ease;
+        }
+
+        .dev-identity-card:hover .profile-ring {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
     </style>
 </head>
 
 <body>
-    <div id="loader-wrapper">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <div class="loader-text">Loading Development Environment...</div>
+    <!-- Navigation -->
+    <nav class="dev-nav">
+        <div class="nav-container">
+            <a href="/index.html" class="nav-logo">AR<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link"><i class="fas fa-sign-out-alt"></i> Exit Portal</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
 
-    <header class="header">
-        <div class="container nav-container">
-            <a href="../index.html" class="logo">DEV<span class="dot">.</span>AR</a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="../index.html" class="nav-link">Exit Dev Zone</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
+    <main class="container">
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container hero-container">
-                <div class="hero-content fade-in-up">
-                    <span class="greeting">System Access: Root</span>
-                    <h1 class="name">Developer Zone</h1>
-                    <p class="tagline">Restricted access to Abhinav Ranjan's backend orchestration and data systems.</p>
-                    <div class="hero-btns" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
-                        <div style="display: flex; gap: 1rem; width: 100%; flex-wrap: wrap;">
-                            <button class="btn btn-primary" id="verifyBtnDev" style="flex: 1; min-width: 250px;">
-                                <i class="fas fa-user-shield"></i> LOGIN AS A DEVELOPER
-                            </button>
-                            <button class="btn btn-secondary" id="verifyBtnGuest" style="flex: 1; min-width: 250px;">
-                                <i class="fas fa-user-graduate"></i> LOGIN AS GUEST LEARNER
-                            </button>
-                        </div>
-                        <p id="verifyStatusMain"
-                            style="margin-top: 0.5rem; font-family: monospace; font-size: 0.85rem; color: #10b981; opacity: 0;">
-                        </p>
-                    </div>
+        <section style="padding: 4rem 0; text-align: center;" class="fade-in">
+            <span class="mono" style="color: var(--primary); font-size: 0.8rem; letter-spacing: 2px;">SECURE NODE
+                ALPHA</span>
+            <h1 style="font-size: clamp(2.5rem, 8vw, 4rem); margin: 1rem 0;">Developer Gateway</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 3rem;">
+                Authorized access to backend orchestration, data systems, and internal documentation of the AR Tech
+                Ecosystem.
+            </p>
+
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <button class="dev-btn btn-primary" id="verifyBtnDev">
+                    <i class="fas fa-user-shield"></i> LOGIN ADMIN
+                </button>
+                <button class="dev-btn btn-secondary" id="verifyBtnGuest">
+                    <i class="fas fa-user-graduate"></i> ENTER GUEST ZONE
+                </button>
+            </div>
+            <p id="verifyStatusMain" class="mono"
+                style="margin-top: 1.5rem; font-size: 0.8rem; color: #10b981; opacity: 0;"></p>
+        </section>
+
+        <!-- Access Control Info -->
+        <section class="fade-in" style="animation-delay: 0.2s;">
+            <div class="dev-restricted-info">
+                <i class="fas fa-exclamation-triangle"
+                    style="font-size: 2rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                <h2>RESTRICTED ENVIRONMENT</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    UNAUTHORIZED ACCESS IS LOGGED AND TERMINATED • DEVELOPER CREDENTIALS REQUISITE
+                </p>
+            </div>
+
+            <div class="dev-identity-card">
+                <div class="profile-ring">
+                    <img src="/images/profile.png" alt="Abhinav Ranjan"
+                        style="width:100%; height:100%; object-fit:cover;">
                 </div>
-                <div class="hero-visual fade-in-up delay-200">
-                    <div class="glowing-orb" style="filter: blur(80px) hue-rotate(320deg);"></div>
-                </div>
+                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;">AR. Abhinav Ranjan</h3>
+                <p style="color: var(--primary); font-weight: 700; letter-spacing: 2px; font-size: 0.8rem;">FOUNDER &
+                    PRINCIPAL ENGINEER</p>
+                <p class="mono"
+                    style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem; background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 50px; display: inline-block;">
+                    id: ar.abhinavranjan
+                </p>
             </div>
         </section>
 
-        <!-- Developer Profile Section (Replacing About) -->
-        <section id="dev-login" class="section">
-            <div class="container">
-                <div class="dev-restricted-info fade-in-up">
-                    <h2>AR. USERS ARE RESTRICTED</h2>
-                    <p style="color: var(--text-muted);">ONLY DEVELOPERS ENTRY REQUIRED • UNAUTHORIZED ACCESS PROHIBITED
-                    </p>
-                </div>
+        <!-- Quick Resources -->
+        <section style="margin-top: 6rem;" class="fade-in" style="animation-delay: 0.4s;">
+            <h2 style="text-align: center; margin-bottom: 3rem;">System Knowledge Base</h2>
 
-                <div class="dev-identity-card fade-in-up delay-100">
-                    <div
-                        style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 3px solid var(--primary); box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);">
-                        <img src="../images/profile.png" alt="Abhinav Ranjan"
-                            style="width:100%; height:100%; object-fit:cover;">
+            <div class="resource-grid">
+                <a href="/developernotes/webforms.md" class="glass-card" style="text-decoration: none; color: inherit;">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div style="font-size: 2rem; color: var(--primary);"><i class="fas fa-code-branch"></i></div>
+                        <h3>Backend Hooks</h3>
                     </div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 0.3rem;">Abhinav Ranjan</h3>
-                    <p style="color: var(--primary); font-weight: 600; letter-spacing: 1px;">FOUNDER / CEO - PRINCIPAL
-                        DEVELOPER</p>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">itzmeabhinavranjan</p>
-                </div>
-            </div>
-        </section>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Documentation for
+                        Google Apps Script routing, data validation, and Sheets integration.</p>
+                    <span
+                        style="color: var(--primary); font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">Review
+                        Docs <i class="fas fa-external-link-alt"></i></span>
+                </a>
 
-        <!-- Developer Resources (Replacing Winnings) -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in-up">Dev Resources</h2>
-                <p class="section-subtitle fade-in-up delay-100">Direct links to backend documentation.</p>
-
-                <div class="grid socials-grid" style="justify-content: center;">
-                    <a href="../DeveloperNotes/Web Sending Through Google Sheet.md"
-                        class="card tilt-card fade-in-up delay-200" style="text-decoration: none; color: inherit;">
-                        <div class="tilt-content">
-                            <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1rem;">
-                                <div class="card-icon" style="color: var(--primary);"><i class="fas fa-code-branch"></i>
-                                </div>
-                                <h3 style="font-size: 1.2rem; margin-bottom: 0;">Backend Hook</h3>
-                            </div>
-                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.2rem;">Configure
-                                Google Apps Script routing and storage logic.</p>
-                            <span style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">View MD Guide <i
-                                    class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </a>
-
-                    <a href="../frontend/data/config.json" class="card tilt-card fade-in-up delay-300"
-                        style="text-decoration: none; color: inherit;">
-                        <div class="tilt-content">
-                            <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1rem;">
-                                <div class="card-icon" style="color: #10b981;"><i class="fas fa-database"></i></div>
-                                <h3 style="font-size: 1.2rem; margin-bottom: 0;">Core Registry</h3>
-                            </div>
-                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.2rem;">Live access
-                                to the central JSON database for site hydration.</p>
-                            <span style="color: #10b981; font-weight: 600; font-size: 0.9rem;">Open JSON <i
-                                    class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
+                <a href="/frontend/data/config.json" class="glass-card" style="text-decoration: none; color: inherit;">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div style="font-size: 2rem; color: #10b981;"><i class="fas fa-database"></i></div>
+                        <h3>Core Registry</h3>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Live view of the
+                        master site configuration used for dynamic hydration and PWA states.</p>
+                    <span style="color: #10b981; font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">View
+                        Registry <i class="fas fa-external-link-alt"></i></span>
+                </a>
             </div>
         </section>
     </main>
 
-    <footer id="siteFooter" class="footer">
-        <div class="container footer-container">
-            <p>&copy; 2026 Developer Portal. Restricted Access.</p>
-        </div>
+    <footer style="margin-top: 8rem; padding: 4rem 0; border-top: 1px solid var(--border); text-align: center;">
+        <p style="font-size: 0.8rem; color: var(--text-muted); letter-spacing: 1px;">
+            &copy; 2026 AR TECH DEVELOPER PORTAL • ENCRYPTED NODE
+        </p>
     </footer>
 
-    <!-- Use main logic but with adjusted paths -->
-    <script src="../frontend/logic/script_v105.js" defer></script>
+    <!-- Portal Logic -->
+    <script src="/devend/logic/dev_core.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('portalReady', () => {
             const vBtnDev = document.getElementById('verifyBtnDev');
             const vBtnGuest = document.getElementById('verifyBtnGuest');
             const vStatus = document.getElementById('verifyStatusMain');
 
             const handleLogin = (btn, role, target) => {
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> INITIALIZING...';
+                btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> HANDSHAKING...';
+                btn.style.opacity = '0.7';
                 btn.disabled = true;
                 vStatus.style.opacity = '1';
-                vStatus.innerText = `>>> REDIRECTING TO ${role} GATEWAY...`;
+                vStatus.innerText = `>>> INITIALIZING ${role} PROTOCOL...`;
 
                 setTimeout(() => {
                     window.location.href = target;
-                }, 800);
+                }, 1000);
             };
 
-            vBtnDev?.addEventListener('click', () => handleLogin(vBtnDev, 'SECURE', 'devend/login.html'));
-            vBtnGuest?.addEventListener('click', () => handleLogin(vBtnGuest, 'GUEST', 'devend/guest-zone.html'));
+            vBtnDev?.addEventListener('click', () => handleLogin(vBtnDev, 'SECURE', '/devend/login.html'));
+            vBtnGuest?.addEventListener('click', () => handleLogin(vBtnGuest, 'GUEST', '/devend/guest-zone.html'));
         });
     </script>
 </body>
