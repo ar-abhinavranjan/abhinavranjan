@@ -1,6 +1,6 @@
 # Redirect Rules for Netlify
 
-/* https://abhinavranjan.qzz.io/:splat 301!
+/* https://artech.dpdns.org/:splat 301!
 
 # Custom Error Pages
 /* /404.html 404
