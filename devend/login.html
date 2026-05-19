@@ -13,7 +13,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEV.LOGIN|</title>
+    <title>DEV.LOGIN | Secure Gateway</title>
 
     <!-- Core Engine & Theme -->
     <link rel="stylesheet" href="/frontend/css/styles.css">
@@ -302,7 +302,14 @@
             document.getElementById('captchaInput').value = '';
         }
 
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const uid = document.getElementById('userId').value;
             const pass = document.getElementById('password').value;
@@ -317,22 +324,34 @@
                 return;
             }
 
-            if (uid === DEV_CREDENTIALS.uid && pass === DEV_CREDENTIALS.pass) {
-                status.style.color = '#4ade80';
-                status.innerText = '>> SUCCESS: ACCESS_GRANTED';
-                btn.style.opacity = '0.5';
-                btn.disabled = true;
+            status.style.color = 'var(--primary)';
+            status.innerText = '>> AUTHORIZING PROTOCOL...';
 
-                sessionStorage.setItem('dev_access_token', btoa(uid + ':' + Date.now()));
-                sessionStorage.setItem('dev_access_time', Date.now().toString());
+            try {
+                const uidHash = await sha256(uid);
+                const passHash = await sha256(pass);
 
-                setTimeout(() => {
-                    window.location.href = '/devend/private/dashboard.html';
-                }, 1000);
-            } else {
+                if (uidHash === DEV_CREDENTIALS.uidHash && passHash === DEV_CREDENTIALS.passHash) {
+                    status.style.color = '#4ade80';
+                    status.innerText = '>> SUCCESS: ACCESS_GRANTED';
+                    btn.style.opacity = '0.5';
+                    btn.disabled = true;
+
+                    sessionStorage.setItem('dev_access_token', btoa(uid + ':' + Date.now()));
+                    sessionStorage.setItem('dev_access_time', Date.now().toString());
+
+                    setTimeout(() => {
+                        window.location.href = '/devend/private/dashboard.html';
+                    }, 1000);
+                } else {
+                    status.style.color = '#f87171';
+                    status.innerText = '>> FAIL: CREDENTIAL_REJECTED';
+                    refreshCaptcha();
+                }
+            } catch (err) {
+                console.error('Crypto error:', err);
                 status.style.color = '#f87171';
-                status.innerText = '>> FAIL: CREDENTIAL_REJECTED';
-                refreshCaptcha();
+                status.innerText = '>> ERROR: CRYPTO_FAULT';
             }
         });
 

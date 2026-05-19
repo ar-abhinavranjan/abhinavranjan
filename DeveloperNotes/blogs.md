@@ -57,12 +57,12 @@ The engine dynamically creates a `script[type="application/ld+json"]` block of t
   "author": [{
       "@type": "Person",
       "name": "Abhinav Ranjan",
-      "url": "https://abhinavranjan.netlify.app"
+      "url": "https://abhinavranjan.qzz.io"
   }],
   "description": "Exploring the shift from traditional defense...",
   "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://abhinavranjan.netlify.app/frontend/blogs/post?id=future-of-cybersecurity-2026"
+      "@id": "https://abhinavranjan.qzz.io/frontend/blogs/post?id=future-of-cybersecurity-2026"
   }
 }
 ```

@@ -321,8 +321,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.addEventListener('keydown', e => { if (e.key === 'Escape' && winModal.classList.contains('active')) closeModal(); });
             }
 
-            /* Hide loader */
-            setTimeout(() => { const l = document.getElementById('loader-wrapper'); if (l) { l.classList.add('fade-out'); setTimeout(() => l.remove(), 600); } }, 500);
+            /* Hide loader immediately after content renders */
+            setTimeout(() => { const l = document.getElementById('loader-wrapper'); if (l) { l.classList.add('fade-out'); setTimeout(() => l.remove(), 600); } }, 50);
         })
         .catch(err => {
             console.error('Config load error:', err);

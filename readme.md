@@ -1,8 +1,8 @@
 # AR. Abhinav Ranjan — Personal Portfolio
 
-> **Live Site:** [abhinavranjan.netlify.app](https://abhinavranjan.netlify.app)  
+> **Live Site:** [abhinavranjan.qzz.io](https://abhinavranjan.qzz.io)  
 > **Type:** Static Website (Vanilla HTML / CSS / JavaScript) + PWA  
-> **Deployed on:** Netlify CDN
+> **Deployed on:** Netlify CDN + Custom Canonical Domain Mapping
 
 ---
 
@@ -10,7 +10,7 @@
 
 This is the official personal portfolio of **Abhinav Ranjan** — a young cybersecurity educator, ethical hacking teacher, and founder of **Luminary Technicals** from Muzaffarpur, Bihar, India, recognized by Guinness World Records and the Golden Book of World Records.
 
-The site is a **data-driven, multi-page static portfolio** with no build step — all content is loaded dynamically from JSON files at runtime. It supports offline access via a Service Worker (PWA), has a custom popup announcement system, a full-featured FAQ page with JSON-LD structured data for Google rich snippets, and an advanced biography page with a book library reader.
+The site is a **data-driven, multi-page static portfolio** with no build step — all content is loaded dynamically from JSON files at runtime. It supports offline access via a Service Worker (PWA), has a custom popup announcement system, fully featured FAQ and biography modules, and a modern glossary. It features state-of-the-art Search, Answer, and Generative Engine Optimizations (SEO/AEO/GEO) including robust JSON-LD structured schemas (`Person`, `WebSite`, `FAQPage`, `PodcastSeries`, `ContactPage`, `SoftwareApplication`, and `CollectionPage`) for maximum visibility on Perplexity, Gemini, ChatGPT, and Google.
 
 ---
 
@@ -20,7 +20,9 @@ The site is a **data-driven, multi-page static portfolio** with no build step �
 abhinavranjan/
 │
 ├── index.html                          # Homepage (hero, about preview, projects, socials, winnings)
-├── robots.txt                          # Search engine crawl rules
+├── robots.txt                          # Search engine crawl rules (highly optimized for generative AI scrapers)
+├── ai.txt                              # Specialized AI agent ingestion snapshot and block directories
+├── _redirects                          # Netlify redirection mapping (handles canonical domain redirects & clean error routes)
 ├── sitemap.xml                         # XML sitemap (all pages, .html extensions)
 ├── manifest.json                       # PWA Web App Manifest
 ├── sw.js                               # Service Worker (offline support / caching)
@@ -63,7 +65,13 @@ abhinavranjan/
 │   │   └── moredetails/
 │   │       ├── asked-questions.html    # FAQ page (JSON-LD FAQPage, static pre-render)
 │   │       ├── privacy-policy.html     # Privacy Policy
-│   │       └── terms-and-conditions.html # Terms & Conditions
+│   │       ├── terms-and-conditions.html # Terms & Conditions
+│   │       └── glossary.html           # AEO Ecosystem Glossary Page (defines proprietary tech tokens like DevEnd)
+│   │
+│   ├── blogs/                          # dynamic blog portal
+│   │   ├── index.html                  # Blog archive explorer
+│   │   ├── post.html                   # Article reader shell page (hydrates structured JSON-LD dynamic blogs)
+│   │   └── content/                    # Raw blog snippet content loaded via dynamic fetch
 │   │
 │   └── lts/                            # LTS Platform (Live Telecast Server) — NOT indexed
 │       ├── index.html              # LTS homepage / server browser
@@ -92,11 +100,11 @@ abhinavranjan/
 | **PWA / Offline** | Service Worker (cache-first), manifest, offline fallback page |
 | **3D card tilt effect** | Mouse-tracked perspective rotation on all `.card` elements |
 | **Scroll animations** | Intersection Observer drives `fade-in-up` on all sections |
-| **Contact multi-platform** | Form sends to WhatsApp, Email, or Telegram from config |
-| **Winnings modal** | Click-to-expand card detail modal on winnings page |
+| **Contact multi-platform** | Form sends to WhatsApp, Email, or Telegram from config with dynamic ContactPage schema |
+| **Winnings modal** | Click-to-expand card detail modal on winnings page with keyboard controls |
 | **LTS Platform** | Separate live podcast/telecast server interface (`/frontend/lts/`) |
 | **Time sync** | WorldTimeAPI sync for reliable LTS schedule display |
-| **SEO optimized** | Canonical, OG, Twitter Cards, Person + WebSite + FAQPage JSON-LD on all pages |
+| **SEO/AEO/GEO Optimized** | Explicit Canonical, OG, Twitter Cards, Google Analytics (gtag.js), glossary definitions, Person + WebSite + FAQPage + PodcastSeries + ContactPage + SoftwareApplication + CollectionPage JSON-LD schemas |
 
 ---
 
@@ -128,7 +136,7 @@ git commit -m "Update"
 git push
 
 # 2. Netlify auto-deploys from the connected GitHub repo
-# Site: https://abhinavranjan.netlify.app
+# Site: https://abhinavranjan.qzz.io
 ```
 
 No build commands needed — Netlify serves the static files directly.

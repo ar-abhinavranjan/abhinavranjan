@@ -39,7 +39,7 @@ A specialized script for the dynamic blog system.
 - **Advanced SEO Engine:**
     - **JSON-LD:** Dynamically injects `BlogPosting` structured data into the document head.
     - **Meta Sync:** Updates Titles, Canonical Tags, OpenGraph, and Twitter Meta tags in real-time based on the active post.
-    - **Site-Wide URLs:** Uses `https://abhinavranjan.netlify.app` as the base for absolute canonical and social URLs.
+    - **Site-Wide URLs:** Uses `https://abhinavranjan.qzz.io` as the base for absolute canonical and social URLs.
 
 ---
 

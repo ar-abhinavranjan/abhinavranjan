@@ -1,8 +1,9 @@
-const CACHE_VERSION = 'v1.1.0';
+const CACHE_VERSION = 'v1.2.0';
 const CACHE_NAME = `ar-portfolio-${CACHE_VERSION}`;
 
 const ASSETS_TO_CACHE = [
     '/',
+    '/index.html',
     '/offline.html',
     '/frontend/css/styles.css',
     '/frontend/logic/script_v105.js',
@@ -14,6 +15,10 @@ const ASSETS_TO_CACHE = [
     '/frontend/data/socials_page.json',
     '/frontend/data/winnings_page.json',
     '/frontend/data/asked_questions_page.json',
+    '/frontend/data/biography_page.json',
+    '/frontend/data/contact_page.json',
+    '/frontend/data/faq_contact.json',
+    '/frontend/data/lts_podcasts.json',
     '/frontend/data/popup_index.json',
     '/frontend/data/blogs.json',
     '/frontend/logic/blog_library.js',
@@ -21,7 +26,18 @@ const ASSETS_TO_CACHE = [
     '/frontend/blogs/post.html',
     '/frontend/lts/index.html',
     '/frontend/lts/lts-join.html',
-    '/frontend/lts/lts-room.html'
+    '/frontend/lts/lts-room.html',
+    '/frontend/html/about.html',
+    '/frontend/html/biography.html',
+    '/frontend/html/contact.html',
+    '/frontend/html/projects.html',
+    '/frontend/html/socials.html',
+    '/frontend/html/winnings.html',
+    '/frontend/gallery/index.html',
+    '/frontend/html/moredetails/glossary.html',
+    '/frontend/html/moredetails/asked-questions.html',
+    '/frontend/html/moredetails/privacy-policy.html',
+    '/frontend/html/moredetails/terms-and-conditions.html'
 ];
 
 // Install Event - Cache assets

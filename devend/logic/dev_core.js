@@ -48,8 +48,8 @@ class ARPortalEngine {
         `;
         document.body.prepend(loader);
         
-        // Brief artificial delay for smooth transition
-        this.handshakePromise = new Promise(r => setTimeout(r, 600));
+        // Brief artificial delay for smooth transition (optimized for extreme loading speed)
+        this.handshakePromise = new Promise(r => setTimeout(r, 50));
     }
 
     async fetchConfig() {
@@ -134,17 +134,17 @@ class ARPortalEngine {
         const brandText = document.getElementById('dynamic-brand-text');
         if (brandText) {
             const path = window.location.pathname;
-            if (path.includes('guest-zone')) brandText.innerHTML = `GUEST.AR<span class="mono" style="color: var(--primary); font-size: 0.8rem; margin-left: 2px;">|</span>`;
-            else if (path.includes('readme_viewer')) brandText.innerHTML = `EXPLORE.AR<span class="mono" style="color: var(--primary); font-size: 0.8rem; margin-left: 2px;">|</span>`;
-            else brandText.innerHTML = `DEV.AR<span class="mono" style="color: var(--primary); font-size: 0.8rem; margin-left: 2px;">|</span>`;
+            if (path.includes('guest-zone')) brandText.innerHTML = `GUEST<span class="dot">.</span>AR<span class="mono" style="color: var(--primary); font-size: 0.8rem; margin-left: 2px;">|</span>`;
+            else if (path.includes('readme_viewer')) brandText.innerHTML = `EXPLORE<span class="dot">.</span>AR<span class="mono" style="color: var(--primary); font-size: 0.8rem; margin-left: 2px;">|</span>`;
+            else brandText.innerHTML = `DEV<span class="dot">.</span>AR<span class="mono" style="color: var(--primary); font-size: 0.8rem; margin-left: 2px;">|</span>`;
         }
     }
 
     syncUI() {
-        // Uniform directory casing for LTS references
+        // Uniform directory casing for physical case-sensitive Linux assets (DeveloperNotes)
         document.querySelectorAll('a').forEach(a => {
             if (a.href.toLowerCase().includes('developernotes')) {
-                a.href = a.href.replace(/developernotes/i, 'developernotes');
+                a.href = a.href.replace(/developernotes/i, 'DeveloperNotes');
             }
         });
 
@@ -185,7 +185,7 @@ class ARPortalEngine {
             console.log('>>> [PortalEngine v2.0] System Ready.');
             
             window.dispatchEvent(new CustomEvent('portalReady', { detail: this.config }));
-        }, 400);
+        }, 50);
     }
 }
 
