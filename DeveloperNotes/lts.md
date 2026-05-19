@@ -6,7 +6,7 @@ This document outlines the entire architecture of the Live Telecast Server (LTS)
 
 The LTS subsystem operates independently from the main website navigation, with custom-designed monolithic interfaces to maximize performance and visual focus during live streams.
 
-- **`lts-index.html`**: The main LTS Dashboard / Hub. Displays categorized grids for Live Now, Upcoming, and Ended podcast sessions.
+- **`index.html`**: The main LTS Dashboard / Hub. Displays categorized grids for Live Now, Upcoming, and Ended podcast sessions.
 - **`lts-join.html`**: The Waiting Room / Registration page. Authenticates users via cookie generation, checks browser compatibility, and displays countdowns for upcoming streams.
 - **`lts-room.html`**: The actual Broadcast Interface. Contains the video grid, chat UI mockups, and "Attention check" popups.
 
@@ -32,7 +32,7 @@ The LTS runs on three layers of logic:
   - Provides `window.getSyncedDate()`.
 
 - **Inline Page Scripts**:
-  - `lts-index.html`, `lts-join.html`, and `lts-room.html` contain massive inline `<script>` blocks (e.g. 100+ lines) handling proprietary UI DOM manipulation such as chat simulations, countdown timers, and rendering `ltsDataReady` payloads.
+  - `index.html`, `lts-join.html`, and `lts-room.html` contain massive inline `<script>` blocks (e.g. 100+ lines) handling proprietary UI DOM manipulation such as chat simulations, countdown timers, and rendering `ltsDataReady` payloads.
 
 ## 💾 4. Data Sources
 

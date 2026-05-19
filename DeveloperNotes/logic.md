@@ -61,3 +61,16 @@ Defines the PWA identity (name, icons, theme color, display mode). Allows the si
 - ✅ **Serverless Architecture:** No backend processing; all interactions are client-side redirects or local JS logic.
 - ⚠️ **Data Integrity:** Most UI is rendered via `innerHTML`. Ensure source JSON files are kept secure.
 - ⚠️ **External Assets:** Scripts like `popup_index.js` rely on third-party images; local hosting is recommended for 100% reliability.
+
+---
+
+## 7. DevEnd Engines: `dev_core.js` & `dash_logic.js`
+The developer zone operates on an isolated set of core scripts to protect main site integrity.
+
+- **`dev_core.js`**: Bootstraps the DevEnd. Injects a global branded header, handles basic `sessionStorage` token validation, and manages SEO metadata specific to the administrative zone. It features a custom initialization handshake (typing effect).
+- **`dash_logic.js`**: Drives the "Command Center". It loads config and project arrays into a staged memory object, allowing real-time editing and exporting (`downloadJSON`) of updated JSON structures without requiring a backend. Contains input sanitization layers before staging data.
+
+---
+
+## 8. WebForms Logic
+- Intercepts default form submissions and reroutes payloads using external APIs (e.g., `wa.me` for WhatsApp, `mailto:` for Email, `t.me` for Telegram) depending on configuration in `config.json`.

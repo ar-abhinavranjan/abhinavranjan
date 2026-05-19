@@ -69,7 +69,7 @@ This document contains an automated scan of all primary pages in the project to 
 - H1 Header: ✅
 - Meta Keywords: ✅
 
-### 8. `frontend/lts/lts-index.html` — Score: **100/100** (Excellent 🟢)
+### 8. `frontend/lts/index.html` — Score: **100/100** (Excellent 🟢)
 - Title: ✅
 - Meta Description: ✅
 - Canonical URL: ✅
@@ -92,6 +92,17 @@ This document contains an automated scan of all primary pages in the project to 
 - Open Graph Tags: ✅
 - H1 Header: ✅
 - Meta Keywords: ✅
+
+### 11. `frontend/blogs/index.html` — Score: **95/100** (Great 🟢)
+- Title: ✅ (Dynamically synced)
+- Meta Description: ✅
+- Canonical URL: ✅
+- Open Graph Tags: ✅
+- H1 Header: ✅
+- Meta Keywords: ✅
+
+### 12. `devend/index.html` (and subpages) — Score: **N/A** (Excluded ⚪)
+- *Note: DevEnd pages are intentionally excluded from SEO ranking requirements as they are administrative/private zones.*
 
 
 > *Note: For static components, many pages rely on dynamically injected keywords or schema.org JSON-LD structured data which is highly favorable for Google Rankings.*

@@ -2,11 +2,20 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VR4XZ987L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4VR4XZ987L');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR. Abhinav Ranjan | Achievements</title>
     <meta name="description" content="Explore the achievements and winnings of Abhinav Ranjan — recognized by the Guinness World Records and Golden Book of World Records for cybersecurity education and innovation.">
-    <link rel="canonical" href="https://abhinavranjan.netlify.app/frontend/html/winnings.html">
+    <link rel="canonical" href="https://abhinavranjan.qzz.io/frontend/html/winnings.html">
     <meta name="keywords" content="Abhinav Ranjan achievements, Guinness World Records cybersecurity, Golden Book of World Records, VVM State Rank 4, National Science Championship All India Rank 7, Abhinav Ranjan, itzmeabhinavranjan, Luminary Technicals, Muzaffarpur Bihar India">
 
     <!-- Open Graph -->
@@ -14,15 +23,15 @@
     <meta property="og:site_name" content="AR. Abhinav Ranjan">
     <meta property="og:title" content="Abhinav Ranjan Achievements | Guinness & Golden Book Records">
     <meta property="og:description" content="Explore the achievements of Abhinav Ranjan — recognized by Guinness World Records and Golden Book of World Records for cybersecurity education.">
-    <meta property="og:image" content="https://abhinavranjan.netlify.app/images/arlogo.png">
-    <meta property="og:url" content="https://abhinavranjan.netlify.app/frontend/html/winnings.html">
+    <meta property="og:image" content="https://abhinavranjan.qzz.io/images/arlogo.png">
+    <meta property="og:url" content="https://abhinavranjan.qzz.io/frontend/html/winnings.html">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@i_abhinavranjan">
     <meta name="twitter:title" content="Abhinav Ranjan | Achievements & World Records">
     <meta name="twitter:description" content="Explore the achievements of Abhinav Ranjan — recognized by Guinness World Records and Golden Book of World Records.">
-    <meta name="twitter:image" content="https://abhinavranjan.netlify.app/images/arlogo.png">
+    <meta name="twitter:image" content="https://abhinavranjan.qzz.io/images/arlogo.png">
     <link rel="icon" type="image/png" href="/images/arlogo.png">
     <link rel="apple-touch-icon" href="../../images/arlogo.png">
     <meta name="theme-color" content="#6366f1">
@@ -80,9 +89,9 @@
         </section>
 
         <!-- Dynamic Winnings Modal -->
-        <div id="winningsModal" class="modal-overlay">
+        <div id="winningsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
             <div class="modal-content">
-                <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+                <button class="modal-close" id="closeModalBtn" aria-label="Close modal"><i class="fas fa-times"></i></button>
                 <div class="modal-body" id="modalBody">
                     <div class="modal-image-container" id="modalImageContainer">
                         <!-- Image or Pattern goes here -->

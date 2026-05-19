@@ -119,7 +119,7 @@
     }
 
     function updateSEO(post) {
-        const siteUrl = "https://abhinavranjan.netlify.app";
+        const siteUrl = "https://abhinavranjan.qzz.io";
         const postUrl = `${siteUrl}/frontend/blogs/post?id=${post.id}`;
         
         document.title = `${post.title} | AR. Blogs`;
@@ -179,17 +179,38 @@
         const existingScript = document.getElementById('blog-json-ld');
         if (existingScript) existingScript.remove();
 
+        let dateIso = new Date().toISOString();
+        try {
+            if (post.date) {
+                const parsedDate = new Date(post.date);
+                if (!isNaN(parsedDate.getTime())) {
+                    dateIso = parsedDate.toISOString();
+                }
+            }
+        } catch (e) {
+            console.warn("Date parsing fallback:", e);
+        }
+
         const jsonLd = {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": post.title,
             "image": [post.image],
-            "datePublished": new Date(post.date).toISOString() || new Date().toISOString(),
+            "datePublished": dateIso,
+            "dateModified": post.dateModified ? new Date(post.dateModified).toISOString() : dateIso,
             "author": [{
                 "@type": "Person",
                 "name": post.author,
-                "url": "https://abhinavranjan.netlify.app"
+                "url": "https://abhinavranjan.qzz.io"
             }],
+            "publisher": {
+                "@type": "Organization",
+                "name": "Luminary Technicals",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://abhinavranjan.qzz.io/images/arlogo.png"
+                }
+            },
             "description": post.excerpt,
             "mainEntityOfPage": {
                 "@type": "WebPage",

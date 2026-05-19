@@ -10,7 +10,7 @@ The blog components are located in `frontend/blogs/` and `frontend/logic/`:
 
 | Path | Purpose |
 |---|---|
-| `frontend/blogs/blog-index.html` | The main hub for browsing all blog entries. |
+| `frontend/blogs/index.html` | The main hub for browsing all blog entries. |
 | `frontend/blogs/post.html` | The dynamic template used to render any individual blog post. |
 | `frontend/blogs/content/*.html` | HTML snippets containing only the raw article body (no headers/footers). |
 | `frontend/data/blogs.json` | The central database (title, author, image, path, tags). |
@@ -83,4 +83,4 @@ The engine dynamically creates a `script[type="application/ld+json"]` block of t
 3. The post will automatically appear on the index and become accessible via `post?id=your-post-id`.
 
 ### Updating the Blogger Profile
-The Blogger profile link is located in the navigation header of `blog-index.html`. Update the link manually at line 109 when the profile ID changes.
+The Blogger profile link is located in the navigation header of `index.html`. Update the link manually at line 109 when the profile ID changes.

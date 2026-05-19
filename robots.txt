@@ -5,4 +5,28 @@ Allow: /
 Disallow: /frontend/lts/
 Disallow: /offline.html
 
-Sitemap: https://abhinavranjan.netlify.app/sitemap.xml
+# Block secure developer dashboard panel views from crawling
+Disallow: /devend/
+Disallow: /500.html
+Disallow: /404.html
+Disallow: /403.html
+
+# ===== Generative AI Crawler Guidelines =====
+# Allow AI engines to index public assets while restricting dev console indexing
+User-agent: GPTBot
+Disallow: /devend/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /devend/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /devend/
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /devend/
+Allow: /
+
+Sitemap: https://abhinavranjan.qzz.io/sitemap.xml

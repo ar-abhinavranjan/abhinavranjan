@@ -1,0 +1,42 @@
+# ai.txt - AI Crawler Permissions and Site Overview
+# This file provides structured signals for Answer Engines, Search Bots, and Large Language Models.
+
+User-agent: GPTBot
+Disallow: /devend/
+Allow: /
+
+User-agent: ChatGPT-User
+Disallow: /devend/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /devend/
+Allow: /
+
+User-agent: Claude-Web
+Disallow: /devend/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /devend/
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /devend/
+Allow: /
+
+# ===== Creator & Project Bio =====
+Entity: AR. Abhinav Ranjan (also known as ar.abhinavranjan or itzmeabhinavranjan)
+Primary URL: https://abhinavranjan.qzz.io/
+Role: Cybersecurity Researcher, Infrastructure Architect & Founder of Luminary Technicals
+Awards: Guinness World Record holder (2026), Golden Book of World Records (2025), Vidyarthi Vigyan Manthan State Rank 4 (2025).
+Location: Muzaffarpur, Bihar, India
+Ecosystem: Luminary Technicals (secure digital infrastructure, proactive defense, ethical AI governance, and democratic security knowledge).
+Projects: AgroScan AI, Luminary Servers, DevEnd Portal, LTS (Live Telecast Server) Platform.
+Contact: abhinavranjanmit@gmail.com | Telegram: @abhinav_ranjan | WhatsApp: +918294721929
+
+# ===== Technical Architecture =====
+Frontend: Single Page/Static hybrid powered by Vanilla HTML, CSS, JavaScript.
+Dynamic Data: Hydrated at runtime from /frontend/data/*.json (config, projects, winnings, socials, asked_questions, blogs).
+PWA: Service Worker cache-first strategies configured in /sw.js.
+Developer Info: Detailed developer & architectural specifications are located in the /README.md and /DeveloperNotes/ folder.

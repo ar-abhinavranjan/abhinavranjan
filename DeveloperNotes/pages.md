@@ -41,7 +41,7 @@ This document provides a summary of every public-facing HTML page in the Abhinav
 ---
 
 ## ✍️ Content & Stories
-### 7. `blog-index.html` (Article Hub)
+### 7. `index.html` (Article Hub)
 - **Purpose:** Central repository for tech stories and insights.
 - **Key Section:** Searchable blog grid with category filtering (Technology, Innovation, Business).
 - **Feature:** Includes a dedicated link to Abhinav's Blogger profile and automated excerpt rendering.
@@ -82,5 +82,5 @@ This document provides a summary of every public-facing HTML page in the Abhinav
 | `projects.html` | `script_v105.js` | `projects_page.json` |
 | `biography.html` | `script_v105.js`, `biography_library.js` | `biography_page.json`, `lts_podcasts.json` |
 | `asked-questions` | `script_v105.js` | `asked_questions_page.json` |
-| `blog-index.html` | `blog_library.js` | `blogs.json` |
+| `index.html` | `blog_library.js` | `blogs.json` |
 | `post.html` | `blog_library.js` | `blogs.json` & HTML content snippets |

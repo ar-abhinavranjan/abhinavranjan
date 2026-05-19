@@ -39,7 +39,8 @@ abhinavranjan/
 │   │   ├── script_v105.js              # Main JS engine (data loading, rendering, interactions)
 │   │   ├── popup_index.js              # Popup/announcement modal renderer
 │   │   ├── biography_library.js        # Books library side panel (biography page only)
-│   │   ├── script.js                   # Legacy/unused JS (superseded by script_v105.js)
+│   │   ├── blog_library.js             # Blog engine and post renderer (blog index/post page)
+│   │   ├── contact_handler.js          # Handles multi-channel form submission redirects
 │   │   └── time_sync.js                # Online time sync via WorldTimeAPI (LTS platform)
 │   │
 │   ├── data/
@@ -170,6 +171,4 @@ Special schema on:
 |---|---|---|
 | Projects/Socials/Winnings are JS-rendered | Search bots may miss content | Pre-render or use SSG |
 | `popup_index.json` loads external images from Freepik/mbagate | May fail (403), CORS | Host images locally |
-| `script.js` (legacy) still in `/frontend/logic/` | Codebase clutter | Delete if unused |
 | Music popup references audio file path (check if audio hosted) | Broken audio | Verify audio path |
-| SW caches `popup_index.json` — not in cache list | Popup offline unavailable | Add to ASSETS_TO_CACHE |

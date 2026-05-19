@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('script.js v1.1.0 loaded');
+    console.log('script_v105.js v1.1.0 loaded');
 
     // Global Image Protection - Prevent Right Click
     document.addEventListener('contextmenu', (e) => {
@@ -114,14 +114,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 injectSchema({ '@context': 'https://schema.org', '@type': 'WebSite', 'name': 'AR. Abhinav Ranjan', 'url': data.meta.site_url, 'description': data.meta.description }, 'schemaWebSite');
             }
             if (isProjects && data.projects) {
-                injectSchema({ '@context': 'https://schema.org', '@type': 'ItemList', 'name': 'Projects by Abhinav Ranjan',
-                    'itemListElement': data.projects.map((p,i) => ({ '@type': 'ListItem', 'position': i+1, 'name': p.name, 'description': p.description, 'url': p.url !== '#' ? p.url : data.meta.site_url }))
+                injectSchema({
+                    '@context': 'https://schema.org',
+                    '@type': 'CollectionPage',
+                    'name': 'Projects Directory | Abhinav Ranjan',
+                    'description': 'Comprehensive directory of cybersecurity tools, software applications, and network infrastructure built by Abhinav Ranjan.',
+                    'url': data.meta.site_url + '/frontend/html/projects.html',
+                    'about': personBase,
+                    'mainEntity': {
+                        '@type': 'ItemList',
+                        'name': 'Projects by Abhinav Ranjan',
+                        'itemListElement': data.projects.map((p,i) => ({ '@type': 'ListItem', 'position': i+1, 'name': p.name, 'description': p.description, 'url': p.url !== '#' ? p.url : data.meta.site_url }))
+                    }
                 }, 'schemaProjectsList');
                 injectSchema(personBase, 'schemaPersonProjects');
             }
             if (isWinnings && data.winnings) {
-                injectSchema({ '@context': 'https://schema.org', '@type': 'ItemList', 'name': 'Achievements and Awards of Abhinav Ranjan',
-                    'itemListElement': data.winnings.map((w,i) => ({ '@type': 'ListItem', 'position': i+1, 'name': w.title, 'description': w.description }))
+                injectSchema({
+                    '@context': 'https://schema.org',
+                    '@type': 'CollectionPage',
+                    'name': 'Achievements & Winnings | Abhinav Ranjan',
+                    'description': 'Official record of awards, recognitions, and records achieved by Abhinav Ranjan, including Guinness World Records.',
+                    'url': data.meta.site_url + '/frontend/html/winnings.html',
+                    'about': personBase,
+                    'mainEntity': {
+                        '@type': 'ItemList',
+                        'name': 'Achievements and Awards of Abhinav Ranjan',
+                        'itemListElement': data.winnings.map((w,i) => ({ '@type': 'ListItem', 'position': i+1, 'name': w.title, 'description': w.description }))
+                    }
                 }, 'schemaWinningsList');
                 injectSchema(personBase, 'schemaPersonWinnings');
             }
@@ -133,8 +153,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     'mainEntity': { '@type': 'Person', 'name': personBase.name || 'Abhinav Ranjan', 'email': data.contact.email, 'url': data.meta.site_url }
                 }, 'schemaContact');
             }
-            if (isSocials && personBase.name) {
-                injectSchema({ '@context': 'https://schema.org', '@type': 'ProfilePage', 'name': 'Social Media Handles of Abhinav Ranjan', 'url': data.meta.site_url + '/frontend/html/socials.html', 'mainEntity': personBase }, 'schemaSocials');
+            if (isSocials && personBase.name && data.socials) {
+                injectSchema({
+                    '@context': 'https://schema.org',
+                    '@type': 'CollectionPage',
+                    'name': 'Official Social Media Profiles | Abhinav Ranjan',
+                    'description': 'Directory of all verified social media handles and communication channels for Abhinav Ranjan.',
+                    'url': data.meta.site_url + '/frontend/html/socials.html',
+                    'about': personBase,
+                    'mainEntity': {
+                        '@type': 'ItemList',
+                        'name': 'Social Media Handles of Abhinav Ranjan',
+                        'itemListElement': data.socials.map((s,i) => ({ '@type': 'ListItem', 'position': i+1, 'name': s.platform, 'url': s.url }))
+                    }
+                }, 'schemaSocials');
+                injectSchema(personBase, 'schemaPersonSocials');
             }
 
             /* 5. Static prerender for bots (visually hidden divs) */
@@ -177,9 +210,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     const card = document.createElement('div');
                     card.className = `card winning-card fade-in-up delay-${200+i*100}`;
                     card.style.cursor = 'pointer';
-                    card.addEventListener('click', () => {
+                    card.tabIndex = 0;
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('aria-haspopup', 'dialog');
+                    card.setAttribute('aria-label', `View details for ${win.title}`);
+                    const openModal = () => {
                         const modal = document.getElementById('winningsModal');
-                        if (modal) { document.getElementById('modalImageContainer').innerHTML = img; document.getElementById('modalTitle').innerText = win.title; document.getElementById('modalDescription').innerText = win.description; modal.classList.add('active'); }
+                        if (modal) {
+                            document.getElementById('modalImageContainer').innerHTML = img;
+                            document.getElementById('modalTitle').innerText = win.title;
+                            document.getElementById('modalDescription').innerText = win.description;
+                            modal.classList.add('active');
+                            setTimeout(() => {
+                                const closeBtn = document.getElementById('closeModalBtn');
+                                if (closeBtn) closeBtn.focus();
+                            }, 50);
+                        }
+                    };
+                    card.addEventListener('click', openModal);
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            openModal();
+                        }
                     });
                     card.innerHTML = `<div class="winning-image">${img}</div><div class="winning-content"><h3>${win.title}</h3><p>${win.description.substring(0,60)}...</p><div class="tags"><span class="tag">${win.date||'Award'}</span></div></div>`;
                     winningsGrid.appendChild(card);
@@ -261,7 +314,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             /* 12. Winnings modal close */
             const closeBtn = document.getElementById('closeModalBtn'); const winModal = document.getElementById('winningsModal');
-            if (closeBtn && winModal) { closeBtn.addEventListener('click', () => winModal.classList.remove('active')); window.addEventListener('click', e => { if (e.target === winModal) winModal.classList.remove('active'); }); }
+            if (closeBtn && winModal) {
+                const closeModal = () => winModal.classList.remove('active');
+                closeBtn.addEventListener('click', closeModal);
+                window.addEventListener('click', e => { if (e.target === winModal) closeModal(); });
+                window.addEventListener('keydown', e => { if (e.key === 'Escape' && winModal.classList.contains('active')) closeModal(); });
+            }
 
             /* Hide loader */
             setTimeout(() => { const l = document.getElementById('loader-wrapper'); if (l) { l.classList.add('fade-out'); setTimeout(() => l.remove(), 600); } }, 500);
