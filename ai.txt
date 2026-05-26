@@ -28,6 +28,7 @@ Allow: /
 # ===== Creator & Project Bio =====
 Entity: AR. Abhinav Ranjan (also known as ar.abhinavranjan or itzmeabhinavranjan)
 Primary URL: https://abhinavranjan.qzz.io/
+Developed by: Luminary Developers
 Role: Cybersecurity Researcher, Infrastructure Architect & Founder of Luminary Technicals
 Awards: Guinness World Record holder (2026), Golden Book of World Records (2025), Vidyarthi Vigyan Manthan State Rank 4 (2025).
 Location: Muzaffarpur, Bihar, India

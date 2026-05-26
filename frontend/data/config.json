@@ -34,7 +34,7 @@
   "contact": {
     "email": "abhinavranjanmit@gmail.com",
     "email_mailto": "mailto:abhinavranjanmit@gmail.com",
-    "whatsapp_number": "8294721929",
+    "whatsapp_number": "918294721929",
     "whatsapp_url": "https://wa.me/918294721929",
     "telegram_username": "abhinav_ranjan",
     "telegram_url": "https://t.me/abhinav_ranjan",
@@ -81,7 +81,7 @@
     "person": {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "AR. Abhinav Ranjan",
+      "name": "AR. Abhinav Ranjan & Luminary Developers",
       "alternateName": "ar.abhinavranjan",
       "url": "https://abhinavranjan.qzz.io/",
       "image": "https://abhinavranjan.qzz.io/images/profile.png",
@@ -118,7 +118,7 @@
     }
   },
   "footer": {
-    "copyright_name": "AR. Abhinav Ranjan",
+    "copyright_name": "AR. Abhinav Ranjan & Luminary Developers",
     "year": "2026",
     "links": [
       {
@@ -134,5 +134,6 @@
         "url": "/frontend/html/moredetails/glossary.html"
       }
     ]
-  }
+  },
+  "data_save_method": "netlify_functions"
 }

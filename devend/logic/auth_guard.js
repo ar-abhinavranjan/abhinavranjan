@@ -3,22 +3,23 @@
  * Prevents unauthorized access to administrative pages.
  */
 (function() {
-    const token = sessionStorage.getItem('dev_access_token');
-    
+(function() {
+    // Retrieve auth token from cookies (non-HttpOnly)
+    const getCookie = name => {
+        const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+        return match ? decodeURIComponent(match[1]) : null;
+    };
+    const token = getCookie('dev_access_token');
     if (!token) {
         console.warn('Unauthorized access attempt. Redirecting to login...');
         window.location.href = '../login.html';
         return;
     }
-
-    // Optional: Validate token format or expiry (very basic check)
-    try {
-        const decoded = atob(token);
-        if (!decoded.includes(':')) {
-            throw new Error('Invalid token');
-        }
-    } catch (e) {
-        sessionStorage.removeItem('dev_access_token');
+    // Optional: simple validation of token format (uid:timestamp)
+    if (!/^[^:]+:\d+$/.test(token)) {
+        console.warn('Invalid token format. Redirecting to login...');
         window.location.href = '../login.html';
+        return;
     }
+})();
 })();

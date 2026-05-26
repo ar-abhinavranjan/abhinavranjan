@@ -14,16 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const dataFile = isFAQ ? 'faq_contact.json' : 'contact_page.json';
 
     let contactConfig = {
-        whatsapp_number: '8294721929',
+        whatsapp_number: '918294721929',
         email: 'abhinavranjanmit@gmail.com',
         telegram_username: 'abhinav_ranjan',
         google_script_url: 'YOUR_GOOGLE_SCRIPT_URL_HERE',
-        routing_department: 'General Inquiry'
+        routing_department: 'General Inquiry',
+        data_save_method: 'netlify_functions'
     };
 
     // Attempt to preload specific route config
-    fetch(`../data/${dataFile}`)
-        .then(r => r.json())
+    fetch(`/frontend/data/${dataFile}`)
+        .then(r => {
+            if (!r.ok) throw new Error(`HTTP error! status: ${r.status}`);
+            return r.json();
+        })
         .then(data => { contactConfig = { ...contactConfig, ...data }; })
         .catch(err => console.warn('Could not load specific contact config, using defaults.', err));
 
@@ -91,6 +95,42 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = getFormData();
         if (!formData.name || !formData.message) { showToast('Fill Name and Message'); return; }
         
+        // If data_save_method is netlify_functions, send it to the serverless saveContact endpoint
+        if (contactConfig.data_save_method === 'netlify_functions') {
+            const originalText = webBtn.innerHTML;
+            webBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            webBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/saveContact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                if (result.result === 'success') {
+                    showToast('Message sent successfully!');
+                    document.getElementById('contactForm')?.reset();
+                } else {
+                    throw new Error(result.error || 'Server error');
+                }
+            } catch (error) {
+                console.error('Transmission failed:', error);
+                showToast('Network error while sending. Try WhatsApp.');
+            } finally {
+                webBtn.innerHTML = originalText;
+                webBtn.disabled = false;
+            }
+            return;
+        }
+
         const url = contactConfig.google_script_url;
         if (!url || url === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
             showToast('Form not connected yet. Try WhatsApp or Email.');

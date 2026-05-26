@@ -8,7 +8,7 @@
 
 ## 🧑‍💻 About the Project
 
-This is the official personal portfolio of **Abhinav Ranjan** — a young cybersecurity educator, ethical hacking teacher, and founder of **Luminary Technicals** from Muzaffarpur, Bihar, India, recognized by Guinness World Records and the Golden Book of World Records.
+This is the official personal portfolio of **Abhinav Ranjan** — a young cybersecurity educator, ethical hacking teacher, and founder of **Luminary Technicals** from Muzaffarpur, Bihar, India, recognized by Guinness World Records and the Golden Book of World Records. Developed by **Luminary Developers**.
 
 The site is a **data-driven, multi-page static portfolio** with no build step — all content is loaded dynamically from JSON files at runtime. It supports offline access via a Service Worker (PWA), has a custom popup announcement system, fully featured FAQ and biography modules, and a modern glossary. It features state-of-the-art Search, Answer, and Generative Engine Optimizations (SEO/AEO/GEO) including robust JSON-LD structured schemas (`Person`, `WebSite`, `FAQPage`, `PodcastSeries`, `ContactPage`, `SoftwareApplication`, and `CollectionPage`) for maximum visibility on Perplexity, Gemini, ChatGPT, and Google.
 

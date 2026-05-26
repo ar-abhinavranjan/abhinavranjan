@@ -291,7 +291,7 @@
 
     <!-- Logic System -->
     <script src="/devend/logic/dev_core.js"></script>
-    <script src="/devend/private/keys/login.js"></script>
+
 
     <script>
         let currentCaptcha = 0;
@@ -319,39 +319,40 @@
 
             if (parseInt(captcha) !== currentCaptcha) {
                 status.style.color = '#f87171';
-                status.innerText = '>> ERROR: PROTOCOL_MISMATCH';
+                status.innerText = '> > ERROR: PROTOCOL_MISMATCH';
                 refreshCaptcha();
                 return;
             }
 
             status.style.color = 'var(--primary)';
-            status.innerText = '>> AUTHORIZING PROTOCOL...';
+            status.innerText = '> > AUTHORIZING PROTOCOL...';
 
             try {
-                const uidHash = await sha256(uid);
-                const passHash = await sha256(pass);
-
-                if (uidHash === DEV_CREDENTIALS.uidHash && passHash === DEV_CREDENTIALS.passHash) {
+                const response = await fetch('/api/authLogin', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({uid, password: pass})
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                const result = await response.json();
+                if (result.success) {
                     status.style.color = '#4ade80';
-                    status.innerText = '>> SUCCESS: ACCESS_GRANTED';
+                    status.innerText = '> > SUCCESS: ACCESS_GRANTED';
                     btn.style.opacity = '0.5';
                     btn.disabled = true;
-
-                    sessionStorage.setItem('dev_access_token', btoa(uid + ':' + Date.now()));
-                    sessionStorage.setItem('dev_access_time', Date.now().toString());
-
-                    setTimeout(() => {
-                        window.location.href = '/devend/private/dashboard.html';
-                    }, 1000);
+                    setTimeout(() => { window.location.href = '/devend/private/dashboard.html'; }, 1000);
                 } else {
                     status.style.color = '#f87171';
-                    status.innerText = '>> FAIL: CREDENTIAL_REJECTED';
+                    status.innerText = '> > FAIL: ' + (result.error || 'CREDENTIAL_REJECTED');
                     refreshCaptcha();
                 }
             } catch (err) {
-                console.error('Crypto error:', err);
+                console.error('Auth error:', err);
                 status.style.color = '#f87171';
-                status.innerText = '>> ERROR: CRYPTO_FAULT';
+                status.innerText = '> > ERROR: AUTH_FAILURE';
+                refreshCaptcha();
             }
         });
 

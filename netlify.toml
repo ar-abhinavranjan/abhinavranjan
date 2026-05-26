@@ -1,0 +1,17 @@
+# netlify.toml — Netlify configuration for abhinavranjan portfolio
+
+[build]
+  # Root of the published static site
+  publish = "."
+  # Location of serverless functions
+  functions = "netlify/functions"
+
+# Route /api/* → /.netlify/functions/* so the client can call /api/saveContact
+[[redirects]]
+  from   = "/api/*"
+  to     = "/.netlify/functions/:splat"
+  status = 200
+  force  = true
+
+# Prevent the catch-all 404 in _redirects from swallowing API calls
+# (Netlify evaluates netlify.toml redirects before _redirects)

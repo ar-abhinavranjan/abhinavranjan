@@ -77,8 +77,8 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     const { request } = event;
 
-    // Skip non-GET requests
-    if (request.method !== 'GET') {
+    // Skip non-GET requests and API requests
+    if (request.method !== 'GET' || request.url.includes('/api/')) {
         return;
     }
 
