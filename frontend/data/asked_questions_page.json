@@ -2,6 +2,7 @@
     "image_url": "images/profile.png",
     "about_text": "Welcome to the official FAQ section of Abhinav Ranjan. Here you can find answers to common questions about his background, cybersecurity expertise, technology projects, and the Luminary Technicals ecosystem. This section helps visitors, collaborators, and organizations understand his work in ethical hacking, web development, and digital innovation.",
     "faqs": [
+
         {
             "question": "Who is Abhinav Ranjan?",
             "answer": "Abhinav Ranjan is a young technology enthusiast, cybersecurity learner, and ethical hacking educator from Muzaffarpur, Bihar, India. He is known for his early involvement in cybersecurity awareness, coding education, and building digital infrastructure projects."
@@ -69,6 +70,111 @@
         {
             "question": "Why is Abhinav Ranjan known online?",
             "answer": "Abhinav Ranjan is known online for his cybersecurity learning journey, ethical hacking interests, coding initiatives, and for building the Luminary Technicals ecosystem at a young age."
+        },
+
+        {
+            "question": "What programming languages does Abhinav Ranjan know?",
+            "answer": "He knows Python, JavaScript, HTML, and CSS for development and cybersecurity learning."
+        },
+        {
+            "question": "Is Abhinav Ranjan self-taught?",
+            "answer": "Yes, he is primarily a self-taught learner who gained skills through online resources and practical experimentation."
+        },
+        {
+            "question": "What is ethical hacking?",
+            "answer": "Ethical hacking is the legal practice of testing systems to find and fix security vulnerabilities."
+        },
+        {
+            "question": "What is penetration testing?",
+            "answer": "Penetration testing is simulating cyber attacks to identify system weaknesses."
+        },
+        {
+            "question": "What is digital forensics?",
+            "answer": "Digital forensics is the process of investigating cyber incidents and recovering digital evidence."
+        },
+        {
+            "question": "What is malware analysis?",
+            "answer": "Malware analysis is studying malicious software to understand how it works and how to prevent it."
+        },
+        {
+            "question": "What is network security?",
+            "answer": "Network security involves protecting computer networks from unauthorized access and cyber attacks."
+        },
+        {
+            "question": "What is cybersecurity awareness?",
+            "answer": "Cybersecurity awareness is educating users about safe online practices and threat prevention."
+        },
+        {
+            "question": "What tools does he use?",
+            "answer": "He uses development tools, security frameworks, automation scripts, and testing environments."
+        },
+        {
+            "question": "What is his daily routine?",
+            "answer": "His routine includes learning, coding practice, experimenting with systems, and building projects."
+        },
+        {
+            "question": "When did he start coding?",
+            "answer": "He started coding at a young age through curiosity and online learning platforms."
+        },
+        {
+            "question": "What inspired Abhinav Ranjan?",
+            "answer": "He was inspired by technology, cybersecurity experts, and innovation in digital systems."
+        },
+        {
+            "question": "What are his goals for India?",
+            "answer": "His goal is to improve cybersecurity awareness and digital education in India."
+        },
+        {
+            "question": "What is his biggest project?",
+            "answer": "Luminary Technicals ecosystem is his most important ongoing project."
+        },
+        {
+            "question": "What is Luminary Servers?",
+            "answer": "Luminary Servers is a hosting and infrastructure division under Luminary Technicals."
+        },
+        {
+            "question": "What is Luminary Webs?",
+            "answer": "Luminary Webs is a web development and digital solutions initiative under Luminary Technicals."
+        },
+        {
+            "question": "Does he work on AI?",
+            "answer": "Yes, he explores AI systems, automation, and cybersecurity integration."
+        },
+        {
+            "question": "What is his interest in cyber law?",
+            "answer": "He is interested in combining cybersecurity with legal systems and digital justice."
+        },
+        {
+            "question": "What is his learning style?",
+            "answer": "He learns through practical experimentation and project-based learning."
+        },
+        {
+            "question": "What is his long-term vision?",
+            "answer": "His long-term vision is to build secure digital infrastructure and education systems."
+        },
+        {
+            "question": "How is he different from others?",
+            "answer": "He combines cybersecurity learning with real-world project building at a young age."
+        },
+        {
+            "question": "What is his contribution to cybersecurity?",
+            "answer": "He contributes through awareness, learning content, and project development."
+        },
+        {
+            "question": "Is he active in tech communities?",
+            "answer": "Yes, he actively engages in technology learning and collaboration."
+        },
+        {
+            "question": "What is his dream career?",
+            "answer": "His dream is to become a cybersecurity expert and technology innovator."
+        },
+        {
+            "question": "What motivates him daily?",
+            "answer": "Curiosity, innovation, and solving real-world technology problems."
+        },
+        {
+            "question": "What is his message to beginners?",
+            "answer": "Start learning consistently, practice daily, and build real projects."
         }
     ]
 }
