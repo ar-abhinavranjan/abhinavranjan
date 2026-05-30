@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LTS — Live Telecast Server | Abhinav Ranjan</title>
-    <meta name="description" content="Join live podcast sessions by Abhinav Ranjan on the Live Telecast Server.">
-    <link rel="apple-touch-icon" href="../../images/arlogo.png">
-    <meta name="theme-color" content="#6366f1">
-    <link rel="manifest" href="../../manifest.json">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LTS — Live Telecast Server | Abhinav Ranjan</title>
+<meta content="Join live podcast sessions by Abhinav Ranjan on the Live Telecast Server." name="description"/>
+<link href="../../images/arlogo.png" rel="apple-touch-icon"/>
+<meta content="#6366f1" name="theme-color"/>
+<link href="../../manifest.json" rel="manifest"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
         :root {
             --lts-primary: #6366f1;
             --lts-accent: #8b5cf6;
@@ -405,52 +405,47 @@
         }
     </style>
 </head>
-
 <body>
-    <div id="loader-wrapper">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <div class="loader-text">Loading Excellence...</div>
-        </div>
-    </div>
-    <nav class="lts-nav">
-        <a href="lts-index.html" class="lts-logo">
-            <span class="lts-logo-badge">LTS</span>
-            <span class="lts-logo-text">Live Telecast Server</span>
+<div id="loader-wrapper">
+<div class="loader-content">
+<div class="loader-spinner"></div>
+<div class="loader-text">Loading Excellence...</div>
+</div>
+</div>
+<nav class="lts-nav">
+<a class="lts-logo" href="lts-index.html">
+<span class="lts-logo-badge">LTS</span>
+<span class="lts-logo-text">Live Telecast Server</span>
+</a>
+<a class="lts-nav-back" href="../../index.html">
+<i class="fas fa-arrow-left"></i> Main Site
         </a>
-        <a href="../../index.html" class="lts-nav-back">
-            <i class="fas fa-arrow-left"></i> Main Site
-        </a>
-    </nav>
-
-    <div class="lts-hero">
-        <div class="lts-live-dot">Live Podcast Platform</div>
-        <h1>Live Telecast Server</h1>
-        <p>Join live podcast sessions, Q&A rooms, and exclusive discussions hosted by Abhinav Ranjan.</p>
-    </div>
-
-    <main class="lts-main">
-        <div id="lts-live-section">
-            <div class="lts-section-label">🔴 Live Now</div>
-            <div class="lts-grid" id="lts-live-grid"></div>
-        </div>
-        <div id="lts-upcoming-section">
-            <div class="lts-section-label">🕒 Upcoming</div>
-            <div class="lts-grid" id="lts-upcoming-grid"></div>
-        </div>
-        <div id="lts-ended-section">
-            <div class="lts-section-label">📁 Past Sessions</div>
-            <div class="lts-grid" id="lts-ended-grid"></div>
-        </div>
-    </main>
-
-    <footer class="lts-footer">
+</nav>
+<div class="lts-hero">
+<div class="lts-live-dot">Live Podcast Platform</div>
+<h1>Live Telecast Server</h1>
+<p>Join live podcast sessions, Q&amp;A rooms, and exclusive discussions hosted by Abhinav Ranjan.</p>
+</div>
+<main class="lts-main">
+<div id="lts-live-section">
+<div class="lts-section-label">🔴 Live Now</div>
+<div class="lts-grid" id="lts-live-grid"></div>
+</div>
+<div id="lts-upcoming-section">
+<div class="lts-section-label">🕒 Upcoming</div>
+<div class="lts-grid" id="lts-upcoming-grid"></div>
+</div>
+<div id="lts-ended-section">
+<div class="lts-section-label">📁 Past Sessions</div>
+<div class="lts-grid" id="lts-ended-grid"></div>
+</div>
+</main>
+<footer class="lts-footer">
         © 2026 Live Telecast Server · Abhinav Ranjan · LTS Platform
-    </footer>
-
-    <script src="../logic/time_sync.js"></script>
-    <script src="lts-podcasts.js"></script>
-    <script>
+    <a class_="nav-link" href="/frontend/html/glossary.html" style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted);">Glossary</a></footer>
+<script src="../logic/time_sync.js"></script>
+<script src="lts-podcasts.js"></script>
+<script>
         function buildCard(podcast) {
             const isEnded = podcast.status === 'ended';
             const isLive = podcast.status === 'live';
@@ -542,5 +537,4 @@
         });
     </script>
 </body>
-
 </html>
