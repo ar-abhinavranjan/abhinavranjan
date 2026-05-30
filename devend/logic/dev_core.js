@@ -92,7 +92,7 @@ class ARPortalEngine {
         else if (path.includes('guest-zone.html')) suffix = "Guest Learner";
         else if (path.includes('readme_viewer.html')) suffix = "System Explorer";
 
-        document.title = `${this.config.meta.site_name || 'DEV.AR'} | ${suffix}`;
+        document.title = `${this.config.meta.site_name || 'DEV. AR'} | ${suffix}`;
 
         // Favicons (Universal Injection)
         const faviconUrl = '/images/arlogo.png';
@@ -120,7 +120,7 @@ class ARPortalEngine {
                 <div class="nav-container">
                     <a href="/index.html" class="nav-brand">
                         <img src="${logoPath}" alt="Logo">
-                        <span id="dynamic-brand-text">AR.TECH<span class="mono" style="color: var(--primary); font-size: 0.8rem; margin-left: 2px;">|</span></span>
+                        <span id="dynamic-brand-text">AR. Tech<span class="mono" style="color: var(--primary); font-size: 0.8rem; margin-left: 2px;">|</span></span>
                     </a>
                     <ul class="nav-links">
                         <li><a href="/index.html" class="nav-link">Exit Portal</a></li>

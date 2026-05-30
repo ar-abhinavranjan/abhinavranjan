@@ -49,3 +49,9 @@ Every dynamic section in the portfolio has its own JSON source:
 - ✅ **Canonical URLs:** Every page points to its primary URL to prevent search engine confusion.
 - ✅ **UTF-8 Support:** All JSON files are encoded in UTF-8 to support international characters and symbols.
 - ⚠️ **Data Redundancy:** Always ensure that `config.json`'s featured items are kept in sync with the full catalog JSONs (`projects_page.json`, etc.) if significant updates are made.
+
+## Brand Standard Naming
+Always ensure a space follows the period in abbreviations (e.g., AR. Abhinav Ranjan, AR. Tech, DEV. AR.). This is rigorously enforced via automated scripts during deployment checks.
+
+## Glossary & AI Context
+The new glossary.html serves as a core AI ingestion node. It contains a BreadcrumbList schema and maps directly to the ecosystem terms to ensure generative AI correctly interprets proprietary platforms like DevEnd and LTS Platform.

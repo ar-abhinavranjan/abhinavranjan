@@ -5,12 +5,12 @@
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4VR4XZ987L"></script>
 <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
 
-      gtag('config', 'G-4VR4XZ987L');
-    </script>
+   gtag('config', 'G-4VR4XZ987L');
+  </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Gallery | AR. Abhinav Ranjan Authority Archive</title>
@@ -19,267 +19,267 @@
 <link href="https://abhinavranjan.qzz.io/" rel="canonical"/>
 <!-- JSON-LD: ImageGallery Schema -->
 <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ImageGallery",
-      "@id": "https://abhinavranjan.qzz.io/frontend/gallery/index.html",
-      "name": "Authority Archive Gallery | Abhinav Ranjan",
-      "description": "Official event and achievement gallery of AR. Abhinav Ranjan. Chronicles of global recognition, world records, and technical milestones.",
-      "url": "https://abhinavranjan.qzz.io/frontend/gallery/index.html",
-      "creator": {
-        "@type": "Person",
-        "name": "AR. Abhinav Ranjan & Luminary Developers",
-        "url": "https://abhinavranjan.qzz.io/"
-      }
-    }
-    </script>
+  {
+   "@context": "https://schema.org",
+   "@type": "ImageGallery",
+   "@id": "https://abhinavranjan.qzz.io/frontend/gallery/index.html",
+   "name": "Authority Archive Gallery | Abhinav Ranjan",
+   "description": "Official event and achievement gallery of AR. Abhinav Ranjan. Chronicles of global recognition, world records, and technical milestones.",
+   "url": "https://abhinavranjan.qzz.io/frontend/gallery/index.html",
+   "creator": {
+    "@type": "Person",
+    "name": "AR. Abhinav Ranjan & Luminary Developers",
+    "url": "https://abhinavranjan.qzz.io/"
+   }
+  }
+  </script>
 <!-- Root-Relative Resources -->
 <link href="/frontend/css/styles.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <style>
-        :root {
-            --primary: #6366f1;
-            --accent: #8b5cf6;
-            --bg: #050505;
-            --card-bg: rgba(20, 20, 25, 0.7);
-            --border: rgba(255, 255, 255, 0.08);
-        }
+    :root {
+      --primary: #6366f1;
+      --accent: #8b5cf6;
+      --bg: #050505;
+      --card-bg: rgba(20, 20, 25, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+    }
 
-        body {
-            background-color: var(--bg);
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
-            background-attachment: fixed;
-        }
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
 
-        .gallery-hero {
-            padding: 10rem 0 5rem;
-            text-align: center;
-        }
+    .gallery-hero {
+      padding: 10rem 0 5rem;
+      text-align: center;
+    }
 
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1.2rem;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 50px;
-            color: var(--primary);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-        }
+    .hero-badge {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 50px;
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 2.5rem;
-            padding-bottom: 8rem;
-        }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2.5rem;
+      padding-bottom: 8rem;
+    }
 
-        .achievement-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
+    .achievement-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
 
-        .achievement-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.2);
-        }
+    .achievement-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.2);
+    }
 
-        .card-img-wrapper {
-            position: relative;
-            height: 260px;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .card-img-wrapper {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .card-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.6s ease;
-        }
+    .card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.6s ease;
+    }
 
-        .achievement-card:hover .card-img-wrapper img {
-            transform: scale(1.1);
-        }
+    .achievement-card:hover .card-img-wrapper img {
+      transform: scale(1.1);
+    }
 
-        .card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(5, 5, 5, 0.9), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5, 5, 5, 0.9), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
-        .achievement-card:hover .card-overlay {
-            opacity: 1;
-        }
+    .achievement-card:hover .card-overlay {
+      opacity: 1;
+    }
 
-        .card-body {
-            padding: 2rem;
-        }
+    .card-body {
+      padding: 2rem;
+    }
 
-        .event-date {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 0.8rem;
-            display: block;
-        }
+    .event-date {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
 
-        .card-body h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
+    .card-body h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
 
-        .card-body p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
+    .card-body p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
 
-        /* Nav List Bullet Fix */
-        .nav-list {
-            list-style: none !important;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 2rem;
-        }
-        .nav-list li {
-            list-style-type: none !important;
-        }
+    /* Nav List Bullet Fix */
+    .nav-list {
+      list-style: none !important;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-list li {
+      list-style-type: none !important;
+    }
 
-        /* Lightbox Popup */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
+    /* Lightbox Popup */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
 
-        .lightbox.active {
-            opacity: 1;
-            pointer-events: all;
-        }
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
 
-        .lightbox img {
-            max-width: 90vw;
-            max-height: 90vh;
-            border-radius: 8px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.8);
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.8);
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
 
-        .lightbox.active img {
-            transform: scale(1);
-        }
+    .lightbox.active img {
+      transform: scale(1);
+    }
 
-        .lightbox-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 2rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            transition: color 0.3s;
-            padding: 1rem;
-        }
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.3s;
+      padding: 1rem;
+    }
 
-        .lightbox-close:hover {
-            color: var(--primary);
-        }
+    .lightbox-close:hover {
+      color: var(--primary);
+    }
 
-        /* Carousel Styles */
-        .carousel-track {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.4s ease-in-out;
-        }
-        
-        .carousel-slide {
-            min-width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.6);
-            color: #fff;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 10;
-        }
-        
-        .card-img-wrapper:hover .carousel-nav {
-            opacity: 1;
-        }
-        
-        .carousel-nav:hover {
-            background: var(--primary);
-        }
-        
-        .carousel-prev { left: 10px; }
-        .carousel-next { right: 10px; }
+    /* Carousel Styles */
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease-in-out;
+    }
+    
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 10;
+    }
+    
+    .card-img-wrapper:hover .carousel-nav {
+      opacity: 1;
+    }
+    
+    .carousel-nav:hover {
+      background: var(--primary);
+    }
+    
+    .carousel-prev { left: 10px; }
+    .carousel-next { right: 10px; }
 
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            .gallery-hero {
-                padding-top: 8rem;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-hero {
+        padding-top: 8rem;
+      }
+    }
+  </style>
 </head>
 <body>
 <header class="header">
 <div class="container nav-container">
 <a aria-label="AR. Abhinav Ranjan Home" class="logo" href="/">
-                AR<span class="dot">.</span>
+        AR<span class="dot">.</span>
 </a>
 <nav class="nav">
 <ul class="nav-list">
@@ -307,7 +307,7 @@
 <div class="aeo-fact-box fade-in-up" style="max-width: 800px; margin: 3rem auto; background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.1); border-radius: 20px; padding: 2rem; border-left: 4px solid var(--primary); text-align: left;">
 <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
 <i class="fas fa-certificate"></i> Brand Credentials
-                </h3>
+        </h3>
 <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
 <li><strong style="display: block; color: var(--primary); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">Primary Entity</strong> AR. Abhinav Ranjan</li>
 <li><strong style="display: block; color: var(--primary); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">Recognition</strong> World Record Holder</li>
@@ -381,99 +381,99 @@
 </div>
 <script defer="" src="/frontend/logic/script_v105.js"></script>
 <script>
-        // Reveal animations on scroll
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+    // Reveal animations on scroll
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
 
-        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-        // Search Logic
-        const searchInput = document.getElementById('gallerySearch');
-        const noResults = document.getElementById('galleryNoResults');
-        const cards = document.querySelectorAll('.achievement-card');
+    // Search Logic
+    const searchInput = document.getElementById('gallerySearch');
+    const noResults = document.getElementById('galleryNoResults');
+    const cards = document.querySelectorAll('.achievement-card');
 
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase().trim();
-            let hasResults = false;
-            cards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                if (text.includes(term)) {
-                    card.style.display = 'block';
-                    hasResults = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            noResults.style.display = hasResults ? 'none' : 'block';
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      let hasResults = false;
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(term)) {
+          card.style.display = 'block';
+          hasResults = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      noResults.style.display = hasResults ? 'none' : 'block';
+    });
+
+    // Carousel Logic
+    document.querySelectorAll('.card-img-wrapper.carousel').forEach(wrapper => {
+      const track = wrapper.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const prev = wrapper.querySelector('.carousel-prev');
+      const next = wrapper.querySelector('.carousel-next');
+      let currentIndex = 0;
+
+      const updateCarousel = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      };
+
+      if (prev && next) {
+        prev.addEventListener('click', (e) => {
+          e.stopPropagation(); // prevent lightbox
+          currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+          updateCarousel();
         });
 
-        // Carousel Logic
-        document.querySelectorAll('.card-img-wrapper.carousel').forEach(wrapper => {
-            const track = wrapper.querySelector('.carousel-track');
-            const slides = Array.from(track.children);
-            const prev = wrapper.querySelector('.carousel-prev');
-            const next = wrapper.querySelector('.carousel-next');
-            let currentIndex = 0;
-
-            const updateCarousel = () => {
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            };
-
-            if (prev && next) {
-                prev.addEventListener('click', (e) => {
-                    e.stopPropagation(); // prevent lightbox
-                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
-                    updateCarousel();
-                });
-
-                next.addEventListener('click', (e) => {
-                    e.stopPropagation(); // prevent lightbox
-                    currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-                    updateCarousel();
-                });
-            }
+        next.addEventListener('click', (e) => {
+          e.stopPropagation(); // prevent lightbox
+          currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+          updateCarousel();
         });
+      }
+    });
 
-        // Lightbox Logic
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxClose = document.getElementById('lightboxClose');
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    
+    document.querySelectorAll('.card-img-wrapper').forEach(wrapper => {
+      wrapper.addEventListener('click', () => {
+        let img;
+        if (wrapper.classList.contains('carousel')) {
+          const track = wrapper.querySelector('.carousel-track');
+          const transformStr = track.style.transform || 'translateX(0%)';
+          const match = transformStr.match(/translateX\(-(\d+)%\)/);
+          const currentIndex = match ? parseInt(match[1]) / 100 : 0;
+          img = track.children[currentIndex];
+        } else {
+          img = wrapper.querySelector('img');
+        }
         
-        document.querySelectorAll('.card-img-wrapper').forEach(wrapper => {
-            wrapper.addEventListener('click', () => {
-                let img;
-                if (wrapper.classList.contains('carousel')) {
-                    const track = wrapper.querySelector('.carousel-track');
-                    const transformStr = track.style.transform || 'translateX(0%)';
-                    const match = transformStr.match(/translateX\(-(\d+)%\)/);
-                    const currentIndex = match ? parseInt(match[1]) / 100 : 0;
-                    img = track.children[currentIndex];
-                } else {
-                    img = wrapper.querySelector('img');
-                }
-                
-                if(img) {
-                    lightboxImg.src = img.src;
-                    lightbox.classList.add('active');
-                }
-            });
-        });
+        if(img) {
+          lightboxImg.src = img.src;
+          lightbox.classList.add('active');
+        }
+      });
+    });
 
-        const closeLightbox = () => lightbox.classList.remove('active');
-        
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
-        });
-    </script>
+    const closeLightbox = () => lightbox.classList.remove('active');
+    
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+  </script>
 </body>
 </html>

@@ -2,363 +2,363 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VR4XZ987L"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VR4XZ987L"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
 
-      gtag('config', 'G-4VR4XZ987L');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEV.LOGIN | Secure Gateway</title>
+   gtag('config', 'G-4VR4XZ987L');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEV. LOGIN | Secure Gateway</title>
 
-    <!-- Core Engine & Theme -->
-    <link rel="stylesheet" href="/frontend/css/styles.css">
-    <link rel="stylesheet" href="/devend/style/dev_theme.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Core Engine & Theme -->
+  <link rel="stylesheet" href="/frontend/css/styles.css">
+  <link rel="stylesheet" href="/devend/style/dev_theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary: #6366f1;
-            --bg: #08080a;
-            --surface: rgba(20, 20, 25, 0.7);
-            --border: rgba(255, 255, 255, 0.08);
-        }
+  <style>
+    :root {
+      --primary: #6366f1;
+      --bg: #08080a;
+      --surface: rgba(20, 20, 25, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+    }
 
-        body {
-            background: var(--bg);
-            margin: 0;
-            font-family: 'Outfit', sans-serif;
-            color: #fff;
-            display: flex;
-            align-items: flex-start; /* Changed from center to allow manual padding */
-            justify-content: center;
-            min-height: 100vh;
-            padding: 100px 20px 40px; /* Increased top padding to clear header */
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
+    body {
+      background: var(--bg);
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      color: #fff;
+      display: flex;
+      align-items: flex-start; /* Changed from center to allow manual padding */
+      justify-content: center;
+      min-height: 100vh;
+      padding: 100px 20px 40px; /* Increased top padding to clear header */
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
 
-        /* Subtle Background Depth */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, var(--bg) 60%);
-            z-index: -1;
-        }
+    /* Subtle Background Depth */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, var(--bg) 60%);
+      z-index: -1;
+    }
 
-        /* Minimal Login Card */
-        .login-card {
-            width: 100%;
-            max-width: 400px;
-            background: var(--surface);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
-            animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
+    /* Minimal Login Card */
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+      animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .brand-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+    .brand-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-        .brand-logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin: 0;
-        }
+    .brand-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin: 0;
+    }
 
-        .brand-logo span { color: var(--primary); }
+    .brand-logo span { color: var(--primary); }
 
-        .brand-tag {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.4);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-top: 0.5rem;
-        }
+    .brand-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
 
-        /* Input Styling */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+    /* Input Styling */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
 
-        .input-field {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 16px 20px;
-            color: #fff;
-            font-size: 0.95rem;
-            outline: none;
-            transition: all 0.3s;
-            box-sizing: border-box;
-        }
+    .input-field {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.3s;
+      box-sizing: border-box;
+    }
 
-        .input-field:focus {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-        }
+    .input-field:focus {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.05);
+    }
 
-        /* Minimalist Captcha */
-        .captcha-box {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
+    /* Minimalist Captcha */
+    .captcha-box {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
 
-        #captchaDisplay {
-            font-family: 'Fira Code', monospace;
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: 12px;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            user-select: none;
-            position: relative;
-            display: inline-block;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 5px,
-                rgba(255, 255, 255, 0.05) 5px,
-                rgba(255, 255, 255, 0.05) 10px
-            );
-            padding: 10px 20px;
-            border-radius: 8px;
-            transform: skewX(-5deg);
-            filter: blur(0.4px);
-        }
+    #captchaDisplay {
+      font-family: 'Fira Code', monospace;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 12px;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      user-select: none;
+      position: relative;
+      display: inline-block;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 5px,
+        rgba(255, 255, 255, 0.05) 5px,
+        rgba(255, 255, 255, 0.05) 10px
+      );
+      padding: 10px 20px;
+      border-radius: 8px;
+      transform: skewX(-5deg);
+      filter: blur(0.4px);
+    }
 
-        #captchaDisplay::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #fff;
-            transform: rotate(-5deg);
-            opacity: 0.5;
-            box-shadow: 0 0 10px var(--primary);
-        }
+    #captchaDisplay::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      transform: rotate(-5deg);
+      opacity: 0.5;
+      box-shadow: 0 0 10px var(--primary);
+    }
 
-        #captchaDisplay::before {
-            content: '';
-            position: absolute;
-            top: 40%;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--primary);
-            transform: rotate(3deg);
-            opacity: 0.3;
-        }
+    #captchaDisplay::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--primary);
+      transform: rotate(3deg);
+      opacity: 0.3;
+    }
 
-        .captcha-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid var(--border);
-            color: #fff;
-            text-align: center;
-            font-family: 'Fira Code', monospace;
-            padding: 8px;
-            outline: none;
-            font-size: 0.9rem;
-        }
+    .captcha-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      color: #fff;
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+      padding: 8px;
+      outline: none;
+      font-size: 0.9rem;
+    }
 
-        .captcha-input:focus { border-bottom-color: var(--primary); }
+    .captcha-input:focus { border-bottom-color: var(--primary); }
 
-        /* Login Button */
-        .btn-login {
-            width: 100%;
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            border-radius: 14px;
-            padding: 18px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
+    /* Login Button */
+    .btn-login {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 18px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
 
-        .btn-login:hover {
-            filter: brightness(1.1);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
-        }
+    .btn-login:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+    }
 
-        .status-msg {
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
-            text-align: center;
-            font-family: 'Fira Code', monospace;
-            min-height: 1.2rem;
-        }
+    .status-msg {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+      min-height: 1.2rem;
+    }
 
-        .footer-links {
-            margin-top: 2rem;
-            text-align: center;
-        }
+    .footer-links {
+      margin-top: 2rem;
+      text-align: center;
+    }
 
-        .footer-link {
-            color: rgba(255, 255, 255, 0.3);
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: color 0.3s;
-        }
+    .footer-link {
+      color: rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.3s;
+    }
 
-        .footer-link:hover { color: #fff; }
+    .footer-link:hover { color: #fff; }
 
-        /* Mobile Optimization */
-        @media (max-width: 480px) {
-            .login-card { padding: 2.5rem 1.5rem; }
-            .brand-logo { font-size: 1.5rem; }
-        }
-    </style>
+    /* Mobile Optimization */
+    @media (max-width: 480px) {
+      .login-card { padding: 2.5rem 1.5rem; }
+      .brand-logo { font-size: 1.5rem; }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="dev-nav">
-        <div class="nav-container">
-            <a href="/devend/index.html" class="nav-logo">
-                AR<span class="dot">.</span>
-            </a>
-            <a href="/devend/index.html" class="nav-link">
-                <i class="fas fa-sign-out-alt"></i> Exit
-            </a>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="dev-nav">
+    <div class="nav-container">
+      <a href="/devend/index.html" class="nav-logo">
+        AR<span class="dot">.</span>
+      </a>
+      <a href="/devend/index.html" class="nav-link">
+        <i class="fas fa-sign-out-alt"></i> Exit
+      </a>
+    </div>
+  </nav>
 
-    <div class="login-card">
-        <div class="brand-header">
-            <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(99,102,241,0.3));">
-                <i class="fas fa-user-shield"></i>
-            </div>
-            <p class="brand-tag">IDENTITY_VERIFICATION</p>
-        </div>
-
-        <form id="loginForm">
-            <div class="form-group">
-                <input type="text" id="userId" class="input-field" placeholder="Identity Tag" required>
-            </div>
-
-            <div class="form-group">
-                <input type="password" id="password" class="input-field" placeholder="Access Key" required>
-            </div>
-
-            <div class="captcha-box">
-                <div id="captchaDisplay">0000</div>
-                <input type="text" id="captchaInput" class="captcha-input" placeholder="Confirm Protocol" required>
-            </div>
-
-            <button type="submit" class="btn-login" id="submitBtn">
-                <span>Authorize</span>
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </form>
-
-        <div id="statusMsg" class="status-msg"></div>
+  <div class="login-card">
+    <div class="brand-header">
+      <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(99,102,241,0.3));">
+        <i class="fas fa-user-shield"></i>
+      </div>
+      <p class="brand-tag">IDENTITY_VERIFICATION</p>
     </div>
 
-    <!-- Logic System -->
-    <script src="/devend/logic/dev_core.js"></script>
+    <form id="loginForm">
+      <div class="form-group">
+        <input type="text" id="userId" class="input-field" placeholder="Identity Tag" required>
+      </div>
+
+      <div class="form-group">
+        <input type="password" id="password" class="input-field" placeholder="Access Key" required>
+      </div>
+
+      <div class="captcha-box">
+        <div id="captchaDisplay">0000</div>
+        <input type="text" id="captchaInput" class="captcha-input" placeholder="Confirm Protocol" required>
+      </div>
+
+      <button type="submit" class="btn-login" id="submitBtn">
+        <span>Authorize</span>
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </form>
+
+    <div id="statusMsg" class="status-msg"></div>
+  </div>
+
+  <!-- Logic System -->
+  <script src="/devend/logic/dev_core.js"></script>
 
 
-    <script>
-        let currentCaptcha = 0;
+  <script>
+    let currentCaptcha = 0;
 
-        function refreshCaptcha() {
-            currentCaptcha = Math.floor(1000 + Math.random() * 9000);
-            document.getElementById('captchaDisplay').innerText = currentCaptcha;
-            document.getElementById('captchaInput').value = '';
-        }
+    function refreshCaptcha() {
+      currentCaptcha = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('captchaDisplay').innerText = currentCaptcha;
+      document.getElementById('captchaInput').value = '';
+    }
 
-        async function sha256(message) {
-            const msgBuffer = new TextEncoder().encode(message);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        }
+    async function sha256(message) {
+      const msgBuffer = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
 
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const uid = document.getElementById('userId').value;
-            const pass = document.getElementById('password').value;
-            const captcha = document.getElementById('captchaInput').value;
-            const status = document.getElementById('statusMsg');
-            const btn = document.getElementById('submitBtn');
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const uid = document.getElementById('userId').value;
+      const pass = document.getElementById('password').value;
+      const captcha = document.getElementById('captchaInput').value;
+      const status = document.getElementById('statusMsg');
+      const btn = document.getElementById('submitBtn');
 
-            if (parseInt(captcha) !== currentCaptcha) {
-                status.style.color = '#f87171';
-                status.innerText = '> > ERROR: PROTOCOL_MISMATCH';
-                refreshCaptcha();
-                return;
-            }
-
-            status.style.color = 'var(--primary)';
-            status.innerText = '> > AUTHORIZING PROTOCOL...';
-
-            try {
-                const response = await fetch('/api/authLogin', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({uid, password: pass})
-                });
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-                const result = await response.json();
-                if (result.success) {
-                    status.style.color = '#4ade80';
-                    status.innerText = '> > SUCCESS: ACCESS_GRANTED';
-                    btn.style.opacity = '0.5';
-                    btn.disabled = true;
-                    setTimeout(() => { window.location.href = '/devend/private/dashboard.html'; }, 1000);
-                } else {
-                    status.style.color = '#f87171';
-                    status.innerText = '> > FAIL: ' + (result.error || 'CREDENTIAL_REJECTED');
-                    refreshCaptcha();
-                }
-            } catch (err) {
-                console.error('Auth error:', err);
-                status.style.color = '#f87171';
-                status.innerText = '> > ERROR: AUTH_FAILURE';
-                refreshCaptcha();
-            }
-        });
-
-        // Initialize
+      if (parseInt(captcha) !== currentCaptcha) {
+        status.style.color = '#f87171';
+        status.innerText = '> > ERROR: PROTOCOL_MISMATCH';
         refreshCaptcha();
-    </script>
+        return;
+      }
+
+      status.style.color = 'var(--primary)';
+      status.innerText = '> > AUTHORIZING PROTOCOL...';
+
+      try {
+        const response = await fetch('/api/authLogin', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({uid, password: pass})
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const result = await response.json();
+        if (result.success) {
+          status.style.color = '#4ade80';
+          status.innerText = '> > SUCCESS: ACCESS_GRANTED';
+          btn.style.opacity = '0.5';
+          btn.disabled = true;
+          setTimeout(() => { window.location.href = '/devend/private/dashboard.html'; }, 1000);
+        } else {
+          status.style.color = '#f87171';
+          status.innerText = '> > FAIL: ' + (result.error || 'CREDENTIAL_REJECTED');
+          refreshCaptcha();
+        }
+      } catch (err) {
+        console.error('Auth error:', err);
+        status.style.color = '#f87171';
+        status.innerText = '> > ERROR: AUTH_FAILURE';
+        refreshCaptcha();
+      }
+    });
+
+    // Initialize
+    refreshCaptcha();
+  </script>
 </body>
 
 </html>
