@@ -87,7 +87,9 @@
     <link rel="apple-touch-icon" href="images/arlogo.png">
     <meta name="theme-color" content="#6366f1">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="frontend/css/styles.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com 'unsafe-inline'; img-src 'self' data: https://abhinavranjan.qzz.io; connect-src 'self' https://www.google-analytics.com; font-src https://fonts.gstatic.com;">
+    <link rel="preload" href="frontend/css/styles.css" as="style" onload="this.rel='stylesheet'"/>
+    <noscript><link rel="stylesheet" href="frontend/css/styles.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
