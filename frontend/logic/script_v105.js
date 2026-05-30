@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let configPromise   = fetch(dataDir + 'config.json').then(r => r.json());
     let pageDataPromise = Promise.resolve(null);
 
-    if (isSocials)        pageDataPromise = fetch(dataDir + 'socials_page.json').then(r => r.json());
-    else if (isProjects)  pageDataPromise = fetch(dataDir + 'projects_page.json').then(r => r.json());
-    else if (isWinnings)  pageDataPromise = fetch(dataDir + 'winnings_page.json').then(r => r.json());
-    else if (isBiography) pageDataPromise = fetch(dataDir + 'biography_page.json').then(r => r.json());
-    else if (isFAQ)       pageDataPromise = fetch(dataDir + 'asked_questions_page.json').then(r => r.json());
+    if (isSocials)        pageDataPromise = fetch(dataDir + 'socials_page.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null);
+    else if (isProjects)  pageDataPromise = fetch(dataDir + 'projects_page.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null);
+    else if (isWinnings)  pageDataPromise = fetch(dataDir + 'winnings_page.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null);
+    else if (isBiography) pageDataPromise = fetch(dataDir + 'biography_page.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null);
+    else if (isFAQ)       pageDataPromise = fetch(dataDir + 'asked_questions_page.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null);
 
     let fetchPromises = [configPromise, pageDataPromise];
 
