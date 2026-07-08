@@ -6,20 +6,21 @@
   <!-- Google tag (gtag.js) -->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4VR4XZ987L"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-4VR4XZ987L');
+    window.addEventListener('load', () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-4VR4XZ987L');
+    });
   </script>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>AR. Abhinav Ranjan | Cybersecurity & Dev Portfolio</title>
   <meta
-    content="Official digital home of AR. Abhinav Ranjan (itzmeabhinavranjan) — cybersecurity educator, founder of Luminary Technicals, and Guinness World Record holder. Exploring the intersection of security and code."
+    content="Official digital home of AR. Abhinav Ranjan (itzmeabhinavranjan) — cybersecurity educator, founder of Luminary Technicals, and Guinness World Record holder. Exploring the intersection of cybersecurity, development, and digital innovation."
     name="description" />
   <meta
-    content="Abhinav Ranjan, itzmeabhinavranjan, cybersecurity educator, ethical hacking teacher, Luminary Technicals, Muzaffarpur Bihar India, youngest ethical hacking teacher, Guinness World Records, web developer Bihar"
+    content="Abhinav Ranjan, itzmeabhinavranjan, cybersecurity educator, ethical hacking teacher, Luminary Technicals, Muzaffarpur Bihar India, youngest ethical hacking teacher, Guinness World Record, portfolio"
     name="keywords" />
   <link href="https://abhinavranjan.qzz.io/" rel="canonical" />
   <!-- Open Graph -->
@@ -39,7 +40,7 @@
     content="Official portfolio of Abhinav Ranjan — cybersecurity enthusiast, ethical hacking educator, web developer, and founder of Luminary Technicals."
     name="twitter:description" />
   <meta content="https://abhinavranjan.qzz.io/images/arlogo.png" name="twitter:image" />
-  <!-- JSON-LD: Person Schema -->
+  <!-- JSON-LD: Person Schema (Privacy-safe: No birthDate) -->
   <script type="application/ld+json">
   {
    "@context": "https://schema.org",
@@ -50,10 +51,9 @@
    "image": "https://abhinavranjan.qzz.io/images/profile.png",
    "jobTitle": "Cybersecurity Educator & Developer",
    "description": "Young cybersecurity enthusiast, ethical hacking educator, and founder of Luminary Technicals from Muzaffarpur, Bihar, India.",
-   "birthDate": "2012-02-05",
    "birthPlace": {
-    "@type": "Place",
-    "name": "Muzaffarpur, Bihar, India"
+     "@type": "Place",
+     "name": "Muzaffarpur, Bihar, India"
    },
    "knowsAbout": ["Cybersecurity", "Ethical Hacking", "Penetration Testing", "Web Development", "Network Security", "Digital Forensics", "Python", "JavaScript"],
    "award": ["Guinness World Records Recognition 2026", "Golden Book of World Records 2025", "Vidyarthi Vigyan Manthan State Rank 4 2025"],
@@ -402,7 +402,7 @@
       style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
       <p>© 2026 AR. Abhinav Ranjan</p>
       <a class="nav-link" href="devend/index.html" style="font-size: 0.8rem; opacity: 0.5;"><i
-          class="fas fa-terminal"></i> Developer Portal</a><a class_="nav-link" href="frontend/html/glossary.html"
+          class="fas fa-terminal"></i> Developer Portal</a><a class="nav-link" href="frontend/html/glossary.html"
         style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted);">Glossary</a>
     </div>
   </footer>

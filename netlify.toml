@@ -13,5 +13,32 @@
   status = 200
   force  = true
 
+# Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' www.googletagmanager.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' www.googletagmanager.com; frame-ancestors 'none';"
+
+# Cache control for static assets
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/frontend/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/frontend/logic/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
 # Prevent the catch-all 404 in _redirects from swallowing API calls
 # (Netlify evaluates netlify.toml redirects before _redirects)
