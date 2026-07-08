@@ -5,18 +5,19 @@
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4VR4XZ987L"></script>
 <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
-
-   gtag('config', 'G-4VR4XZ987L');
-  </script>
+   window.addEventListener('load', () => {
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-4VR4XZ987L');
+   });
+</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AR. Abhinav Ranjan | Contact Hub</title>
 <meta content="Get in touch with Abhinav Ranjan for cybersecurity collaborations, technology partnerships, or project inquiries. Reach him via WhatsApp, Email, or Telegram." name="description"/>
 <link href="https://abhinavranjan.qzz.io/frontend/html/contact.html" rel="canonical"/>
-<meta content="contact Abhinav Ranjan, cybersecurity collaboration, technology project inquiry, WhatsApp Telegram email Bihar developer, Abhinav Ranjan, itzmeabhinavranjan, Luminary Technicals, Muzaffarpur Bihar India" name="keywords"/>
+<meta content="contact Abhinav Ranjan, cybersecurity collaboration, technology project inquiry, WhatsApp Telegram email Bihar developer, Abhinav Ranjan, itzmeabhinavranjan, Luminary Technicals" name="keywords"/>
 <!-- Open Graph -->
 <meta content="website" property="og:type"/>
 <meta content="AR. Abhinav Ranjan" property="og:site_name"/>
@@ -26,11 +27,12 @@
 <meta content="https://abhinavranjan.qzz.io/frontend/html/contact.html" property="og:url"/>
 <!-- Twitter Card -->
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="@i_abhinavranjanan" name="twitter:site"/>
+<meta content="@i_abhinavranjan" name="twitter:site"/>
 <meta content="Contact Abhinav Ranjan" name="twitter:title"/>
 <meta content="Get in touch with Abhinav Ranjan for cybersecurity collaborations and technology projects." name="twitter:description"/>
 <meta content="https://abhinavranjan.qzz.io/images/arlogo.png" name="twitter:image"/>
 <link href="/images/arlogo.png" rel="icon" type="image/png"/>
+<link href="/images/arlogo.ico" rel="shortcut icon"/>
 <link href="../../images/arlogo.png" rel="apple-touch-icon"/>
 <meta content="#6366f1" name="theme-color"/>
 <link href="../../manifest.json" rel="manifest"/>
@@ -58,6 +60,21 @@
    }
   }
   </script>
+<style>
+  .form-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    display: none;
+  }
+  .form-error.show {
+    display: block;
+  }
+  input:invalid:not(:placeholder-shown),
+  textarea:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+  }
+</style>
 </head>
 <body>
 <div id="loader-wrapper">
@@ -95,18 +112,26 @@
 <h1 class="section-title fade-in-up">Get In Touch</h1>
 <p class="section-subtitle fade-in-up delay-100">Have a project in mind? Let's work together.</p>
 <div class="contact-wrapper fade-in-up delay-200">
-<form class="contact-form" id="contactForm">
+<form class="contact-form" id="contactForm" novalidate>
 <div class="form-group">
-<label for="name">Name</label>
-<input id="name" name="name" placeholder="Your Name" required="" type="text"/>
+<label for="name">Name <span style="color: #ef4444;">*</span></label>
+<input id="name" name="name" placeholder="Your Name" required type="text" minlength="2" maxlength="100" aria-describedby="nameError"/>
+<div id="nameError" class="form-error" role="alert">Name must be 2-100 characters</div>
 </div>
 <div class="form-group">
-<label for="email">Email</label>
-<input id="email" name="email" placeholder="your@email.com" required="" type="email"/>
+<label for="email">Email <span style="color: #ef4444;">*</span></label>
+<input id="email" name="email" placeholder="your@email.com" required type="email" aria-describedby="emailError"/>
+<div id="emailError" class="form-error" role="alert">Please enter a valid email address</div>
 </div>
 <div class="form-group">
-<label for="message">Message</label>
-<textarea id="message" name="message" placeholder="Tell him about your project..." required="" rows="5"></textarea>
+<label for="contactNo">Phone (Optional)</label>
+<input id="contactNo" name="contactNo" placeholder="+91 XXXXX XXXXX" type="tel" pattern="^[+]?[0-9]{1,15}$" aria-describedby="phoneError"/>
+<div id="phoneError" class="form-error" role="alert">Please enter a valid phone number</div>
+</div>
+<div class="form-group">
+<label for="message">Message <span style="color: #ef4444;">*</span></label>
+<textarea id="message" name="message" placeholder="Tell him about your project..." required minlength="10" maxlength="2000" rows="5" aria-describedby="messageError"></textarea>
+<div id="messageError" class="form-error" role="alert">Message must be 10-2000 characters</div>
 </div>
 <div class="form-actions" style="display: flex; flex-direction: column; gap: 1rem;">
 <button class="btn btn-primary btn-block" id="sendWhatsapp" type="button">
@@ -119,7 +144,7 @@
 <i class="fab fa-telegram"></i> Send via Telegram - Fast
               </button>
 <button class="btn btn-secondary btn-block" id="sendWeb" type="button">
-<i class="fas fa-globe"></i> Send via Web - Slow
+<i class="fas fa-globe"></i> Send via Web - Secure
               </button>
 </div>
 </form>
@@ -127,7 +152,7 @@
 </div>
 </section>
 </main>
-<footer class="footer" id="siteFooter"><a class_="nav-link" href="glossary.html" style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted);">Glossary</a></footer>
+<footer class="footer" id="siteFooter"><a class="nav-link" href="glossary.html" style="font-size: 0.8rem; margin-left: 10px; color: var(--text-muted);">Glossary</a></footer>
 <script defer="" src="../logic/contact_handler.js"></script>
 <script defer="" src="../logic/script_v105.js"></script>
 <script>

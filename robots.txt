@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /frontend/
+Allow: /DeveloperNotes/
 
 # Block internal/live-streaming views from indexing
 Disallow: /frontend/lts/
@@ -8,8 +10,9 @@ Disallow: /offline.html
 # Block secure developer dashboard panel views from crawling
 Disallow: /devend/
 Disallow: /500.html
-Disallow: /404.html
 Disallow: /403.html
+# Allow 404 so search engines can report crawl errors
+Allow: /404.html
 
 # ===== Generative AI Crawler Guidelines =====
 # Allow AI engines to index public assets while restricting dev console indexing
@@ -29,4 +32,5 @@ User-agent: Google-Extended
 Disallow: /devend/
 Allow: /
 
+Crawl-delay: 1
 Sitemap: https://abhinavranjan.qzz.io/sitemap.xml

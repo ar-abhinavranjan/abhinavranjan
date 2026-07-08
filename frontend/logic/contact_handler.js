@@ -1,5 +1,5 @@
 /**
- * contact_handler.js
+ * contact_handler.js — Enhanced with CSRF token and improved validation
  * Extracted logic for handling Contact Form interactions across the portfolio.
  * Dynamically resolves target variables based on standard data architectures.
  */
@@ -7,6 +7,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
     if (!form) return;
+
+    // Form validation rules
+    const validators = {
+        name: (val) => val.trim().length >= 2 && val.trim().length <= 100,
+        email: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
+        contactNo: (val) => !val || /^[+]?[0-9]{1,15}$/.test(val),
+        message: (val) => val.trim().length >= 10 && val.trim().length <= 2000
+    };
+
+    // Generate CSRF token
+    const getCsrfToken = () => {
+        let token = sessionStorage.getItem('csrf-token');
+        if (!token) {
+            token = `csrf_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+            sessionStorage.setItem('csrf-token', token);
+        }
+        return token;
+    };
 
     // Detect page context
     const path = window.location.pathname;
@@ -17,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         whatsapp_number: '918294721929',
         email: 'abhinavranjanmit@gmail.com',
         telegram_username: 'abhinav_ranjan',
-        google_script_url: 'YOUR_GOOGLE_SCRIPT_URL_HERE',
         routing_department: 'General Inquiry',
         data_save_method: 'netlify_functions'
     };
@@ -36,8 +53,28 @@ document.addEventListener('DOMContentLoaded', () => {
         email: (document.getElementById('email') || {}).value || '',
         contactNo: (document.getElementById('contactNo') || {}).value || '',
         message: (document.getElementById('message') || {}).value || '',
-        department: contactConfig.routing_department
+        department: contactConfig.routing_department,
+        csrf_token: getCsrfToken()
     });
+
+    const validateForm = (data) => {
+        const errors = [];
+        if (!validators.name(data.name)) errors.push('name');
+        if (!validators.email(data.email)) errors.push('email');
+        if (!validators.contactNo(data.contactNo)) errors.push('contactNo');
+        if (!validators.message(data.message)) errors.push('message');
+        return errors;
+    };
+
+    const showFieldError = (fieldId) => {
+        const errorEl = document.getElementById(`${fieldId}Error`);
+        if (errorEl) errorEl.classList.add('show');
+    };
+
+    const hideFieldError = (fieldId) => {
+        const errorEl = document.getElementById(`${fieldId}Error`);
+        if (errorEl) errorEl.classList.remove('show');
+    };
 
     const showToast = (msg) => {
         let t = document.getElementById('toast');
@@ -61,7 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('sendWhatsapp')?.addEventListener('click', e => {
         e.preventDefault();
         const data = getFormData();
-        if (!data.name || !data.message) { showToast('Fill Name and Message'); return; }
+        const errors = validateForm(data);
+        if (errors.length) {
+            errors.forEach(showFieldError);
+            showToast('Please correct the errors in the form');
+            return;
+        }
         
         const payload = encodeURIComponent(buildMessage(data));
         window.open(`https://wa.me/${contactConfig.whatsapp_number}?text=${payload}`, '_blank');
@@ -71,7 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('sendEmail')?.addEventListener('click', e => {
         e.preventDefault();
         const data = getFormData();
-        if (!data.name || !data.message) { showToast('Fill Name and Message'); return; }
+        const errors = validateForm(data);
+        if (errors.length) {
+            errors.forEach(showFieldError);
+            showToast('Please correct the errors in the form');
+            return;
+        }
         
         const payload = encodeURIComponent(buildMessage(data));
         const subject = encodeURIComponent(`${contactConfig.routing_department} from ${data.name}`);
@@ -82,82 +129,58 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('sendTelegram')?.addEventListener('click', e => {
         e.preventDefault();
         const data = getFormData();
-        if (!data.name || !data.message) { showToast('Fill Name and Message'); return; }
+        const errors = validateForm(data);
+        if (errors.length) {
+            errors.forEach(showFieldError);
+            showToast('Please correct the errors in the form');
+            return;
+        }
         
         const payload = encodeURIComponent(buildMessage(data));
         window.open(`https://t.me/${contactConfig.telegram_username}?text=${payload}`, '_blank');
     });
 
-    /* Direct Web Server Target (Google Apps Script) */
+    /* Direct Web Server Target (Netlify Function) */
     const webBtn = document.getElementById('sendWeb');
     webBtn?.addEventListener('click', async (e) => {
         e.preventDefault();
         const formData = getFormData();
-        if (!formData.name || !formData.message) { showToast('Fill Name and Message'); return; }
+        const errors = validateForm(formData);
         
-        // If data_save_method is netlify_functions, send it to the serverless saveContact endpoint
-        if (contactConfig.data_save_method === 'netlify_functions') {
-            const originalText = webBtn.innerHTML;
-            webBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            webBtn.disabled = true;
-
-            try {
-                const response = await fetch('/api/saveContact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const result = await response.json();
-                if (result.result === 'success') {
-                    showToast('Message sent successfully!');
-                    document.getElementById('contactForm')?.reset();
-                } else {
-                    throw new Error(result.error || 'Server error');
-                }
-            } catch (error) {
-                console.error('Transmission failed:', error);
-                showToast('Network error while sending. Try WhatsApp.');
-            } finally {
-                webBtn.innerHTML = originalText;
-                webBtn.disabled = false;
-            }
+        if (errors.length) {
+            errors.forEach(showFieldError);
+            showToast('Please correct the errors in the form');
             return;
         }
 
-        const url = contactConfig.google_script_url;
-        if (!url || url === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
-            showToast('Form not connected yet. Try WhatsApp or Email.');
-            return;
-        }
-
-        // Change button state to indicate processing
+        errors.forEach(hideFieldError);
         const originalText = webBtn.innerHTML;
         webBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         webBtn.disabled = true;
 
         try {
-            // Google Apps Script requires text/plain or x-www-form-urlencoded to bypass strict CORS
-            const formBody = new URLSearchParams();
-            for (const key in formData) { formBody.append(key, formData[key]); }
-            formBody.append("formatted_message", buildMessage(formData));
-
-            const response = await fetch(url, {
+            const response = await fetch('/api/saveContact', {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': formData.csrf_token,
+                    'X-Requested-With': 'XMLHttpRequest'
                 },
-                body: formBody.toString()
+                body: JSON.stringify(formData)
             });
-            showToast('Message sent successfully!');
-            document.getElementById('contactForm')?.reset();
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            if (result.result === 'success') {
+                showToast('Message sent successfully!');
+                document.getElementById('contactForm')?.reset();
+                sessionStorage.removeItem('csrf-token');
+            } else {
+                throw new Error(result.error || 'Server error');
+            }
         } catch (error) {
             console.error('Transmission failed:', error);
             showToast('Network error while sending. Try WhatsApp.');

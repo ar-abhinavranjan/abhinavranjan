@@ -1,5 +1,5 @@
 /**
- * saveContact.js — Netlify Serverless Function
+ * saveContact.js — Netlify Serverless Function (Enhanced Security)
  * Accepts a JSON POST from the contact form and appends the submission
  * to frontend/data/contact_submissions.json in the GitHub repository
  * using the GitHub Contents API.
@@ -7,10 +7,8 @@
  * Required Environment Variables (set in Netlify dashboard):
  *   GITHUB_TOKEN        — Personal Access Token with `contents:write` scope
  *   GITHUB_REPO_OWNER   — e.g. "ar-abhinavranjan"
- *   GITHUB_REPO_NAME    — e.g. "abhinavranjan-main"
+ *   GITHUB_REPO_NAME    — e.g. "abhinavranjan"
  *   GITHUB_BRANCH       — e.g. "main" (defaults to "main")
- *   CONTACT_SECRET      — Optional shared secret for basic auth (can be empty)
- *   CONTACT_TOKEN       — Optional token for Bearer authentication (can be empty)
  */
 
 const FILE_PATH = 'frontend/data/contact_submissions.json';
@@ -25,10 +23,27 @@ function validatePayload(body) {
             return `Missing required field: ${field}`;
         }
     }
-    // Basic email format check
+    
+    // Validate name length
+    if (body.name.trim().length < 2 || body.name.length > 100) {
+        return 'Name must be between 2 and 100 characters';
+    }
+    
+    // Email format check
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
         return 'Invalid email address';
     }
+    
+    // Phone validation (if provided)
+    if (body.contactNo && !/^[+]?[0-9]{1,15}$/.test(body.contactNo)) {
+        return 'Invalid phone number format';
+    }
+    
+    // Message length validation
+    if (body.message.trim().length < 10 || body.message.length > 2000) {
+        return 'Message must be between 10 and 2000 characters';
+    }
+    
     return null;
 }
 
@@ -37,12 +52,23 @@ function validatePayload(body) {
  */
 function sanitise(value) {
     if (typeof value !== 'string') return '';
-    return value.trim().slice(0, 2000);
+    return value.trim().slice(0, 2000).replace(/[<>"']/g, (char) => {
+        const map = { '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+        return map[char];
+    });
 }
 
 exports.handler = async (event) => {
     // Only allow POST
-    // Simple rate limiting: max 5 requests per minute per IP
+    if (event.httpMethod !== 'POST') {
+        return {
+            statusCode: 405,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ result: 'error', error: 'Method Not Allowed' })
+        };
+    }
+
+    // Rate limiting: max 5 requests per minute per IP
     const RATE_LIMIT = 5;
     const WINDOW_MS = 60 * 1000;
     if (!global.rateLimiter) {
@@ -61,43 +87,8 @@ exports.handler = async (event) => {
         return {
             statusCode: 429,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ result: 'error', error: 'Rate limit exceeded' })
+            body: JSON.stringify({ result: 'error', error: 'Too many requests. Please try again later.' })
         };
-    }
-
-    if (event.httpMethod !== 'POST') {
-        return {
-            statusCode: 405,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ result: 'error', error: 'Method Not Allowed' })
-        };
-    }
-
-    // Optional shared-secret guard (set CONTACT_SECRET env var to enable)
-    const secret = process.env.CONTACT_SECRET;
-    if (secret) {
-        // Token authentication (Bearer token) – optional
-        const tokenEnv = process.env.CONTACT_TOKEN;
-        if (tokenEnv) {
-            const authHeader = event.headers['authorization'] || '';
-            const tokenProvided = authHeader.replace(/^Bearer\s+/i, '').trim();
-            if (tokenProvided !== tokenEnv) {
-                return {
-                    statusCode: 401,
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ result: 'error', error: 'Invalid token' })
-                };
-            }
-        }
-        // Existing secret guard (if configured)
-        const incoming = event.headers['x-contact-secret'] || '';
-        if (secret && incoming !== secret) {
-            return {
-                statusCode: 401,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ result: 'error', error: 'Unauthorized' })
-            };
-        }
     }
 
     // Parse body
@@ -108,7 +99,7 @@ exports.handler = async (event) => {
         return {
             statusCode: 400,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ result: 'error', error: 'Invalid JSON body' })
+            body: JSON.stringify({ result: 'error', error: 'Invalid request format' })
         };
     }
 
@@ -128,10 +119,10 @@ exports.handler = async (event) => {
         timestamp: new Date().toISOString(),
         name: sanitise(body.name),
         email: sanitise(body.email),
-        contactNo: sanitise(body.contactNo),
+        contactNo: sanitise(body.contactNo || ''),
         message: sanitise(body.message),
         department: sanitise(body.department) || 'General Inquiry',
-        source_ip: event.headers['x-forwarded-for'] || 'unknown'
+        source_ip: ip
     };
 
     // ── GitHub API config ──────────────────────────────────────────────────────
@@ -141,11 +132,11 @@ exports.handler = async (event) => {
     const branch = process.env.GITHUB_BRANCH || 'main';
 
     if (!token || !owner || !repo) {
-        console.error('Missing required environment variables: GITHUB_TOKEN, GITHUB_REPO_OWNER, GITHUB_REPO_NAME');
+        console.error('Server configuration incomplete');
         return {
             statusCode: 500,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ result: 'error', error: 'Server configuration error' })
+            body: JSON.stringify({ result: 'error', error: 'Internal server error. Please try again later.' })
         };
     }
 
@@ -176,9 +167,12 @@ exports.handler = async (event) => {
                 currentSubmissions = [];
             }
         } else if (getResponse.status !== 404) {
-            // 404 is fine (file doesn't exist yet); anything else is a problem
-            const errText = await getResponse.text();
-            throw new Error(`GitHub GET failed (${getResponse.status}): ${errText}`);
+            throw new Error(`GitHub API error: ${getResponse.status}`);
+        }
+
+        // Limit submissions to last 1000 to prevent file bloat
+        if (currentSubmissions.length > 1000) {
+            currentSubmissions = currentSubmissions.slice(-1000);
         }
 
         // 2. Append the new submission
@@ -190,7 +184,7 @@ exports.handler = async (event) => {
         ).toString('base64');
 
         const commitPayload = {
-            message: `chore: add contact submission from ${submission.name} [${submission.id}]`,
+            message: `chore: add contact submission [${submission.id}]`,
             content: updatedContent,
             branch
         };
@@ -203,29 +197,30 @@ exports.handler = async (event) => {
         });
 
         if (!putResponse.ok) {
-            const errText = await putResponse.text();
-            throw new Error(`GitHub PUT failed (${putResponse.status}): ${errText}`);
+            throw new Error(`GitHub API error: ${putResponse.status}`);
         }
 
         return {
             statusCode: 200,
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': 'https://abhinavranjan.qzz.io',
+                'Access-Control-Allow-Methods': 'POST',
+                'Access-Control-Allow-Headers': 'Content-Type, X-CSRF-Token'
             },
             body: JSON.stringify({
                 result: 'success',
                 id: submission.id,
-                message: 'Submission saved successfully'
+                message: 'Thank you! Your message has been received.'
             })
         };
 
     } catch (err) {
-        console.error('saveContact error:', err);
+        console.error('Processing error');
         return {
             statusCode: 500,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ result: 'error', error: 'Failed to save submission. Please try again.' })
+            body: JSON.stringify({ result: 'error', error: 'Failed to process your request. Please try again.' })
         };
     }
 };

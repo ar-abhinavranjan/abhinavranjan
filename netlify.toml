@@ -22,7 +22,16 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' www.googletagmanager.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' www.googletagmanager.com; frame-ancestors 'none';"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' www.googletagmanager.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' www.googletagmanager.com api.github.com; frame-ancestors 'none';"
+
+# CORS for API endpoints
+[[headers]]
+  for = "/api/saveContact"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://abhinavranjan.qzz.io"
+    Access-Control-Allow-Methods = "POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, X-CSRF-Token, X-Requested-With"
+    Access-Control-Max-Age = "7200"
 
 # Cache control for static assets
 [[headers]]
@@ -39,6 +48,11 @@
   for = "/frontend/logic/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
 
 # Prevent the catch-all 404 in _redirects from swallowing API calls
 # (Netlify evaluates netlify.toml redirects before _redirects)
