@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const { name, email, contactNo, message } = getFormData();
                 if (!name || !message) { showToast('Please fill in Name and Message'); return; }
 
-                const emailTo = window.siteConfig && window.siteConfig.contact ? window.siteConfig.contact.email : "abhinavranjanmit@gmail.com";
+                const emailTo = window.siteConfig && window.siteConfig.contact ? window.siteConfig.contact.email : "proabhinavranjanparoo@gmail.com";
                 const subject = `New Contact from ${name}`;
                 const cNoText = contactNo ? `%0D%0AuserContactNo: ${contactNo}` : '';
                 const body = `userName: ${name}%0D%0AuserEmail: ${email || 'Not provided'}${cNoText}%0D%0AuserMessage: ${message}`;

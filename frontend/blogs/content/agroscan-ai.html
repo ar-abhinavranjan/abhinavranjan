@@ -20,26 +20,27 @@
   <meta property="og:site_name" content="AR. Abhinav Ranjan">
   <meta property="og:title" content="AgroScan AI: Computer Vision &amp; Deep Learning in Agritech Defense" id="ogTitle">
   <meta property="og:description" content="Technical breakdown of training convolutional networks for instant crop disease diagnosis in low-bandwidth rural agricultural regions." id="ogDesc">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80" id="ogImage">
+  <meta property="og:image" content="https://abhinavranjan.qzz.io/images/agroscan-banner.jpg" id="ogImage">
   <meta property="og:url" content="https://abhinavranjan.qzz.io/frontend/blogs/content/agroscan-ai.html" id="ogUrl">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@arabhinavranjan">
   <meta name="twitter:title" content="AgroScan AI: Computer Vision &amp; Deep Learning in Agritech Defense" id="twTitle">
   <meta name="twitter:description" content="Technical breakdown of training convolutional networks for instant crop disease diagnosis in low-bandwidth rural agricultural regions." id="twDesc">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://abhinavranjan.qzz.io/images/agroscan-banner.jpg">
   <!-- JSON-LD BlogPosting Schema for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "AgroScan AI: Computer Vision &amp; Deep Learning in Agritech Defense",
+    "headline": "AgroScan AI: Computer Vision & Deep Learning in Agritech Defense",
     "description": "Technical breakdown of training convolutional networks for instant crop disease diagnosis in low-bandwidth rural agricultural regions.",
-    "image": "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80",
-    "datePublished": "January 24, 2026",
+    "image": "https://abhinavranjan.qzz.io/images/agroscan-banner.jpg",
+    "datePublished": "2026-01-24",
     "author": {
       "@type": "Person",
-      "name": "AR. Abhinav Ranjan & Luminary Developers",
+      "name": "AR. Abhinav Ranjan",
+      "alternateName": ["Abhinav Ranjan", "ar.abhinavranjan", "itzmeabhinavranjan"],
       "url": "https://abhinavranjan.qzz.io/"
     },
     "publisher": {
@@ -66,25 +67,36 @@
     .back-btn-row{margin-bottom:2rem;}
     .back-to-blogs-link{display:inline-flex;align-items:center;gap:0.5rem;color:var(--primary,#6366f1);text-decoration:none;font-weight:600;font-size:0.95rem;transition:transform var(--transition-fast,0.2s ease);}
     .back-to-blogs-link:hover{transform:translateX(-4px);color:var(--text-main,#fff);}
-    .post-hero{height:420px;width:100%;position:relative;background-size:cover;background-position:center;border-radius:24px;border:1px solid var(--border,#27272a);margin-bottom:3.5rem;overflow:hidden;display:flex;align-items:flex-end;padding:2.5rem;box-shadow:inset 0 -220px 120px -40px rgba(5,5,5,0.95);}
-    .hero-meta{position:relative;z-index:2;}
-    .hero-meta h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;margin-bottom:1rem;color:#fff;line-height:1.25;}
-    .post-info{display:flex;gap:1.5rem;color:rgba(255,255,255,0.7);font-size:0.95rem;flex-wrap:wrap;}
-    .post-info span{display:flex;align-items:center;gap:0.5rem;}
-    .post-info span i{color:var(--primary,#6366f1);}
+    .post-header-redesigned {margin-bottom: 2.5rem;}
+    .post-title-outer {font-size:clamp(2rem,4.5vw,3rem);font-weight:800;margin-bottom:1rem;color:#fff;line-height:1.25;}
+    .post-info-outer {display:flex;gap:1.5rem;color:rgba(255,255,255,0.7);font-size:0.95rem;flex-wrap:wrap;margin-bottom:1.8rem;}
+    .post-info-outer span {display:flex;align-items:center;gap:0.5rem;}
+    .post-info-outer span i {color:var(--primary,#6366f1);}
+    .post-hero-clean {height:420px;width:100%;background-size:contain;background-repeat:no-repeat;background-color:#0c0c14;background-position:center;border-radius:24px;border:1px solid var(--border,#27272a);overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.4);}
     .post-body{font-size:1.15rem;color:rgba(255,255,255,0.88);line-height:1.8;margin-bottom:5rem;}
     .post-body h2{font-size:1.85rem;color:#fff;margin:3rem 0 1.2rem;font-weight:700;}
     .post-body p{margin-bottom:1.5rem;}
     .post-body strong{color:#fff;font-weight:600;}
     .post-body blockquote{border-left:4px solid var(--primary,#6366f1);padding:1.5rem 2rem;background:rgba(99,102,241,0.08);margin:2.5rem 0;font-size:1.25rem;font-style:italic;color:#fff;border-radius:0 12px 12px 0;}
     .post-body ul,.post-body ol{margin-bottom:1.8rem;}
-    @media (max-width:768px){.post-hero{height:320px;padding:1.5rem;}.post-body{font-size:1.05rem;}}
+    @media (max-width:768px){.post-hero-clean{height:280px;}.post-body{font-size:1.05rem;}}
   </style>
 </head>
 <body>
   <div id="loader-wrapper"><div class="loader-content"><div class="loader-spinner"></div><div class="loader-text">Loading Excellence...</div></div></div>
   <header class="header"><div class="container nav-container"><a aria-label="AR. Abhinav Ranjan Home" class="logo" href="../../../index.html">AR<span class="dot">.</span></a><nav class="nav"><ul class="nav-list"><li><a class="nav-link" href="../../../index.html">Home</a></li><li><a class="nav-link" href="../../html/about.html">About</a></li><li><a class="nav-link" href="../../html/research.html">Research</a></li><li><a class="nav-link" href="../../html/projects.html">Projects</a></li><li><a class="nav-link active" href="../index.html">Blogs</a></li><li><a class="nav-link" href="../../html/biography.html">Biography</a></li><li><a class="nav-link" href="../../html/socials.html">Socials</a></li><li><a class="nav-link" href="../../html/winnings.html">Achievements</a></li><li><a class="nav-link" href="../../html/contact.html">Contact</a></li></ul><div class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div></nav></div></header>
-  <main><div class="container"><div class="post-wrapper"><div class="back-btn-row"><a href="../index.html" class="back-to-blogs-link"><i class="fas fa-arrow-left"></i> Back to Blogs</a></div><header class="post-header"><div class="post-hero" id="postHero" style="background-image: url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80');"><div class="hero-meta"><h1 id="postTitle">AgroScan AI: Computer Vision &amp; Deep Learning in Agritech Defense</h1><div class="post-info"><span id="postDate"><i class="fas fa-calendar"></i> January 24, 2026</span><span id="postAuthor"><i class="fas fa-user"></i> By AR. Abhinav Ranjan & Luminary Developers</span></div></div></div></header><article class="post-body" id="postBody"><p class="lead" style="font-size: 1.25rem; line-height: 1.8; color: #e2e8f0; margin-bottom: 2rem;">
+  <main><div class="container"><div class="post-wrapper"><div class="back-btn-row"><a href="../index.html" class="back-to-blogs-link"><i class="fas fa-arrow-left"></i> Back to Blogs</a></div>
+  
+  <header class="post-header-redesigned">
+    <h1 class="post-title-outer" id="postTitle">AgroScan AI: Computer Vision &amp; Deep Learning in Agritech Defense</h1>
+    <div class="post-info-outer">
+      <span id="postDate"><i class="fas fa-calendar"></i> January 24, 2026</span>
+      <span id="postAuthor"><i class="fas fa-user"></i> By AR. Abhinav Ranjan &amp; Luminary Developers</span>
+    </div>
+    <div class="post-hero-clean" id="postHero" style="background-image: url('/images/agroscan-banner.jpg');"></div>
+  </header>
+  
+  <article class="post-body" id="postBody"><p class="lead" style="font-size: 1.25rem; line-height: 1.8; color: #e2e8f0; margin-bottom: 2rem;">
   AgroScan AI was designed to solve a critical agricultural challenge in rural regions: early detection of crop diseases without requiring expensive diagnostic hardware or continuous high-bandwidth internet connectivity.
 </p>
 

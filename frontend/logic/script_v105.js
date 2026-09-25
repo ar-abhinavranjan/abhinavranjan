@@ -205,8 +205,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (winningsGrid && data.winnings) {
                 winningsGrid.innerHTML = '';
                 data.winnings.forEach((win, i) => {
-                    const gradients = ['linear-gradient(135deg,#ff9a9e,#fad0c4)','linear-gradient(120deg,#a1c4fd,#c2e9fb)','linear-gradient(135deg,#667eea,#764ba2)'];
-                    const img = (win.image==='#'||!win.image) ? `<div class="placeholder-img" style="background:${gradients[i%3]}"></div>` : `<img src="${win.image}" alt="${win.title}" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:rgba(0,0,0,0.2);">`;
+                    const hasCustomImg = win.image && win.image !== '#';
+                    const cardImg = hasCustomImg 
+                        ? `<img src="${win.image}" alt="${win.title}" loading="lazy" style="width:100%;height:100%;object-fit:contain;background:rgba(0,0,0,0.2);">`
+                        : `<div class="placeholder-img" style="background:${gradients[i%3]};display:flex;align-items:center;justify-content:center;height:100%;"><i class="${win.icon || 'fas fa-trophy'}" style="font-size:3.5rem;color:rgba(255,255,255,0.85);"></i></div>`;
                     const card = document.createElement('div');
                     card.className = `card winning-card fade-in-up delay-${200+i*100}`;
                     card.style.cursor = 'pointer';
@@ -217,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const openModal = () => {
                         const modal = document.getElementById('winningsModal');
                         if (modal) {
-                            document.getElementById('modalImageContainer').innerHTML = img;
+                            document.getElementById('modalImageContainer').innerHTML = cardImg;
                             document.getElementById('modalTitle').innerText = win.title;
                             document.getElementById('modalDescription').innerText = win.description;
                             modal.classList.add('active');
@@ -234,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             openModal();
                         }
                     });
-                    card.innerHTML = `<div class="winning-image">${img}</div><div class="winning-content"><h3>${win.title}</h3><p>${win.description.substring(0,60)}...</p><div class="tags"><span class="tag">${win.date||'Award'}</span></div></div>`;
+                    card.innerHTML = `<div class="winning-image">${cardImg}</div><div class="winning-content"><h3>${win.title}</h3><p>${win.description.substring(0,60)}...</p><div class="tags"><span class="tag">${win.date||'Award'}</span></div></div>`;
                     winningsGrid.appendChild(card);
                 });
                 if (window.observeNewCards) window.observeNewCards();

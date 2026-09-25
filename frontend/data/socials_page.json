@@ -38,5 +38,29 @@
         "icon": "fab fa-instagram",
         "url": "https://instagram.com/ar.abhinavranjan",
         "colorClass": "instagram"
+    },
+    {
+        "id": "facebook",
+        "platform": "Facebook",
+        "handle": "@ar.abhinavranjan",
+        "icon": "fab fa-facebook",
+        "url": "https://www.facebook.com/ar.abhinavranjan/",
+        "colorClass": "facebook"
+    },
+    {
+        "id": "snapchat",
+        "platform": "Snapchat",
+        "handle": "arabhinavranjan",
+        "icon": "fab fa-snapchat",
+        "url": "https://www.snapchat.com/add/arabhinavranjan",
+        "colorClass": "snapchat"
+    },
+    {
+        "id": "telegram",
+        "platform": "Telegram",
+        "handle": "@ar_abhinavranjan",
+        "icon": "fab fa-telegram",
+        "url": "https://t.me/ar_abhinavranjan",
+        "colorClass": "telegram"
     }
 ]

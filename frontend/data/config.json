@@ -34,13 +34,13 @@
     }
   },
   "contact": {
-    "email": "abhinavranjanmit@gmail.com",
-    "email_mailto": "mailto:abhinavranjanmit@gmail.com",
+    "email": "proabhinavranjanparoo@gmail.com",
+    "email_mailto": "mailto:proabhinavranjanparoo@gmail.com",
     "whatsapp_number": "918294721929",
     "whatsapp_url": "https://wa.me/918294721929",
-    "telegram_username": "abhinav_ranjan",
-    "telegram_url": "https://t.me/abhinav_ranjan",
-    "discord_url": "#",
+    "telegram_username": "ar_abhinavranjan",
+    "telegram_url": "https://t.me/ar_abhinavranjan",
+    "discord_url": "https://discord.com/users/ar.abhinavranjan",
     "line_url": "#"
   },
   "projects": [
@@ -83,8 +83,13 @@
     "person": {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "AR. Abhinav Ranjan & Luminary Developers",
-      "alternateName": "ar.abhinavranjan",
+      "name": "AR. Abhinav Ranjan",
+      "alternateName": [
+        "Abhinav Ranjan",
+        "ar.abhinavranjan",
+        "itzmeabhinavranjan",
+        "AR. Abhinav Ranjan & Luminary Developers"
+      ],
       "url": "https://abhinavranjan.qzz.io/",
       "image": "https://abhinavranjan.qzz.io/images/profile.png",
       "jobTitle": "Founder & CEO, Luminary Technicals",
@@ -121,7 +126,8 @@
         "https://twitter.com/arabhinavranjan",
         "https://linkedin.com/in/ar-abhinavranjan",
         "https://github.com/ar-abhinavranjan",
-        "https://instagram.com/ar.abhinavranjan"
+        "https://instagram.com/ar.abhinavranjan",
+        "https://www.facebook.com/ar.abhinavranjan/"
       ]
     }
   },

@@ -28,7 +28,7 @@
     content="A comprehensive biographical look at AR. Abhinav Ranjan&apos;s early beginnings in Muzaffarpur, cybersecurity education, founding Luminary Technicals, Guinness World Record recognition, and cyber jurisprudence vision."
     id="ogDesc">
   <meta property="og:image"
-    content="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+    content="https://abhinavranjan.qzz.io/images/og-image.png"
     id="ogImage">
   <meta property="og:url" content="https://abhinavranjan.qzz.io/frontend/blogs/content/past-life.html" id="ogUrl">
   <!-- Twitter -->
@@ -41,7 +41,7 @@
     content="A comprehensive biographical look at AR. Abhinav Ranjan&apos;s early beginnings in Muzaffarpur, cybersecurity education, founding Luminary Technicals, Guinness World Record recognition, and cyber jurisprudence vision."
     id="twDesc">
   <meta name="twitter:image"
-    content="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80">
+    content="https://abhinavranjan.qzz.io/images/og-image.png">
   <!-- JSON-LD BlogPosting Schema for SEO -->
   <script type="application/ld+json">
   {
@@ -49,11 +49,12 @@
     "@type": "BlogPosting",
     "headline": "AR. Abhinav Ranjan — Complete Biography, Early Journey, Cybersecurity, Technology, Education, Entrepreneurship and Vision",
     "description": "A comprehensive biographical look at AR. Abhinav Ranjan&apos;s early beginnings in Muzaffarpur, cybersecurity education, founding Luminary Technicals, Guinness World Record recognition, and cyber jurisprudence vision.",
-    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-    "datePublished": "April 02, 2026",
+    "image": "https://abhinavranjan.qzz.io/images/og-image.png",
+    "datePublished": "2026-04-02",
     "author": {
       "@type": "Person",
-      "name": "AR. Abhinav Ranjan & Luminary Developers",
+      "name": "AR. Abhinav Ranjan",
+      "alternateName": ["Abhinav Ranjan", "ar.abhinavranjan", "itzmeabhinavranjan"],
       "url": "https://abhinavranjan.qzz.io/"
     },
     "publisher": {
@@ -102,42 +103,13 @@
       color: var(--text-main, #fff);
     }
 
-    .post-hero {
-      height: 420px;
-      width: 100%;
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      border-radius: 24px;
-      border: 1px solid var(--border, #27272a);
-      margin-bottom: 3.5rem;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      padding: 2.5rem;
-      box-shadow: inset 0 -220px 120px -40px rgba(5, 5, 5, 0.95);
-    }
-
-    .hero-meta {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-meta h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: #fff;
-      line-height: 1.25;
-    }
-
-    .post-info {
-      display: flex;
-      gap: 1.5rem;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.95rem;
-      flex-wrap: wrap;
-    }
+    .post-header-redesigned { margin-bottom: 2.5rem; }
+    .post-title-outer { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; margin-bottom: 1rem; color: #fff; line-height: 1.25; }
+    .post-info-outer { display: flex; gap: 1.5rem; color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
+    .post-info-outer span { display: flex; align-items: center; gap: 0.5rem; }
+    .post-info-outer span i { color: var(--primary, #6366f1); }
+    .post-hero-clean { height: 420px; width: 100%; background-size: contain; background-repeat: no-repeat; background-color: #0c0c14; background-position: center; border-radius: 24px; border: 1px solid var(--border, #27272a); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    @media (max-width: 768px) { .post-hero-clean { height: 280px; } }
 
     .post-info span {
       display: flex;
@@ -237,18 +209,13 @@
           <a href="../index.html" class="back-to-blogs-link"><i class="fas fa-arrow-left"></i> Back to Blogs</a>
         </div>
 
-        <header class="post-header">
-          <div class="post-hero" id="postHero"
-            style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80');">
-            <div class="hero-meta">
-              <h1 id="postTitle">AR. Abhinav Ranjan — Complete Biography, Early Journey, Cybersecurity, Technology,
-                Education, Entrepreneurship and Vision</h1>
-              <div class="post-info">
-                <span id="postDate"><i class="fas fa-calendar"></i> April 02, 2026</span>
-                <span id="postAuthor"><i class="fas fa-user"></i> By AR. Abhinav Ranjan &amp; Luminary Developers</span>
-              </div>
-            </div>
+        <header class="post-header-redesigned">
+          <h1 class="post-title-outer" id="postTitle">AR. Abhinav Ranjan — Complete Biography, Early Journey, Cybersecurity, Technology, Education, Entrepreneurship and Vision</h1>
+          <div class="post-info-outer">
+            <span id="postDate"><i class="fas fa-calendar"></i> April 02, 2026</span>
+            <span id="postAuthor"><i class="fas fa-user"></i> By AR. Abhinav Ranjan &amp; Luminary Developers</span>
           </div>
+          <div class="post-hero-clean" id="postHero" style="background-image: url('/images/og-image.png');"></div>
         </header>
 
         <article class="post-body" id="postBody">

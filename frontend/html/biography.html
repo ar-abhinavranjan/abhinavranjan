@@ -42,26 +42,25 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="../css/all.min.css" rel="stylesheet"/>
-<!-- JSON-LD: PodcastSeries Schema -->
+<!-- JSON-LD: ProfilePage Schema -->
 <script type="application/ld+json">
   {
    "@context": "https://schema.org",
-   "@type": "PodcastSeries",
-   "@id": "https://abhinavranjan.qzz.io/frontend/html/biography.html#podcast",
-   "name": "Tech Talks with Abhinav",
-   "description": "Listen to Abhinav's thoughts on technology, cybersecurity, and everything in between.",
+   "@type": "ProfilePage",
+   "@id": "https://abhinavranjan.qzz.io/frontend/html/biography.html",
+   "name": "AR. Abhinav Ranjan — Biography & Profile",
+   "description": "Comprehensive biography, early life, tech journey, and achievements of AR. Abhinav Ranjan.",
    "url": "https://abhinavranjan.qzz.io/frontend/html/biography.html",
-   "author": {
-    "@type": "Person",
-    "name": "AR. Abhinav Ranjan & Luminary Developers"
-   },
-   "publisher": {
-    "@type": "Organization",
-    "name": "Luminary Technicals",
-    "logo": {
-     "@type": "ImageObject",
-     "url": "https://abhinavranjan.qzz.io/images/arlogo.png"
-    }
+   "mainEntity": {
+     "@type": "Person",
+     "name": "Abhinav Ranjan",
+     "alternateName": ["AR. Abhinav Ranjan", "itzmeabhinavranjan"],
+     "birthDate": "2012-02-05",
+     "jobTitle": "Technology Enthusiast & Founder",
+     "worksFor": {
+       "@type": "Organization",
+       "name": "Luminary Technicals"
+     }
    }
   }
   </script>
@@ -235,6 +234,23 @@
 <a class="btn btn-primary" href="/books/logical.pdf" id="openBooksLibrary" target="_blank">
 <i class="fas fa-book-reader"></i> Read Book (PDF)
 </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Appointment Booking Section -->
+<section class="section appointment-callout-biography" style="padding: 3.5rem 0; background: rgba(99, 102, 241, 0.05); border-top: 1px solid var(--border,#27272a);">
+<div class="container" style="display: flex; justify-content: center;">
+<div style="background: var(--card-bg,#121212); border: 1px solid var(--border,#27272a); border-radius: 20px; padding: 2.5rem; text-align: center; max-width: 800px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center;">
+<div style="width: 54px; height: 54px; background: rgba(99, 102, 241, 0.15); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: var(--primary,#6366f1); font-size: 1.5rem;">
+  <i class="fas fa-calendar-alt"></i>
+</div>
+<h2 style="font-size: 1.7rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; text-align: center; width: 100%;">Request a Meeting / Consultation</h2>
+<p style="color: var(--text-muted,#a1a1aa); font-size: 1rem; margin-bottom: 1.8rem; line-height: 1.6; text-align: center;">Schedule a 1-on-1 consultation or speaking engagement directly with AR. Abhinav Ranjan.</p>
+<div style="display: flex; justify-content: center; width: 100%;">
+  <a href="appointment.html" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.9rem 2rem; margin: 0 auto;">
+    <i class="fas fa-clock"></i> <span>Book an Appointment</span> <i class="fas fa-arrow-right"></i>
+  </a>
 </div>
 </div>
 </div>

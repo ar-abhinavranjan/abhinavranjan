@@ -237,7 +237,8 @@
             "dateModified": post.dateModified ? new Date(post.dateModified).toISOString() : dateIso,
             "author": [{
                 "@type": "Person",
-                "name": post.author,
+                "name": "AR. Abhinav Ranjan",
+                "alternateName": ["Abhinav Ranjan", "ar.abhinavranjan", "itzmeabhinavranjan"],
                 "url": "https://abhinavranjan.qzz.io"
             }],
             "publisher": {

@@ -39,7 +39,7 @@
               Cybersecurity researcher, technologist, educator and founder working across digital security, infrastructure, emerging technology, and research.
             </p>
             <div class="footer-socials">
-              <a href="https://github.com/DeveloperAbhinav" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/ar-abhinavranjan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
               <a href="${prefix}frontend/html/socials.html" aria-label="Social Networks"><i class="fas fa-globe"></i></a>
               <a href="${prefix}frontend/html/contact.html" aria-label="Contact"><i class="fas fa-envelope"></i></a>
             </div>
@@ -54,6 +54,7 @@
               <li><a href="${prefix}frontend/html/research.html"><i class="fas fa-chevron-right"></i> Research</a></li>
               <li><a href="${prefix}frontend/html/projects.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
               <li><a href="${prefix}frontend/html/biography.html"><i class="fas fa-chevron-right"></i> Biography</a></li>
+              <li><a href="${prefix}frontend/html/appointment.html"><i class="fas fa-chevron-right"></i> Book Appointment</a></li>
               <li><a href="${prefix}frontend/html/contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
             </ul>
           </div>
@@ -76,6 +77,7 @@
             <div class="footer-pill-links">
               <a href="${prefix}frontend/html/moredetails/privacy-policy.html" class="footer-pill-btn">Privacy Policy</a>
               <a href="${prefix}frontend/html/moredetails/terms-and-conditions.html" class="footer-pill-btn">Terms & Conditions</a>
+              <a href="${prefix}frontend/html/moredetails/editorial-policy.html" class="footer-pill-btn">Editorial Policy</a>
               <a href="${prefix}frontend/html/moredetails/glossary.html" class="footer-pill-btn">Glossary</a>
             </div>
             <div class="footer-pill-links-center">

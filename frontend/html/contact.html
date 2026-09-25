@@ -41,7 +41,7 @@
     name="twitter:description" />
   <meta content="https://abhinavranjan.qzz.io/images/og-image.png" name="twitter:image" />
 
-  <link href="/images/arlogo.ico" rel="shortcut icon" />
+  <link href="../../../favicon.ico" rel="shortcut icon" />
 
   <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
   <link rel="icon" type="image/png" sizes="192x192" href="../../images/favicon-192x192.png" />
@@ -50,23 +50,71 @@
   <link href="../../manifest.json" rel="manifest" />
   <link href="../css/styles.css?v=2.5.0" rel="stylesheet" />
   <link href="../css/all.min.css" rel="stylesheet" />
-  <!-- JSON-LD: ContactPage Schema -->
+  <!-- JSON-LD: ContactPage & Service Schema with Dual Name Identity -->
   <script type="application/ld+json">
   {
-   "@context": "https://schema.org",
-   "@type": "ContactPage",
-   "@id": "https://abhinavranjan.qzz.io/frontend/html/contact.html",
-   "name": "Contact Abhinav Ranjan",
-   "description": "Get in touch with AR. Abhinav Ranjan for cybersecurity collaborations, technology partnerships, or project inquiries via WhatsApp, Telegram, or Email.",
-   "url": "https://abhinavranjan.qzz.io/frontend/html/contact.html",
-   "mainEntity": {
-    "@type": "Person",
-    "name": "AR. Abhinav Ranjan",
-    "sameAs": [
-     "https://github.com/ar-abhinavranjan",
-     "https://linkedin.com/in/ar-abhinavranjan"
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://abhinavranjan.qzz.io/frontend/html/contact.html#webpage",
+        "url": "https://abhinavranjan.qzz.io/frontend/html/contact.html",
+        "name": "Contact & Appointment Booking - AR. Abhinav Ranjan",
+        "description": "Get in touch with AR. Abhinav Ranjan (Abhinav Ranjan) for cybersecurity advisory, research partnerships, and 1-on-1 consultations.",
+        "mainEntity": {
+          "@type": "Person",
+          "@id": "https://abhinavranjan.qzz.io/#person",
+          "name": "AR. Abhinav Ranjan",
+          "alternateName": ["Abhinav Ranjan", "itzmeabhinavranjan", "ar.abhinavranjan"],
+          "jobTitle": "Cybersecurity Researcher & Founder",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Luminary Technicals"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "Technical Support & Advisory",
+              "email": "abhinavranjanofficial@gmail.com",
+              "availableLanguage": ["English", "Hindi"]
+            },
+            {
+              "@type": "ContactPoint",
+              "contactType": "Instant Messaging",
+              "url": "https://wa.me/919934248467",
+              "availableLanguage": ["English", "Hindi"]
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://abhinavranjan.qzz.io/frontend/html/contact.html#appointment-service",
+        "name": "Cybersecurity Advisory & Technical Consultation",
+        "serviceType": "1-on-1 Advisory & Audit Session",
+        "provider": {
+          "@type": "Person",
+          "name": "AR. Abhinav Ranjan",
+          "alternateName": "Abhinav Ranjan"
+        },
+        "areaServed": "Global",
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://abhinavranjan.qzz.io/frontend/html/appointment.html",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "result": {
+            "@type": "Reservation",
+            "name": "1-on-1 Consultation Appointment"
+          }
+        }
+      }
     ]
-   }
   }
   </script>
   <style>
@@ -166,6 +214,26 @@
               </button>
             </div>
           </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appointment Booking Callout Section -->
+    <section class="section appointment-callout-contact" id="booking" style="padding: 3.5rem 0; background: rgba(99, 102, 241, 0.05); border-top: 1px solid var(--border,#27272a);">
+      <div class="container" style="display: flex; justify-content: center;">
+        <div style="background: var(--card-bg,#121212); border: 1px solid var(--border,#27272a); border-radius: 20px; padding: 2.5rem; text-align: center; max-width: 800px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center;">
+          <div style="width: 54px; height: 54px; background: rgba(99, 102, 241, 0.15); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: var(--primary,#6366f1); font-size: 1.5rem;">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h2 style="font-size: 1.7rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; text-align: center; width: 100%;">Schedule a 1-on-1 Consultation</h2>
+          <p style="color: var(--text-muted,#a1a1aa); font-size: 1rem; margin-bottom: 1.8rem; line-height: 1.6; text-align: center;">
+            Need a dedicated technical advisory session, security audit, or research consultation? Book your slot directly.
+          </p>
+          <div style="display: flex; justify-content: center; width: 100%;">
+            <a href="appointment.html" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.9rem 2.2rem; margin: 0 auto;">
+              <i class="fas fa-clock"></i> <span>Book an Appointment Now</span> <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>

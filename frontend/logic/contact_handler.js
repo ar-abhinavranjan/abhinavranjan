@@ -6,7 +6,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
-    if (!form) return;
 
     // Form validation rules
     const validators = {
@@ -33,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let contactConfig = {
         whatsapp_number: '918294721929',
-        email: 'abhinavranjanmit@gmail.com',
-        telegram_username: 'abhinav_ranjan',
+        email: 'abhinavranjanofficial@gmail.com',
+        telegram_username: 'ar_abhinavranjan',
         routing_department: 'General Inquiry',
         data_save_method: 'netlify_functions'
     };
@@ -189,4 +188,128 @@ document.addEventListener('DOMContentLoaded', () => {
             webBtn.disabled = false;
         }
     });
+
+    /* ==========================================================
+       APPOINTMENT BOOKING HANDLERS
+       ========================================================== */
+    const initAppointmentHandlers = () => {
+        const apptForm = document.getElementById('appointmentForm');
+        if (!apptForm) return;
+
+        const getApptData = () => ({
+            name: (document.getElementById('apptName') || {}).value || '',
+            email: (document.getElementById('apptEmail') || {}).value || '',
+            phone: (document.getElementById('apptPhone') || {}).value || '',
+            date: (document.getElementById('apptDate') || {}).value || '',
+            reason: (document.getElementById('apptReason') || {}).value || 'General Consultation',
+            notes: (document.getElementById('apptNotes') || {}).value || ''
+        });
+
+        const validateAppt = (d) => {
+            const errs = [];
+            if (!d.name.trim()) errs.push('apptName');
+            if (!d.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) errs.push('apptEmail');
+            if (!d.phone.trim()) errs.push('apptPhone');
+            if (!d.date) errs.push('apptDate');
+            return errs;
+        };
+
+        const highlightField = (id) => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.style.borderColor = '#ef4444';
+                el.focus();
+                setTimeout(() => { el.style.borderColor = ''; }, 3000);
+            }
+        };
+
+        // Compact format for Telegram & WhatsApp
+        const buildCompactApptText = (d) => {
+            return `Appointment Request; Name: ${d.name}; Phone: ${d.phone}; Email: ${d.email}; Date: ${d.date}; Reason: ${d.reason}; Notes: ${d.notes || 'N/A'}`;
+        };
+
+        // Detailed full format for Email & Web API
+        const buildFullApptText = (d) => {
+            return `APPOINTMENT REQUEST DETAILS\n------------------------------------\nFull Name: ${d.name}\nPhone Number: ${d.phone}\nEmail Address: ${d.email}\nPreferred Date & Time: ${d.date}\nReason for Appointment: ${d.reason}\nAdditional Notes / Context:\n${d.notes || 'None provided.'}\n------------------------------------\nSubmitted via AR. Abhinav Ranjan Portfolio`;
+        };
+
+        /* 1. Request via WhatsApp */
+        document.getElementById('apptWhatsapp')?.addEventListener('click', e => {
+            e.preventDefault();
+            const d = getApptData();
+            const errs = validateAppt(d);
+            if (errs.length) {
+                errs.forEach(highlightField);
+                showToast('Please fill all required appointment fields (Name, Email, Phone, Date)');
+                return;
+            }
+            window.open(`https://wa.me/${contactConfig.whatsapp_number}?text=${encodeURIComponent(buildCompactApptText(d))}`, '_blank');
+        });
+
+        /* 2. Request via Telegram */
+        document.getElementById('apptTelegram')?.addEventListener('click', e => {
+            e.preventDefault();
+            const d = getApptData();
+            const errs = validateAppt(d);
+            if (errs.length) {
+                errs.forEach(highlightField);
+                showToast('Please fill all required appointment fields (Name, Email, Phone, Date)');
+                return;
+            }
+            window.open(`https://t.me/${contactConfig.telegram_username}?text=${encodeURIComponent(buildCompactApptText(d))}`, '_blank');
+        });
+
+        /* 3. Request via Email */
+        document.getElementById('apptEmailBtn')?.addEventListener('click', e => {
+            e.preventDefault();
+            const d = getApptData();
+            const errs = validateAppt(d);
+            if (errs.length) {
+                errs.forEach(highlightField);
+                showToast('Please fill all required appointment fields (Name, Email, Phone, Date)');
+                return;
+            }
+            const subj = encodeURIComponent(`Appointment Request: ${d.reason} - ${d.name}`);
+            window.location.href = `mailto:${contactConfig.email}?subject=${subj}&body=${encodeURIComponent(buildFullApptText(d))}`;
+        });
+
+        /* 4. Request via Website API */
+        const apptWebBtn = document.getElementById('apptWebBtn');
+        apptWebBtn?.addEventListener('click', async e => {
+            e.preventDefault();
+            const d = getApptData();
+            const errs = validateAppt(d);
+            if (errs.length) {
+                errs.forEach(highlightField);
+                showToast('Please fill all required appointment fields (Name, Email, Phone, Date)');
+                return;
+            }
+
+            const orig = apptWebBtn.innerHTML;
+            apptWebBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Booking...';
+            apptWebBtn.disabled = true;
+
+            try {
+                const resp = await fetch('/api/saveContact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...d, message: buildFullApptText(d), subject: 'Appointment Request' })
+                });
+                if (resp.ok) {
+                    showToast('Appointment request submitted successfully!');
+                    apptForm.reset();
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                showToast('Submitted appointment via WhatsApp fallback!');
+                window.open(`https://wa.me/${contactConfig.whatsapp_number}?text=${encodeURIComponent(buildCompactApptText(d))}`, '_blank');
+            } finally {
+                apptWebBtn.innerHTML = orig;
+                apptWebBtn.disabled = false;
+            }
+        });
+    };
+
+    initAppointmentHandlers();
 });
