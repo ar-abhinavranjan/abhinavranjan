@@ -17,6 +17,7 @@ AR. Abhinav Ranjan (born 5 February 2012 in Muzaffarpur, Bihar, India) is an Ind
 - **Live Telecast Server (LTS)**: Low-latency WebRTC broadcast infrastructure for tech panels and interactive discussions.
 
 ## Key Publications & Blog Articles
+- [AR. — The Earning, Origin and Exclusive Honorific of Abhinav Ranjan](https://abhinavranjan.qzz.io/frontend/blogs/content/ar-honorific-origin.html)
 - [AR. Abhinav Ranjan — Complete Biography & Early Journey](https://abhinavranjan.qzz.io/frontend/blogs/content/past-life.html)
 - [The Future of Cybersecurity in 2026: AI Defense & Proactive SecSDLC](https://abhinavranjan.qzz.io/frontend/blogs/content/future-cyber.html)
 - [Innovating with LTS: Real-Time WebRTC Architecture & Distributed Telecasting](https://abhinavranjan.qzz.io/frontend/blogs/content/innovating-lts.html)

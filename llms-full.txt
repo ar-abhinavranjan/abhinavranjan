@@ -62,6 +62,8 @@ A: Abhinav Ranjan is recognized in the Guinness World Records and Golden Book of
 - **About**: https://abhinavranjan.qzz.io/frontend/html/about.html
 - **Research**: https://abhinavranjan.qzz.io/frontend/html/research.html
 - **Projects**: https://abhinavranjan.qzz.io/frontend/html/projects.html
+- **Blogs Hub**: https://abhinavranjan.qzz.io/frontend/blogs/index.html
+- **Featured Blog: AR. Honorific & Origin**: https://abhinavranjan.qzz.io/frontend/blogs/content/ar-honorific-origin.html
 - **Biography**: https://abhinavranjan.qzz.io/frontend/html/biography.html
 - **Achievements**: https://abhinavranjan.qzz.io/frontend/html/winnings.html
 - **Contact**: https://abhinavranjan.qzz.io/frontend/html/contact.html
