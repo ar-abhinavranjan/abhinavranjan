@@ -26,6 +26,7 @@ All blog articles are stored in `frontend/blogs/content/` with short, clean file
 
 | Slug / Filename | Canonical URL | Category |
 |---|---|---|
+| `ar-honorific-origin.html` | `https://abhinavranjan.qzz.io/frontend/blogs/content/ar-honorific-origin.html` | Research / Leadership |
 | `past-life.html` | `https://abhinavranjan.qzz.io/frontend/blogs/content/past-life.html` | Research / Biography |
 | `future-cyber.html` | `https://abhinavranjan.qzz.io/frontend/blogs/content/future-cyber.html` | Technology |
 | `innovating-lts.html` | `https://abhinavranjan.qzz.io/frontend/blogs/content/innovating-lts.html` | Innovation |
