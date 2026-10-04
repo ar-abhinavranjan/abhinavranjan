@@ -26,42 +26,6 @@
     </image:image>
   </url>
 
-  <!-- Blog: Future of Cybersecurity -->
-  <url>
-    <loc>https://abhinavranjan.qzz.io/frontend/blogs/content/future-cyber.html</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
-      <image:title>The Future of Cybersecurity in 2026: AI Defense &amp; Proactive SecSDLC</image:title>
-    </image:image>
-  </url>
-
-  <!-- Blog: Innovating with LTS -->
-  <url>
-    <loc>https://abhinavranjan.qzz.io/frontend/blogs/content/innovating-lts.html</loc>
-    <lastmod>2026-02-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
-      <image:title>Innovating with LTS: Real-Time WebRTC Architecture &amp; Distributed Telecasting</image:title>
-    </image:image>
-  </url>
-
-  <!-- Blog: Cyber Jurisprudence -->
-  <url>
-    <loc>https://abhinavranjan.qzz.io/frontend/blogs/content/cyber-jurisprudence.html</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
-      <image:title>Digital Sovereignty &amp; Cyber Jurisprudence in Modern Infrastructure</image:title>
-    </image:image>
-  </url>
-
   <!-- Blog: AgroScan AI Computer Vision -->
   <url>
     <loc>https://abhinavranjan.qzz.io/frontend/blogs/content/agroscan-ai.html</loc>
@@ -71,30 +35,6 @@
     <image:image>
       <image:loc>https://abhinavranjan.qzz.io/images/agroscan-banner.jpg</image:loc>
       <image:title>AgroScan AI: Computer Vision in Agritech Defense</image:title>
-    </image:image>
-  </url>
-
-  <!-- Blog: 5 Principles for Building Tech Ventures -->
-  <url>
-    <loc>https://abhinavranjan.qzz.io/frontend/blogs/content/entrepreneur-tips.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
-      <image:title>5 Principles for Building Early-Stage Multidisciplinary Tech Ventures</image:title>
-    </image:image>
-  </url>
-
-  <!-- Blog: James Webb Telescope -->
-  <url>
-    <loc>https://abhinavranjan.qzz.io/frontend/blogs/content/james-web.html</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1595433707802-7b57d6a2c5c9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
-      <image:title>James Webb Telescope: Unveiling the Cosmos – First Images &amp; Discoveries</image:title>
     </image:image>
   </url>
 
